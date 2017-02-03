@@ -1,0 +1,188 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<link rel="import" href="../github.com/PolymerElements/app-layout/app-header/app-header.html">
+<link rel="import" href="../github.com/PolymerElements/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../github.com/PolymerElements/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../github.com/PolymerElements/iron-grid/iron-grid.html">
+<link rel="import" href="../github.com/PolymerElements/iron-icons/iron-icons.html">
+<link rel="import" href="../github.com/PolymerElements/iron-icons/communication-icons.html">
+<link rel="import" href="../github.com/PolymerElements/iron-icons/social-icons.html">
+<link rel="import" href="../github.com/PolymerElements/iron-icon/iron-icon.html">
+<link rel="import" href="../github.com/PolymerElements/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../github.com/PolymerElements/paper-listbox/paper-listbox.html">
+<link rel="import" href="../github.com/PolymerElements/paper-item/paper-item.html">
+
+<dom-module id="m-header">
+	<template>
+		<style is="custom-style">
+
+		    app-header {
+		      position: fixed;
+		      top: 0;
+		      left: 0;
+		      width: 100%;
+			  background-color: #fff;
+			  box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.1);
+		      color: #1e1e1e;
+		    }
+		    paper-icon-button {
+                color: #1e1e1e;
+                width: 36px;
+            	height: 36px;
+            }
+            paper-icon-button.head_logo{
+            	width: 120px;
+            	padding: 3px;
+            }
+            paper-icon-button.user_info_btn{
+            	width: 33px;
+            	height: 33px;
+            	padding: 0px;
+            	margin: 2px 10px 2px 2px;
+            	border-radius: 50%;
+            	overflow: hidden;
+            }
+            .rightside{
+            	display: flex;
+            	flex-direction: row;
+            	width: 50%;
+            }
+            .leftside{
+            	display: flex;
+            	flex-direction: row-reverse;
+            	width: 50%;
+            }
+            app-drawer .sidebar_cont{
+            	background: #106cc8;
+            } 
+            app-drawer .sidebar_cont .sidebar_cont_top{
+            	background: linear-gradient(200deg , #185795 , #106cc8);
+            	padding: 60px 0px;
+            	display: flex;
+				justify-content: center;
+            }
+            app-drawer .sidebar_cont .sidebar_cont_top .sidebar_cont_top_logo{
+            	width: 100%;
+				height: 45px;
+            }
+            paper-listbox{
+            	background: transparent;
+            }
+            paper-listbox a{
+            	color: #fff;
+            }
+            paper-listbox a paper-item{
+             	font-family: 'IRsansl';
+             	font-size: 0.85em;
+             	padding: 0px 40px 0px 16px;
+             	min-height: 40px;
+             }
+            paper-listbox.paper-listbox_fix{
+            	border-top: solid 1px rgba(255,255,255,0.4)
+            }
+            paper-listbox.paper-listbox_fix a paper-item{
+            	padding: 0px 35px 0px 16px;
+            	opacity: 0.9;
+            	font-size: 0.8em;
+            }
+            paper-listbox.paper-listbox_fix paper-item iron-icon{
+            	width: 18px;
+            	margin-left: 8px;
+            }
+		</style>
+		<app-header reveals>
+			<app-toolbar>
+			  	<iron-grid>
+			    	<div class="rightside">
+			    		<paper-icon-button id="head_menu_toggle" icon="menu"></paper-icon-button>
+			    		<paper-icon-button noink class="head_logo" src="../../../images/logo.svg"></paper-icon-button>
+			    	</div>
+			    	<div class="leftside">
+			    		<paper-icon-button noink class="user_info_btn" src="../../../images/user.jpg"></paper-icon-button>
+			    		<paper-icon-button class="notification" icon="info"></paper-icon-button>
+			    		<paper-icon-button icon="apps"></paper-icon-button>
+			    	</div>
+			    </iron-grid>
+			</app-toolbar>
+		</app-header>
+		<app-drawer align="right" id="drawer">
+			    <div class="sidebar_cont" style="height: 100%; overflow: auto;">
+			  		<div class="sidebar_cont_top">
+			  			<iron-icon class="sidebar_cont_top_logo" src="../../../images/logo-white.svg"></iron-icon>
+			  		</div>
+			  		<paper-listbox>
+					    <template is="dom-repeat" items="{{data}}">
+					    	<a class="paper-listbox_link" href="{{item.url}}">
+							  <paper-item raised>{{item.name}}</paper-item>
+							</a>
+					    </template>
+					</paper-listbox>
+					<paper-listbox class="paper-listbox_fix">
+						    <a class="paper-listbox_link" href="{{urlFor('')}}">
+								<paper-item raised>
+									<iron-icon icon="communication:call"></iron-icon> پشتیبانی آنلاین
+									{{sabzcity-i18n-text."online support"}}
+								</paper-item>
+							</a>
+							<a class="paper-listbox_link" href="#">
+								<paper-item raised>
+									<iron-icon icon="communication:live-help"></iron-icon> آموزش سرویس
+								</paper-item>
+							</a>
+							<a class="paper-listbox_link" href="#">
+								<paper-item raised>
+									<iron-icon icon="social:notifications-active"></iron-icon> فعالیت
+								</paper-item>
+							</a>
+							<a class="paper-listbox_link" href="#">
+								<paper-item raised>
+									<iron-icon icon="icons:favorite-border"></iron-icon> علاقه مندی
+								</paper-item>
+							</a>
+							<a class="paper-listbox_link" href="#">
+								<paper-item raised>
+									<iron-icon icon="social:share"></iron-icon> اشتراک گذاری صفحه
+								</paper-item>
+							</a>
+							<a class="paper-listbox_link" href="{{urlFor('contact')}}">
+								<paper-item >
+									<iron-icon icon="icons:mail"></iron-icon> پل ارتباطی
+								</paper-item>
+							</a>
+					</paper-listbox>
+			    </div>
+		</app-drawer>
+	</template>
+	<script type="text/javascript">
+		Polymer({
+			is : "m-header",
+			properties : {
+				data : {
+					type : Array,
+					notify : true
+				}
+			},
+			listeners: {
+		        'head_menu_toggle.click': '_handleNavigationToggle'
+		    },
+		    _handleNavigationToggle :function() {
+		    		var drawer = this.$.drawer;
+	          		drawer.opened = true;
+		    },
+		    ready : function() {
+		    	
+		    }
+		})
+	</script>
+</dom-module>

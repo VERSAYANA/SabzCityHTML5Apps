@@ -1,0 +1,94 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<link rel="import" href="../a-flex-layout/a-flex-master.html">
+<link rel="import" href="../a-flex-layout/a-flex-item-box.html">
+<link rel="import" href="../a-flex-layout/a-flex-wrapper.html">
+<link rel="import" href="../m-header/m-header.html">
+<link rel="import" href="../m-main-content/m-main-content.html">
+<link rel="import" href="../m-register-form/m-register-form.html">
+<link rel="import" href="../m-descriptions/m-descriptions.html">
+<link rel="import" href="../m-infographic/m-infographic.html">
+<link rel="import" href="../m-footer/m-footer.html">
+
+<dom-module id="app-landings-sabz-city-main-intro">
+    <template>
+		<style is="custom-style">
+			.loginPlace {
+				order: 1;
+			}
+			
+			.firstBlock {
+				order: -1;
+			}
+			
+			@media (max-width:768px) {
+				a-flex-wrapper {
+					display: block !important;
+				}
+			}
+		</style>
+
+		<body>
+			<a-flex-master dynamic-height>
+				<a-flex-wrapper class="header">
+					<a-flex-item-box>
+						<m-header remove-submenu></m-header>
+					</a-flex-item-box>
+				</a-flex-wrapper>
+				<a-flex-wrapper class="main" margin="5em 0" flex-direction="column" flex="1 1 auto">
+					<a-flex-wrapper class="aaa" margin="">
+						<a-flex-wrapper class="loginPlace" flex="1">
+							<a-flex-item-box padding="5% 7%">
+								<m-register-form></m-register-form>
+							</a-flex-item-box>
+						</a-flex-wrapper>
+						<a-flex-wrapper class="firstBlock" flex-direction="column" flex="2">
+							<a-flex-wrapper class="ff">
+								<a-flex-item-box margin="2em 0 0 0">
+									<m-main-content></m-main-content>
+								</a-flex-item-box>
+							</a-flex-wrapper>
+							<a-flex-wrapper class="bb">
+								<a-flex-item-box margin="3em 0 0 0">
+									<m-descriptions></m-descriptions>
+								</a-flex-item-box>
+							</a-flex-wrapper>
+						</a-flex-wrapper>
+					</a-flex-wrapper>
+					<!--Image HERE-->
+					<a-flex-wrapper class="image">
+						<a-flex-item-box margin="1em 0px 0em 0px">
+							<!--TEST-->
+							<m-descriptions></m-descriptions>
+							<!--TEST-->
+						</a-flex-item-box>
+					</a-flex-wrapper>
+					<!--*********-->
+				</a-flex-wrapper>
+
+				<a-flex-wrapper class="footer">
+					<a-flex-item-box padding="1em 0 0 0">
+						<m-footer></m-footer>
+					</a-flex-item-box>
+				</a-flex-wrapper>
+			</a-flex-master>
+		</body>
+	</template>
+    <script>
+        Polymer({
+            is: "app-landings-sabz-city-main-intro"
+        });
+    </script>
+
+</dom-module>

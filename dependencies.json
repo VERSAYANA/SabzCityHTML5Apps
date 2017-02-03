@@ -1,0 +1,31 @@
+{
+    "github.com": {
+        "Polymer": {
+            "polymer": "1.7.1"
+        },
+        "PolymerElements": {
+            "app-layout": "0.10.6",
+            "iron-grid": "*",
+            "iron-icon": "1.0.12",
+            "paper-icon-button": "1.1.4",
+            "iron-icons": "1.2.0",
+            "iron-ajax": "1.4.3",
+            "paper-listbox": "1.1.2",
+            "paper-item": "1.2.1",
+            "platinum-sw": "1.3.0"
+        },
+        "webcomponents": {
+            "webcomponentsjs": "0.7.23"
+        },
+        "erikringsmuth": {
+            "app-router": "1"
+        },
+        "es-shims": {
+            "es5-shim": "4.5.9",
+            "es6-shim": "0.35.3"
+        },
+        "zloirock": {
+            "core-js": ""
+        }
+    }
+}
