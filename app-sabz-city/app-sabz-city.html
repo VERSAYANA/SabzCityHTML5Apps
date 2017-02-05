@@ -11,16 +11,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<!-- Common Elements in SabzCity Platform HTML5 Apps -->
-<link rel="import" href="../../html5-apps/m-base/m-base.html">
+<!-- Common Elements in all SabzCity Platform HTML5 Apps -->
+<link rel="import" href="../../../erikringsmuth/app-router/app-router.html">
 <link rel="import" href="../../html5-apps/sabzcity-template/sabzcity-template.html">
-
+<link rel="import" href="../../html5-apps/m-base/m-base.html">
+<link rel="import" href="../../html5-apps/sabzcity-i18n/sabzcity-i18n-text.html">
 <!-- Specific Elements for this App -->
 <link rel="import" href="../m-header/m-header.html">
 
 <dom-module id="app-sabz-city">
 	<template>
+		<sabzcity-i18n-text lang=""></sabzcity-i18n-text>
+		
 		<m-header data="{{menudata}}"></m-header>
+
+        <app-router>
+			<app-route path="/" import="./home.html"></app-route>
+			<app-route path="/contacts" import="./contacts.html"></app-route>
+			<app-route path="/notifications" import="./notifications.html"></app-route>
+			<app-route path="/life" import="./life.html"></app-route>
+		</app-router>
+
 	</template>
 </dom-module>
 
@@ -32,10 +43,10 @@ limitations under the License.
 					type : Array,
 					value : [{
 						name : "خانه",
-						url  : "#"
+						url  : "/"
 					},{
 						name : "زندگی در یک نگاه",
-						url  : "##"
+						url  : "/home"
 					}]
 				}
 			}

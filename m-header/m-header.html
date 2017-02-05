@@ -123,7 +123,7 @@ limitations under the License.
 			  		</div>
 			  		<paper-listbox>
 					    <template is="dom-repeat" items="{{data}}">
-					    	<a class="paper-listbox_link" href="{{item.url}}">
+					    	<a class="paper-listbox_link" is="pushstate-anchor" href="{{item.url}}">
 							  <paper-item raised>{{item.name}}</paper-item>
 							</a>
 					    </template>
