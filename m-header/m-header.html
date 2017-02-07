@@ -106,10 +106,10 @@ limitations under the License.
 			  	<iron-grid>
 			    	<div class="rightside">
 			    		<paper-icon-button id="head_menu_toggle" icon="menu"></paper-icon-button>
-			    		<paper-icon-button noink class="head_logo" src="../../../images/logo.svg"></paper-icon-button>
+			    		<paper-icon-button noink class="head_logo" src="../images/logo.svg"></paper-icon-button>
 			    	</div>
 			    	<div class="leftside">
-			    		<paper-icon-button noink class="user_info_btn" src="../../../images/user.jpg"></paper-icon-button>
+			    		<paper-icon-button noink class="user_info_btn" src="../images/user.jpg"></paper-icon-button>
 			    		<paper-icon-button class="notification" icon="info"></paper-icon-button>
 			    		<paper-icon-button icon="apps"></paper-icon-button>
 			    	</div>
@@ -119,43 +119,42 @@ limitations under the License.
 		<app-drawer align="right" id="drawer">
 			    <div class="sidebar_cont" style="height: 100%; overflow: auto;">
 			  		<div class="sidebar_cont_top">
-			  			<iron-icon class="sidebar_cont_top_logo" src="../../../images/logo-white.svg"></iron-icon>
+			  			<iron-icon class="sidebar_cont_top_logo" src="../images/logo-white.svg"></iron-icon>
 			  		</div>
 			  		<paper-listbox>
 					    <template is="dom-repeat" items="{{data}}">
-					    	<a class="paper-listbox_link" is="pushstate-anchor" href="{{item.url}}">
+					    	<a class="paper-listbox_link" is="a-sabzcity-link" href="{{item.url}}">
 							  <paper-item raised>{{item.name}}</paper-item>
 							</a>
 					    </template>
 					</paper-listbox>
 					<paper-listbox class="paper-listbox_fix">
-						    <a class="paper-listbox_link" href="{{urlFor('')}}">
+						    <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
 								<paper-item raised>
 									<iron-icon icon="communication:call"></iron-icon> پشتیبانی آنلاین
-									{{sabzcity-i18n-text."online support"}}
 								</paper-item>
 							</a>
-							<a class="paper-listbox_link" href="#">
+							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
 								<paper-item raised>
 									<iron-icon icon="communication:live-help"></iron-icon> آموزش سرویس
 								</paper-item>
 							</a>
-							<a class="paper-listbox_link" href="#">
+							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
 								<paper-item raised>
 									<iron-icon icon="social:notifications-active"></iron-icon> فعالیت
 								</paper-item>
 							</a>
-							<a class="paper-listbox_link" href="#">
+							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
 								<paper-item raised>
 									<iron-icon icon="icons:favorite-border"></iron-icon> علاقه مندی
 								</paper-item>
 							</a>
-							<a class="paper-listbox_link" href="#">
+							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
 								<paper-item raised>
 									<iron-icon icon="social:share"></iron-icon> اشتراک گذاری صفحه
 								</paper-item>
 							</a>
-							<a class="paper-listbox_link" href="{{urlFor('contact')}}">
+							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
 								<paper-item >
 									<iron-icon icon="icons:mail"></iron-icon> پل ارتباطی
 								</paper-item>

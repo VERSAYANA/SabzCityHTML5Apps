@@ -1,0 +1,113 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+	<link rel="stylesheet" href="./style.css">
+
+<dom-module id="m-template">
+    <script>
+        Polymer({
+            is: 'm-template',
+            properties: {
+                // specific domain name
+                customTempelate: {
+                    type: String,
+                    observer: "templateChanged"
+                },
+            }
+        });
+    </script>
+</dom-module>
+
+<style is="custom-style">
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: noto;
+    }
+    
+    @font-face {
+        font-family: 'noto';
+        src: url('./fonts/NotoKufiArabic-Bold.ttf') format('truetype');
+        font-weight: bold;
+    }
+    
+    @font-face {
+        font-family: 'noto';
+        src: url('./fonts/NotoKufiArabic-Regular.ttf') format('truetype');
+        font-weight: normal;
+    }
+    
+    @font-face {
+        font-family: 'notoEng';
+        src: url('./fonts/NotoSans-Regular.ttf') format('truetype');
+        font-weight: normal;
+    }
+    
+     :root {
+        /* Material Design color palette for Sabz City */
+        /* 
+      You can change color of each element using these variables
+      NOTE:
+        Do not change the variables name,
+        it can ruin the whole page color 
+        just change the hexadecimal code for each color if you do not like the existing one.
+      */
+        /*COLOR PALETTE*/
+        --sabzcity-template-color: #006DF0;
+        --sabzcity-template-color-green: #4CAF50;
+        --white-color: #ffffff;
+        --font-white-color: #ffffff;
+        /*HOVER COLOR*/
+        --hover-color: #dddddd;
+        /*FONT COLOR*/
+        --sabzcity-template-font-color-light: #fff;
+        --sabzcity-template-font-color-dark: #000;
+        --sabzcity-template-font-title-color: #173c7f;
+        /*FONT SIZE*/
+        --font-size-p: calc(0.3em + 1vmin);
+        --font-size-h1: calc(1em + 1vmin);
+        --font-size-h2: calc(0.7em + 1vmin);
+        --font-size-h3: calc(0.6em + 1vmin);
+        --font-size-h4: calc(0.5em + 1vmin);
+        --font-size-h5: calc(0.4em + 1vmin);
+        --font-size-h6: calc(0.3em + 1vmin);
+        --font-size-p-large: calc(0.6em + 1vmin);
+        --font-size-p-medium: calc(0.4em + 1vmin);
+        --font-size-p-small: calc(0.3em + 1vmin);
+        --sabzcity-template-color-green: #4CAF50;
+        --white-color: #ffffff;
+        --font-white-color: #ffffff;
+        --white-color: #ffffff;
+        --font-white-color: #ffffff;
+        --font-dodgerblue-color: #173C7F;
+        --header-band-icon-color: #006DF0;
+        --header-band-color: #fff;
+        --header-submenu-color: #1e90ff;
+        --footer-background-color: #4CAF50;
+        --footer-text-color: #ffffff;
+        --page-one-login-form-color: #1e90ff;
+        --info-graphic-backup-color: #97D14B;
+        --link-before-color: #97D14B;
+        --font-size-text: calc(0.37em + 1vmin);
+        --font-size-h2: calc(0.7em + 1vmin);
+        --font-size-h1: calc(1em + 1vmin);
+        --font-size-h3: calc(0.6em + 1vmin);
+        --font-size-h4: calc(0.5em + 1vmin);
+        --font-size-h5: calc(0.4em + 1vmin);
+        --font-size-h6: calc(0.3em + 1vmin);
+        --font-size-p-large: calc(0.6em + 1vmin);
+        --font-size-p-medium: calc(0.4em + 1vmin);
+        --font-size-p-small: calc(0.3em + 1vmin);
+        --font-color-dark: #000;
+        --font-color-light: #fff;
+    }
+</style>

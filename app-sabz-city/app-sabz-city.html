@@ -12,44 +12,47 @@ limitations under the License.
 -->
 
 <!-- Common Elements in all SabzCity Platform HTML5 Apps -->
-<link rel="import" href="../../../erikringsmuth/app-router/app-router.html">
-<link rel="import" href="../../html5-apps/sabzcity-template/sabzcity-template.html">
+<link rel="import" href="../../../PolymerElements/app-route/app-route.html">
 <link rel="import" href="../../html5-apps/m-base/m-base.html">
 <link rel="import" href="../../html5-apps/sabzcity-i18n/sabzcity-i18n-text.html">
-<!-- Specific Elements for this App -->
+<link rel="import" href="../m-template/m-template.html">
 <link rel="import" href="../m-header/m-header.html">
+<!-- Specific Elements for this App -->
+<link rel="import" href="./life.html">
+<link rel="import" href="./main.html">
 
 <dom-module id="app-sabz-city">
 	<template>
 		<sabzcity-i18n-text lang=""></sabzcity-i18n-text>
-		
-		<m-header data="{{menudata}}"></m-header>
 
-        <app-router>
-			<app-route path="/" import="./home.html"></app-route>
-			<app-route path="/contacts" import="./contacts.html"></app-route>
-			<app-route path="/notifications" import="./notifications.html"></app-route>
-			<app-route path="/life" import="./life.html"></app-route>
-		</app-router>
+		<m-header data="{{menuData}}"></m-header>
 
+		<app-location route="{{route}}"></app-location>
+		<app-route active route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{subroute}}"></app-route>
+		<app-route route="{{subroute}}" pattern="/life" data="{{subrouteData}}"></app-route>
+
+		<iron-pages attr-for-selected="id" selected="{{subroute.path}}">
+			<app-life id="/life"></app-life>
+			<app-main id="/"></app-main>
+		</iron-pages>
 	</template>
-</dom-module>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 		Polymer({
-			is : "app-sabz-city",
-			properties : {
-				menudata : {
-					type : Array,
-					value : [{
-						name : "خانه",
-						url  : "/"
-					},{
-						name : "زندگی در یک نگاه",
-						url  : "/home"
+			is: "app-sabz-city",
+			properties: {
+				menuData: {
+					type: Array,
+					value: [{
+						name: "خانه",
+						url: "/"
+					}, {
+						name: "زندگی در یک نگاه",
+						url: "/life"
 					}]
 				}
-			}
-		});	
-</script>
-
+			},
+			ready: function () {}
+		});
+	</script>
+</dom-module>
