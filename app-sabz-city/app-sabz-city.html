@@ -10,18 +10,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <!-- Common Elements in all SabzCity Platform HTML5 Apps -->
-<link rel="import" href="../../../PolymerElements/app-route/app-route.html">
-<link rel="import" href="../../../PolymerElements/app-route/app-location.html">
-<link rel="import" href="../../../PolymerElements/iron-pages/iron-pages.html">
-<link rel="import" href="../../html5-apps/sabzcity-i18n/sabzcity-i18n-text.html">
-<link rel="import" href="../../html5-apps/m-base/m-base.html">
-<link rel="import" href="../m-template/m-template.html">
-<link rel="import" href="../m-header/m-header.html">
+<link rel="import" href="/PolymerElements/app-route/app-route.html">
+<link rel="import" href="/PolymerElements/app-route/app-location.html">
+<link rel="import" href="/PolymerElements/iron-pages/iron-pages.html">
+<link rel="import" href="/SabzCity/html5-apps/sabzcity-i18n/sabzcity-i18n-text.html">
+<link rel="import" href="/SabzCity/html5-apps/m-base/m-base.html">
+<link rel="import" href="/SabzCity/sabz.city/m-template/m-template.html">
+<link rel="import" href="/SabzCity/sabz.city/m-header/m-header.html">
 <!-- Specific Elements for this App -->
-<link rel="import" href="./app-life.html">
-<link rel="import" href="./app-main.html">
+<link rel="import" href="/SabzCity/sabz.city/app-sabz-city/app-life.html">
+<link rel="import" href="/SabzCity/sabz.city/app-sabz-city/app-main.html">
 
 <dom-module id="app-sabz-city">
 	<template>
@@ -32,25 +31,25 @@ limitations under the License.
 		<app-location route="{{route}}"></app-location>
 		<app-route active route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{subroute}}"></app-route>
 		<app-route route="{{subroute}}" pattern="/life" data="{{subrouteData}}"></app-route>
-
+		
 		<iron-pages attr-for-selected="id" selected="{{subroute.path}}">
-			<app-life id="/life"></app-life>
+			<app-life id="/life/"></app-life>
 			<app-main id="/"></app-main>
 		</iron-pages>
 	</template>
 
-	<script type="text/javascript">
+	<script>
 		Polymer({
 			is: "app-sabz-city",
 			properties: {
 				menuData: {
 					type: Array,
 					value: [{
-						name: "خانه",
+						name: "دستیار شخصی",
 						url: "/"
 					}, {
 						name: "زندگی در یک نگاه",
-						url: "/life"
+						url: "/life/"
 					}]
 				}
 			},

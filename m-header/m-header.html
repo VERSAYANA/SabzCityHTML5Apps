@@ -11,17 +11,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<link rel="import" href="../../../PolymerElements/app-layout/app-header/app-header.html">
-<link rel="import" href="../../../PolymerElements/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../../../PolymerElements/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../../../PolymerElements/iron-grid/iron-grid.html">
-<link rel="import" href="../../../PolymerElements/iron-icons/iron-icons.html">
-<link rel="import" href="../../../PolymerElements/iron-icons/communication-icons.html">
-<link rel="import" href="../../../PolymerElements/iron-icons/social-icons.html">
-<link rel="import" href="../../../PolymerElements/iron-icon/iron-icon.html">
-<link rel="import" href="../../../PolymerElements/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../../PolymerElements/paper-listbox/paper-listbox.html">
-<link rel="import" href="../../../PolymerElements/paper-item/paper-item.html">
+<link rel="import" href="/PolymerElements/app-layout/app-header/app-header.html">
+<link rel="import" href="/PolymerElements/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="/PolymerElements/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="/PolymerElements/iron-grid/iron-grid.html">
+<link rel="import" href="/PolymerElements/iron-icons/iron-icons.html">
+<link rel="import" href="/PolymerElements/iron-icons/communication-icons.html">
+<link rel="import" href="/PolymerElements/iron-icons/social-icons.html">
+<link rel="import" href="/PolymerElements/iron-icon/iron-icon.html">
+<link rel="import" href="/PolymerElements/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="/PolymerElements/paper-listbox/paper-listbox.html">
+<link rel="import" href="/PolymerElements/paper-item/paper-item.html">
 
 <dom-module id="m-header">
 	<template>
@@ -106,10 +106,10 @@ limitations under the License.
 			  	<iron-grid>
 			    	<div class="rightside">
 			    		<paper-icon-button id="head_menu_toggle" icon="menu"></paper-icon-button>
-			    		<paper-icon-button noink class="head_logo" src="../images/logo.svg"></paper-icon-button>
+			    		<paper-icon-button noink class="head_logo" src="/SabzCity/sabz.city/images/logo.svg"></paper-icon-button>
 			    	</div>
 			    	<div class="leftside">
-			    		<paper-icon-button noink class="user_info_btn" src="../images/user.jpg"></paper-icon-button>
+			    		<paper-icon-button noink class="user_info_btn" src="/SabzCity/sabz.city/images/user.jpg"></paper-icon-button>
 			    		<paper-icon-button class="notification" icon="info"></paper-icon-button>
 			    		<paper-icon-button icon="apps"></paper-icon-button>
 			    	</div>
@@ -119,7 +119,7 @@ limitations under the License.
 		<app-drawer align="right" id="drawer">
 			    <div class="sidebar_cont" style="height: 100%; overflow: auto;">
 			  		<div class="sidebar_cont_top">
-			  			<iron-icon class="sidebar_cont_top_logo" src="../images/logo-white.svg"></iron-icon>
+			  			<iron-icon class="sidebar_cont_top_logo" src="/SabzCity/sabz.city/images/logo-white.svg"></iron-icon>
 			  		</div>
 			  		<paper-listbox>
 					    <template is="dom-repeat" items="{{data}}">
