@@ -14,6 +14,7 @@ limitations under the License.
 <link rel="import" href="/PolymerElements/app-route/app-route.html">
 <link rel="import" href="/PolymerElements/app-route/app-location.html">
 <link rel="import" href="/PolymerElements/iron-pages/iron-pages.html">
+<link rel="import" href="/SabzCity/html5-apps/m-connectivity-state/m-connectivity-state.html">
 <link rel="import" href="/SabzCity/html5-apps/m-base/m-base.html">
 <link rel="import" href="/SabzCity/sabz.city/m-template/m-template.html">
 <link rel="import" href="/SabzCity/sabz.city/m-header/m-header.html">
@@ -23,6 +24,7 @@ limitations under the License.
 
 <dom-module id="app-sabz-city">
 	<template>
+		<m-connectivity-state domain="apis.sabz.city" online={{isOnline}}></m-connectivity-state>
 		<m-header data="{{menuData}}"></m-header>
 
 		<app-location route="{{route}}"></app-location>
@@ -33,6 +35,9 @@ limitations under the License.
 			<app-life id="/life/"></app-life>
 			<app-main id="/"></app-main>
 		</iron-pages>
+
+		<!-- show an animated progress bar under tiny color bar for loading progress -->
+        <!-- <paper-progress indeterminate class="blue"></paper-progress> -->
 	</template>
 
 	<script>
