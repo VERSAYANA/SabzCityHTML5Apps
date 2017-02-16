@@ -10,7 +10,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <link rel="import" href="/PolymerElements/app-layout/app-header/app-header.html">
 <link rel="import" href="/PolymerElements/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="/PolymerElements/app-layout/app-drawer/app-drawer.html">
@@ -22,6 +21,8 @@ limitations under the License.
 <link rel="import" href="/PolymerElements/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="/PolymerElements/paper-listbox/paper-listbox.html">
 <link rel="import" href="/PolymerElements/paper-item/paper-item.html">
+
+<link rel="import" href="/SabzCity/sabz.city/m-menu/m-menu-hamburger.html">
 
 <dom-module id="m-header">
 	<template>
@@ -62,43 +63,6 @@ limitations under the License.
             	flex-direction: row-reverse;
             	width: 50%;
             }
-            app-drawer .sidebar_cont{
-            	background: #106cc8;
-            } 
-            app-drawer .sidebar_cont .sidebar_cont_top{
-            	background: linear-gradient(200deg , #185795 , #106cc8);
-            	padding: 60px 0px;
-            	display: flex;
-				justify-content: center;
-            }
-            app-drawer .sidebar_cont .sidebar_cont_top .sidebar_cont_top_logo{
-            	width: 100%;
-				height: 45px;
-            }
-            paper-listbox{
-            	background: transparent;
-            }
-            paper-listbox a{
-            	color: #fff;
-            }
-            paper-listbox a paper-item{
-             	font-family: 'IRsansl';
-             	font-size: 0.85em;
-             	padding: 0px 40px 0px 16px;
-             	min-height: 40px;
-             }
-            paper-listbox.paper-listbox_fix{
-            	border-top: solid 1px rgba(255,255,255,0.4)
-            }
-            paper-listbox.paper-listbox_fix a paper-item{
-            	padding: 0px 35px 0px 16px;
-            	opacity: 0.9;
-            	font-size: 0.8em;
-            }
-            paper-listbox.paper-listbox_fix paper-item iron-icon{
-            	width: 18px;
-            	margin-left: 8px;
-            }
 		</style>
 		<app-header reveals>
 			<app-toolbar>
@@ -116,63 +80,14 @@ limitations under the License.
 			</app-toolbar>
 		</app-header>
 		<app-drawer align="right" id="drawer">
-			    <div class="sidebar_cont" style="height: 100%; overflow: auto;">
-			  		<div class="sidebar_cont_top">
-			  			<iron-icon class="sidebar_cont_top_logo" src="/SabzCity/sabz.city/images/logo-white.svg"></iron-icon>
-			  		</div>
-			  		<paper-listbox>
-					    <template is="dom-repeat" items="{{data}}">
-					    	<a class="paper-listbox_link" is="a-sabzcity-link" href="{{item.url}}">
-							  <paper-item raised>{{item.name}}</paper-item>
-							</a>
-					    </template>
-					</paper-listbox>
-					<paper-listbox class="paper-listbox_fix">
-						    <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-								<paper-item raised>
-									<iron-icon icon="communication:call"></iron-icon>
-									پشتیبانی آنلاین
-								</paper-item>
-							</a>
-							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-								<paper-item raised>
-									<iron-icon icon="communication:live-help"></iron-icon>
-									آموزش سرویس
-								</paper-item>
-							</a>
-							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-								<paper-item raised>
-									<iron-icon icon="social:notifications-active"></iron-icon>
-									فعالیت
-								</paper-item>
-							</a>
-							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-								<paper-item raised>
-									<iron-icon icon="icons:favorite-border"></iron-icon>
-									علاقه مندی
-								</paper-item>
-							</a>
-							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-								<paper-item raised>
-									<iron-icon icon="social:share"></iron-icon>
-									اشتراک گذاری صفحه
-								</paper-item>
-							</a>
-							<a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-								<paper-item >
-									<iron-icon icon="icons:mail"></iron-icon>
-									پل ارتباطی
-								</paper-item>
-							</a>
-					</paper-listbox>
-			    </div>
+			<m-menu-hamburger data="{{menuData}}"></m-menu-hamburger >
 		</app-drawer>
 	</template>
-	<script type="text/javascript">
+	<script>
 		Polymer({
 			is : "m-header",
 			properties : {
-				data : {
+				menuData : {
 					type : Array,
 					notify : true
 				}
