@@ -10,21 +10,25 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+<link rel="import" href="/Polymer/polymer/polymer.html">
+<link rel="import" href="/PolymerElements/iron-icons/iron-icons.html">
+<link rel="import" href="/PolymerElements/iron-icons/communication-icons.html">
+<link rel="import" href="/PolymerElements/iron-icons/social-icons.html">
+<link rel="import" href="/PolymerElements/iron-icon/iron-icon.html">
+<link rel="import" href="/PolymerElements/paper-listbox/paper-listbox.html">
+<link rel="import" href="/PolymerElements/paper-item/paper-item.html">
+<link rel="import" href="/SabzCity/html5-apps/a-sabzcity-link/a-sabzcity-link.html">
 <dom-module id="m-menu-hamburger">
     <template>
-        <style is="custom-style">
-            app-drawer .sidebar_cont {
-                background: #106cc8;
-            }
-            
-            app-drawer .sidebar_cont .sidebar_cont_top {
-                background: linear-gradient(200deg, #185795, #106cc8);
+        <style>
+            .sidebar_cont_top {
+                background: linear-gradient(200deg, var(--tertiary-background-color), var(--secondary-background-color));
                 padding: 60px 0px;
                 display: flex;
                 justify-content: center;
             }
             
-            app-drawer .sidebar_cont .sidebar_cont_top .sidebar_cont_top_logo {
+            .sidebar_cont_top .sidebar_cont_top_logo {
                 width: 100%;
                 height: 45px;
             }
@@ -34,24 +38,24 @@ limitations under the License.
             }
             
             paper-listbox a {
-                color: #fff;
+                color: var(--secondary-text-color);
             }
             
             paper-listbox a paper-item {
                 font-family: 'IRsansl';
-                font-size: 0.85em;
+                font-size: var(--mainlist-text-size);
                 padding: 0px 40px 0px 16px;
                 min-height: 40px;
             }
             
             paper-listbox.paper-listbox_fix {
-                border-top: solid 1px rgba(255, 255, 255, 0.4)
+                border-top: var(--sidebar-listbox-border);
             }
             
             paper-listbox.paper-listbox_fix a paper-item {
                 padding: 0px 35px 0px 16px;
                 opacity: 0.9;
-                font-size: 0.8em;
+                font-size: var(--sublist-text-size);
             }
             
             paper-listbox.paper-listbox_fix paper-item iron-icon {
@@ -59,66 +63,66 @@ limitations under the License.
                 margin-left: 8px;
             }
         </style>
-        <div class="sidebar_cont" style="height: 100%; overflow: auto;">
-            <div class="sidebar_cont_top">
-                <iron-icon class="sidebar_cont_top_logo" src="/SabzCity/sabz.city/images/logo-white.svg"></iron-icon>
-            </div>
-            <paper-listbox>
-                <template is="dom-repeat" items="{{data}}">
+        <div class="sidebar_cont_top">
+            <iron-icon class="sidebar_cont_top_logo" src="/SabzCity/sabz.city/m-icons/logo-white.svg"></iron-icon>
+        </div>
+        <paper-listbox>
+            <dom-repeat items="{{data}}">
+                <template>
                     <a class="paper-listbox_link" is="a-sabzcity-link" href="{{item.url}}">
                         <paper-item raised>{{item.name}}</paper-item>
                     </a>
                 </template>
-            </paper-listbox>
-            <paper-listbox class="paper-listbox_fix">
-                <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-                    <paper-item raised>
-                        <iron-icon icon="communication:call"></iron-icon>
-                        پشتیبانی آنلاین
-                    </paper-item>
-                </a>
-                <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-                    <paper-item raised>
-                        <iron-icon icon="communication:live-help"></iron-icon>
-                        آموزش سرویس
-                    </paper-item>
-                </a>
-                <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-                    <paper-item raised>
-                        <iron-icon icon="social:notifications-active"></iron-icon>
-                        فعالیت
-                    </paper-item>
-                </a>
-                <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-                    <paper-item raised>
-                        <iron-icon icon="icons:favorite-border"></iron-icon>
-                        علاقه مندی
-                    </paper-item>
-                </a>
-                <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-                    <paper-item raised>
-                        <iron-icon icon="social:share"></iron-icon>
-                        اشتراک گذاری صفحه
-                    </paper-item>
-                </a>
-                <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
-                    <paper-item>
-                        <iron-icon icon="icons:mail"></iron-icon>
-                        پل ارتباطی
-                    </paper-item>
-                </a>
-            </paper-listbox>
-        </div>
+            </dom-repeat>
+        </paper-listbox>
+        <paper-listbox class="paper-listbox_fix">
+            <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
+                <paper-item raised>
+                    <iron-icon icon="communication:call"></iron-icon>
+                    پشتیبانی آنلاین
+                </paper-item>
+            </a>
+            <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
+                <paper-item raised>
+                    <iron-icon icon="communication:live-help"></iron-icon>
+                    آموزش سرویس
+                </paper-item>
+            </a>
+            <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
+                <paper-item raised>
+                    <iron-icon icon="social:notifications-active"></iron-icon>
+                    فعالیت
+                </paper-item>
+            </a>
+            <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
+                <paper-item raised>
+                    <iron-icon icon="icons:favorite-border"></iron-icon>
+                    علاقه مندی
+                </paper-item>
+            </a>
+            <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
+                <paper-item raised>
+                    <iron-icon icon="social:share"></iron-icon>
+                    اشتراک گذاری صفحه
+                </paper-item>
+            </a>
+            <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
+                <paper-item>
+                    <iron-icon icon="icons:mail"></iron-icon>
+                    پل ارتباطی
+                </paper-item>
+            </a>
+        </paper-listbox>
     </template>
     <script>
         Polymer({
             is: "m-menu-hamburger",
             properties: {
                 data: {
-                    type: Array,
+                    type: Object,
                     notify: true
                 }
-            },
-        })
+            }
+        });
     </script>
 </dom-module>
