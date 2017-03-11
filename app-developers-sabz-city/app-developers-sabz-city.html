@@ -10,4 +10,53 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+<!-- Common Elements in all SabzCity Platform HTML5 Apps -->
+<link rel="import" href="/PolymerElements/app-route/app-location.html">
+<link rel="import" href="/PolymerElements/app-route/app-route.html">
+<link rel="import" href="/PolymerElements/iron-pages/iron-pages.html">
+<link rel="import" href="/PolymerElements/iron-meta/iron-meta.html">
+<link rel="import" href="/SabzCity/html5-apps/m-connectivity-state/m-connectivity-state.html">
+<link rel="import" href="/SabzCity/html5-apps/m-base/m-base.html">
+<link rel="import" href="/SabzCity/sabz.city/m-header/m-header.html">
+<!-- Specific Elements for this App -->
+<link rel="import" href="/SabzCity/sabz.city/app-developers-sabz-city/app-main.html">
+<link rel="import" href="/SabzCity/sabz.city/app-developers-sabz-city/app-sabzcity-apis.html">
 
+<dom-module id="app-developers-sabz-city">
+	<template>
+		<m-connectivity-state domain="apis.sabz.city" online={{isOnline}}></m-connectivity-state>
+		<m-header></m-header>
+
+		<app-location route="{{route}}"></app-location>
+		<app-route active route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{subroute}}"></app-route>
+        <app-route active route="{{subroute}}" pattern="/:orgUUID" data="{{routeData}}" tail="{{subsubroute}}"></app-route>
+		<app-route route="{{subsubroute}}" pattern="/sabzcity-apis" data="{{subrouteData}}"></app-route>
+		
+		<iron-pages attr-for-selected="id" selected="{{subroute.path}}">
+			<app-document-openapi id="/sabzcity-apis/"></app-document-openapi>
+			<app-main id="/"></app-main>
+		</iron-pages>
+
+		<!-- show an animated progress bar under tiny color bar for loading progress -->
+        <!-- <paper-progress indeterminate class="blue"></paper-progress> -->
+	</template>
+
+	<script>
+		Polymer({
+			is: "app-developers-sabz-city",
+			properties: {
+				menuData: {
+					type: Array,
+					value: [{
+						name: "توسعه دهندگان",
+						url: "/"
+					}, {
+						name: "دایکومنت وب سرویس های شهرسبز",
+						url: "/sabzcity-apis/"
+					}]
+				}
+			},
+			ready: function () {}
+		});
+	</script>
+</dom-module>

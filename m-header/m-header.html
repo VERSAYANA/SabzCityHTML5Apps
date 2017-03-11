@@ -10,7 +10,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<link rel="import" href="/Polymer/polymer/polymer.html">
 <link rel="import" href="/PolymerElements/app-layout/app-header/app-header.html">
 <link rel="import" href="/PolymerElements/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="/PolymerElements/app-layout/app-drawer/app-drawer.html">
@@ -98,7 +97,7 @@ limitations under the License.
 		</app-header>
 		<app-drawer align="right" id="drawer">
 			<div class="sidebar_cont" style="height: 100%; overflow: auto;">
-				<m-menu-hamburger data="{{data}}"></m-menu-hamburger>
+				<m-menu-hamburger></m-menu-hamburger>
 			</div>
 		</app-drawer>
 		<simple-modal id="modal">
@@ -108,12 +107,6 @@ limitations under the License.
 	<script>
 		Polymer({
 			is: "m-header",
-			properties: {
-				data: {
-					type: Object,
-					notify: true
-				}
-			},
 			listeners: {
 				'head_menu_toggle.click': '_handleNavigationToggle'
 			},
@@ -129,7 +122,7 @@ limitations under the License.
 				else
 					var data = e.target.parentNode.parentNode.getAttribute("data-modal")
 
-				var elem = sabzCityLibrary.makeElement(data);
+				var elem = publicLibrary.makeElement(data);
 				var modal = document.querySelector("#modal");
 				var modalElemContent = modal.getModal().querySelector("#modal_contents");
 				modalElemContent.innerHTML = '';

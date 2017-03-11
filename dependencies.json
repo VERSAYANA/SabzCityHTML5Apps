@@ -1,16 +1,14 @@
 {
     "github.com": {
-        "PolymerElements": {
-            "iron-pages": "",
-            "app-route": "",
-            "app-layout": "0.10.6",
-            "iron-grid": "*",
-            "iron-icon": "1.0.12",
-            "paper-icon-button": "1.1.4",
-            "iron-icons": "1.2.0",
-            "iron-ajax": "1.4.3",
-            "paper-listbox": "1.1.2",
-            "paper-item": "1.2.1"
-        }
+        "/PolymerElements/iron-pages": "",
+        "/PolymerElements/app-route": "",
+        "/PolymerElements/app-layout": "0.10.6",
+        "/PolymerElements/iron-grid": "*",
+        "/PolymerElements/iron-icon": "1.0.12",
+        "/PolymerElements/paper-icon-button": "1.1.4",
+        "/PolymerElements/iron-icons": "1.2.0",
+        "/PolymerElements/iron-ajax": "1.4.3",
+        "/PolymerElements/paper-listbox": "1.1.2",
+        "/PolymerElements/paper-item": "1.2.1"
     }
 }

@@ -10,7 +10,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<link rel="import" href="/Polymer/polymer/polymer.html">
 <link rel="import" href="/PolymerElements/iron-icons/iron-icons.html">
 <link rel="import" href="/PolymerElements/iron-icons/communication-icons.html">
 <link rel="import" href="/PolymerElements/iron-icons/social-icons.html">
@@ -66,14 +65,13 @@ limitations under the License.
         <div class="sidebar_cont_top">
             <iron-icon class="sidebar_cont_top_logo" src="/SabzCity/sabz.city/m-icons/logo-white.svg"></iron-icon>
         </div>
+        <iron-meta key="m-header" value="{{data}}"></iron-meta>
         <paper-listbox>
-            <dom-repeat items="{{data}}">
-                <template>
-                    <a class="paper-listbox_link" is="a-sabzcity-link" href="{{item.url}}">
-                        <paper-item raised>{{item.name}}</paper-item>
-                    </a>
-                </template>
-            </dom-repeat>
+            <template is="dom-repeat" items="{{data}}">
+                <a class="paper-listbox_link" is="a-sabzcity-link" href="{{item.url}}">
+                    <paper-item raised>{{item.name}}</paper-item>
+                </a>
+            </template>
         </paper-listbox>
         <paper-listbox class="paper-listbox_fix">
             <a class="paper-listbox_link" is="a-sabzcity-link" href="#">
@@ -116,13 +114,7 @@ limitations under the License.
     </template>
     <script>
         Polymer({
-            is: "m-menu-hamburger",
-            properties: {
-                data: {
-                    type: Object,
-                    notify: true
-                }
-            }
+            is: "m-menu-hamburger"
         });
     </script>
 </dom-module>
