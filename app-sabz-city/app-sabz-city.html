@@ -11,18 +11,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <!-- Common Elements in all SabzCity Platform HTML5 Apps -->
-<link rel="import" href="/PolymerElements/app-route/app-location.html">
-<link rel="import" href="/PolymerElements/app-route/app-route.html">
-<link rel="import" href="/PolymerElements/iron-pages/iron-pages.html">
-<link rel="import" href="/PolymerElements/iron-meta/iron-meta.html">
-<link rel="import" href="/SabzCity/html5-apps-engine/m-connectivity-state/m-connectivity-state.html">
-<link rel="import" href="/SabzCity/html5-apps-engine/m-base/m-base.html">
-<link rel="import" href="/SabzCity/sabz.city/m-header/m-header.html">
+<link rel="import" href="../app-route/app-location.html">
+<link rel="import" href="../app-route/app-route.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../iron-meta/iron-meta.html">
+<link rel="import" href="../m-connectivity-state/m-connectivity-state.html">
+<link rel="import" href="../m-base/m-base.html">
+<link rel="import" href="../m-header/m-header.html">
 <!-- Specific Elements for this App -->
-<link rel="import" href="/SabzCity/sabz.city/app-sabz-city/app-main.html">
-<link rel="import" href="/SabzCity/sabz.city/app-sabz-city/app-life.html">
-<link rel="import" href="/SabzCity/sabz.city/app-sabz-city/app-contacts.html">
-<link rel="import" href="/SabzCity/sabz.city/app-sabz-city/app-notifications.html">
+<!-- get prefetch data and set it -->
+<!-- Some basic elements that user use it upper 80% on platform and prefetch it to increase speed of surf -->
+<link rel="import" href="app-main.html">
+<link rel="import" href="app-life.html">
+<link rel="import" href="app-contacts.html">
+<link rel="import" href="app-notifications.html">
 
 <dom-module id="app-sabz-city">
 	<template>
@@ -33,14 +35,14 @@ limitations under the License.
 		<app-location route="{{route}}"></app-location>
 		<app-route active route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{subroute}}"></app-route>
 		<app-route route="{{subroute}}" pattern="/life" data="{{subrouteData}}"></app-route>
-		
+
 		<iron-pages attr-for-selected="id" selected="{{subroute.path}}">
 			<app-life id="/life/"></app-life>
 			<app-main id="/"></app-main>
 		</iron-pages>
 
 		<!-- show an animated progress bar under tiny color bar for loading progress -->
-        <!-- <paper-progress indeterminate class="blue"></paper-progress> -->
+		<!-- <paper-progress indeterminate class="blue"></paper-progress> -->
 	</template>
 
 	<script>
