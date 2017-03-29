@@ -33,7 +33,7 @@ limitations under the License.
 				height: 64px;
 				display: block
 			}
-			
+
 			app-header {
 				position: fixed;
 				top: 0;
@@ -42,19 +42,20 @@ limitations under the License.
 				background-color: var(--primary-background-color);
 				box-shadow: var(--primary-shadow);
 				color: var(--primary-text-color);
+				z-index: 100;
 			}
-			
+
 			paper-icon-button {
 				color: var(--primary-text-color);
 				width: 36px;
 				height: 36px;
 			}
-			
+
 			paper-icon-button.head_logo {
 				width: 120px;
 				padding: 3px;
 			}
-			
+
 			paper-icon-button.user_info_btn {
 				width: 33px;
 				height: 33px;
@@ -63,21 +64,27 @@ limitations under the License.
 				border-radius: 50%;
 				overflow: hidden;
 			}
-			
+
 			.rightside {
 				display: flex;
 				flex-direction: row;
 				width: 50%;
 			}
-			
+
 			.leftside {
 				display: flex;
 				flex-direction: row-reverse;
 				width: 50%;
 			}
-			
+
+			app-drawer {
+				z-index: 999;
+			}
+
 			app-drawer .sidebar_cont {
 				background: var(--secondary-background-color);
+				height: 100%;
+				overflow: auto;
 			}
 		</style>
 		<app-header reveals>
@@ -96,17 +103,23 @@ limitations under the License.
 			</app-toolbar>
 		</app-header>
 		<app-drawer align="right" id="drawer">
-			<div class="sidebar_cont" style="height: 100%; overflow: auto;">
-				<m-menu-hamburger></m-menu-hamburger>
+			<div class="sidebar_cont">
+				<m-menu-hamburger data="{{data}}"></m-menu-hamburger>
 			</div>
 		</app-drawer>
 		<simple-modal id="modal">
 			<div id="modal_contents"></div>
 		</simple-modal>
 	</template>
-	<script>
+	<script type="text/javascript">
 		Polymer({
 			is: "m-header",
+			properties: {
+				data: {
+					type: Object,
+					notify: true
+				}
+			},
 			listeners: {
 				'head_menu_toggle.click': '_handleNavigationToggle'
 			},

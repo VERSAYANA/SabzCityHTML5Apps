@@ -11,14 +11,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<dom-module id="app-life">
-	<template>
-		app sabz city life
-	</template>
-</dom-module>
+<!-- polymer elements -->
+<link rel="import" href="../../polymer/polymer.html">
+<!-- app elements -->
+<link rel="import" href="../../a-public-library/a-public-library.html">
 
-<script type="text/javascript">
-		Polymer({
-			is : "app-life"
-		});	
-</script>
+<dom-module id="app-main">
+    <template>
+        my-main
+    </template>
+
+    <script type="text/javascript">
+        Polymer({
+            is: "app-main",
+            ready: function () {}
+        });
+    </script>
+</dom-module>

@@ -26,37 +26,37 @@ limitations under the License.
                 display: flex;
                 justify-content: center;
             }
-            
+
             .sidebar_cont_top .sidebar_cont_top_logo {
                 width: 100%;
                 height: 45px;
             }
-            
+
             paper-listbox {
                 background: transparent;
             }
-            
+
             paper-listbox a {
                 color: var(--secondary-text-color);
             }
-            
+
             paper-listbox a paper-item {
-                font-family: 'IRsansl';
-                font-size: var(--mainlist-text-size);
+                font-family: var(--primary-font);
+                font-size: var(--big-text-size);
                 padding: 0px 40px 0px 16px;
                 min-height: 40px;
             }
-            
+
             paper-listbox.paper-listbox_fix {
                 border-top: var(--sidebar-listbox-border);
             }
-            
+
             paper-listbox.paper-listbox_fix a paper-item {
                 padding: 0px 35px 0px 16px;
                 opacity: 0.9;
-                font-size: var(--sublist-text-size);
+                font-size: var(--medium-text-size);
             }
-            
+
             paper-listbox.paper-listbox_fix paper-item iron-icon {
                 width: 18px;
                 margin-left: 8px;
@@ -65,7 +65,6 @@ limitations under the License.
         <div class="sidebar_cont_top">
             <iron-icon class="sidebar_cont_top_logo" src="../m-icons/logo-white.svg"></iron-icon>
         </div>
-        <iron-meta key="m-header" value="{{data}}"></iron-meta>
         <paper-listbox>
             <template is="dom-repeat" items="{{data}}">
                 <a class="paper-listbox_link" is="a-sabzcity-link" href="{{item.url}}">
@@ -112,9 +111,15 @@ limitations under the License.
             </a>
         </paper-listbox>
     </template>
-    <script>
+    <script type="text/javascript">
         Polymer({
-            is: "m-menu-hamburger"
+            is: "m-menu-hamburger",
+            properties: {
+                data: {
+                    type: Object,
+                    notify: true
+                }
+            }
         });
     </script>
 </dom-module>

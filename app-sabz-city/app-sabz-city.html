@@ -14,7 +14,6 @@ limitations under the License.
 <link rel="import" href="../../app-route/app-location.html">
 <link rel="import" href="../../app-route/app-route.html">
 <link rel="import" href="../../iron-pages/iron-pages.html">
-<link rel="import" href="../../iron-meta/iron-meta.html">
 <link rel="import" href="../../m-connectivity-state/m-connectivity-state.html">
 <link rel="import" href="../../m-base/m-base.html">
 <link rel="import" href="../m-header/m-header.html">
@@ -29,16 +28,15 @@ limitations under the License.
 <dom-module id="app-sabz-city">
 	<template>
 		<m-connectivity-state domain="apis.sabz.city" online={{isOnline}}></m-connectivity-state>
-		<iron-meta key="m-header" value="{{menuData}}"></iron-meta>
-		<m-header></m-header>
+		<m-header data="{{menuData}}"></m-header>
 
 		<app-location route="{{route}}"></app-location>
-		<app-route active route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{subroute}}"></app-route>
-		<app-route route="{{subroute}}" pattern="/life" data="{{subrouteData}}"></app-route>
+		<app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}"></app-route>
+		<app-route route="{{routeTail}}" pattern="/:pages" data="{{subrouteData}}" query-params="{{queryParams}}"></app-route>
 
-		<iron-pages attr-for-selected="id" selected="{{subroute.path}}">
-			<app-life id="/life/"></app-life>
-			<app-main id="/"></app-main>
+		<iron-pages attr-for-selected="id" selected$="{{subrouteData.pages}}">
+			<app-main id=""></app-main>
+			<app-life id="life"></app-life>
 		</iron-pages>
 
 		<!-- show an animated progress bar under tiny color bar for loading progress -->
