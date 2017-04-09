@@ -1,0 +1,18 @@
+{
+  "name": "sabz.city",
+  "version": "1.0.0",
+  "description": "Html5 app for Sabz.City domain",
+  "main": "index.html",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabzcity/sabz.city.git"
+  },
+  "author": "SabzCity co.",
+  "license": "APACHE",
+  "bugs": {
+    "url": "https://github.com/sabzcity/sabz.city/issues"
+  },
+  "homepage": "https://github.com/sabzcity/sabz.city#readme"
+}
