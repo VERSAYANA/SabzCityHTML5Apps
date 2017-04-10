@@ -4,6 +4,7 @@ All SabzCity Html5 Apps are OpenSource and everyone can help us to improve in an
 
 ### Subdomians
 - accounting.sabz.city
+- apis.sabz.city
 - blog.sabz.city
 - developers.sabz.city
 - landings.sabz.city
