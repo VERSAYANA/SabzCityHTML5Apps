@@ -37,6 +37,14 @@
     "iron-ajax": "PolymerElements/iron-ajax",
     "paper-toast": "PolymerElements/paper-toast",
     "SabzCityElements": "sabzcity/SabzCityElements#v1",
-    "SabzCityWebComponents": "SabzCity/SabzCityWebComponents#v1"
+    "SabzCityWebComponents": "SabzCity/SabzCityWebComponents#v1",
+    
+    "timer-days": "Zevesh/timer-days",
+    "simple-modal": "SimpleElements/simple-modal",
+
+    "gold-phone-input": "PolymerElements/gold-phone-input",
+    "iron-icon": "PolymerElements/iron-icon",
+    "paper-input": "PolymerElements/paper-input",
+    "paper-button": "PolymerElements/paper-button"
   }
 }
