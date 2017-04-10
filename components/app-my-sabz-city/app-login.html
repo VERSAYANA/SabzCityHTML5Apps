@@ -6,6 +6,31 @@ popup message with link to login page for security it must delete tokens on no a
 
 instagram https://api.instagram.com/oauth/authorize/?client_id=a377919d5e07466fab7be0153c51ce88&redirect_uri=http://apis.sabz.city/auth/v1/token/ouath2/instagram/?redirect-uri=""&response_type=token
 facebook
+
+
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '1849628521952707',
+      cookie: true,
+      xfbml: true,
+      version: 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
 -->
 
 <!--
@@ -98,7 +123,7 @@ limitations under the License.
 
     <a-iconset></a-iconset>
     <a-card>
-      <iron-icon class="logo" src="../../../images/logo3.svg"></iron-icon>
+      <iron-icon class="logo" src="../SabzCityElements/images/logo3.svg"></iron-icon>
       <p class="login-title">
         وارد شهر سبز شوید
       </p>
@@ -122,26 +147,3 @@ limitations under the License.
     });
   </script>
 </dom-module>
-
-<script>
-  window.fbAsyncInit = function () {
-    FB.init({
-      appId: '1849628521952707',
-      cookie: true,
-      xfbml: true,
-      version: 'v2.8'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-      return;
-    }
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
