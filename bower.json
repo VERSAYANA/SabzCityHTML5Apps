@@ -3,7 +3,7 @@
   "authors": [
     "SabzCity co."
   ],
-  "description": "Html5 app for Sabz.City domain",
+  "description": "Html5 app for Sabz.City domain & some subdomains",
   "main": [
     "index.html"
   ],
@@ -32,6 +32,8 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs",
     "polymer": "polymer/polymer",
     "platinum-sw": "PolymerElements/platinum-sw",
+    "iron-pages": "PolymerElements/iron-pages",
+    "app-route": "PolymerElements/app-route",
     "iron-ajax": "PolymerElements/iron-ajax",
     "paper-toast": "PolymerElements/paper-toast",
     "SabzCityElements": "sabzcity/SabzCityElements#v1",
