@@ -1,26 +1,24 @@
 {
-    "master": {
-        "name": "SabzCity",
-        "icons": [{
-            "src": "/components/SabzCityElements/a-images/logo.svg",
-            "type": "image/svg",
-            "sizes": "48x48"
-        }, {
-            "src": "/components/SabzCityElements/a-images/logo.svg",
-            "type": "image/svg",
-            "sizes": "96x96"
-        }, {
-            "src": "/components/SabzCityElements/a-images/logo.svg",
-            "type": "image/svg",
-            "sizes": "192x192"
-        }],
-        "display": "standalone",
-        "start_url": "https://sabz.city/",
-        "short_name": "SabzCity",
-        "related_applications": [{
-            "id": "city.sabz.android",
-            "platform": "play"
-        }],
-        "prefer_related_applications": true
-    }
+    "name": "SabzCity",
+    "icons": [{
+        "src": "/components/SabzCityElements/a-images/logo.svg",
+        "type": "image/svg",
+        "sizes": "48x48"
+    }, {
+        "src": "/components/SabzCityElements/a-images/logo.svg",
+        "type": "image/svg",
+        "sizes": "96x96"
+    }, {
+        "src": "/components/SabzCityElements/a-images/logo.svg",
+        "type": "image/svg",
+        "sizes": "192x192"
+    }],
+    "display": "standalone",
+    "start_url": "https://sabz.city/",
+    "short_name": "SabzCity",
+    "related_applications": [{
+        "id": "city.sabz.android",
+        "platform": "play"
+    }],
+    "prefer_related_applications": true
 }
