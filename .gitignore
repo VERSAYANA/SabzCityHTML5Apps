@@ -1,4 +1,19 @@
-
-# external packages folder
+# external packages folder ignore in push
+components/*
 components/SabzCityElements/
 components/SabzCityWebComponents/
+
+# internal packages folder include in push
+!components/app-accounting-sabz-city/
+!components/app-apis-sabz-city/
+!components/app-blog-sabz-city/
+!components/app-developers-sabz-city/
+!components/app-landings-sabz-city/
+!components/app-life-sabz-city/
+!components/app-my-sabz-city/
+!components/app-myorg-sabz-city/
+!components/app-sabz-city/
+!components/app-services-sabz-city/
+!components/app-shop-sabz-city/
+!components/app-transport-sabz-city/
+!components/app-widget-sabz-city/
