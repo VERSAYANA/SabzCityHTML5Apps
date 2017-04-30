@@ -74,7 +74,7 @@ limitations under the License.
 				// If we do not have an initial URL, we redirect to /search
 				if (this.subrouteData) {
 					if (this.subrouteData.pages == "") {
-                        if (activeUser.ID == "Guest") {
+						if (activeUser.ID == "Guest") {
 							var href = activeUser.distinctions.Language + "/login";
 							href += "?" + "r" + "=" + "main";
 							var goUrl = new URL(href, window.location.origin);
@@ -89,16 +89,9 @@ limitations under the License.
 					}
 				}
 			},
-			ready: function () {
-
-			},
+			ready: function () {},
 			attached: function () {
 				console.log("safe amade")
-			},
-			_mammad: function () {
-
-
-
 			}
 		});
 	</script>
