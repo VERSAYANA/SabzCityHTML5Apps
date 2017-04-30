@@ -37,30 +37,35 @@ limitations under the License.
 <dom-module id="my-aboutme">
 	<template>
 		<style type="text/css">
-			:host{
+			:host {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-			};
-			.title{
+			}
+
+			;
+			.title {
 				font-family: var(--secondary-font);
 				text-align: center;
 				font-size: var(--very-huge-text-size);
 				color: var(--fifth-text-color);
 				margin-top: 30px;
 			}
-			.explain{
+
+			.explain {
 				margin-top: 8px;
 				font-size: var(--medium-text-size);
 				color: var(--primary-text-color);
 				max-width: 60%;
 			}
-			a-card{
+
+			a-card {
 				max-width: 700px;
-				padding:0px;
+				padding: 0px;
 				overflow: hidden;
 			}
-			a-card > section{
+
+			a-card>section {
 				width: 100%;
 				display: flex;
 				align-items: center;
@@ -68,11 +73,13 @@ limitations under the License.
 				padding: 20px;
 				position: relative;
 			}
-			a-card .first-info{
-				background: linear-gradient(to right , var(--secondary-background-color) , var(--tertiary-background-color)) ;
+
+			a-card .first-info {
+				background: linear-gradient(to right, var(--secondary-background-color), var(--tertiary-background-color));
 				padding: 50px 0px;
 			}
-			a-card .first-info .editBtn{
+
+			a-card .first-info .editBtn {
 				color: #fff;
 				position: absolute;
 				top: 0;
@@ -80,28 +87,33 @@ limitations under the License.
 				margin: 10px;
 				width: 40px;
 			}
-			a-card .first-info .profile-images{
+
+			a-card .first-info .profile-images {
 				width: 100px;
 				height: 100px;
 				border-radius: 50%;
 			}
-			a-card .first-info .profile-name{
+
+			a-card .first-info .profile-name {
 				color: var(--secondary-text-color);
 				font-size: var(--h3-text-size);
 				margin-top: 7px;
 			}
-			a-card > section .title{
+
+			a-card>section .title {
 				color: var(--primary-text-color);
 				font-size: var(--h1-text-size);
 				align-self: flex-start;
 				margin-top: 0px;
 				margin-bottom: 20px;
 			}
-			a-card .second-info{
+
+			a-card .second-info {
 				position: relative;
 				box-sizing: border-box;
 			}
-			a-card .second-info .editBtn{
+
+			a-card .second-info .editBtn {
 				color: var(--primary-text-color);
 				position: absolute;
 				top: 0;
@@ -109,57 +121,67 @@ limitations under the License.
 				margin: 20px;
 				width: 40px;
 			}
-			a-card .second-info ul{
+
+			a-card .second-info ul {
 				width: 100%;
 				display: flex;
 				flex-wrap: wrap;
 				align-items: flex-start;
 				flex-direction: row;
 			}
-			a-card .second-info ul li{
+
+			a-card .second-info ul li {
 				width: 33%;
 				box-sizing: border-box;
 				margin-bottom: 10px;
 				padding: 0px 8px;
-				border-right:solid 3px var(--fifth-background-color);
+				border-right: solid 3px var(--fifth-background-color);
 			}
-			@media screen and (max-width: 790px){
-				a-card .second-info ul li{
+
+			@media screen and (max-width: 790px) {
+				a-card .second-info ul li {
 					width: 50%;
 				}
 			}
-			@media screen and (max-width: 480px){
-				a-card .second-info ul li{
+
+			@media screen and (max-width: 480px) {
+				a-card .second-info ul li {
 					width: 100%;
 				}
 			}
-			a-card .second-info ul li .infoList-title{
+
+			a-card .second-info ul li .infoList-title {
 				font-family: var(--secondary-font);
 				opacity: 0.8;
 				color: var(--tertiary-text-color);
 				font-size: var(--h2-text-size);
 				margin-bottom: 5px;
 			}
-			a-card .second-info ul li .infoList-content{
+
+			a-card .second-info ul li .infoList-content {
 				color: var(--primary-text-color);
 				font-size: var(--big-text-size);
 				word-wrap: break-word;
 			}
-			.editModal{
-				--a-modal-width : 800px;
+
+			.editModal {
+				--a-modal-width: 800px;
 			}
-			.editModal .content .title{
+
+			.editModal .content .title {
 				font-size: var(--h1-text-size);
 				margin-bottom: 20px;
 			}
-			.editModal .content  #editForm{
+
+			.editModal .content #editForm {
 				width: 90%;
-				margin:0px 5%;
+				margin: 0px 5%;
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
 			}
-			.editModal .content  #editForm #profile-pic-inp{
+
+			.editModal .content #editForm #profile-pic-inp {
 				width: 100%;
 				display: flex;
 				align-content: center;
@@ -168,7 +190,8 @@ limitations under the License.
 				position: relative;
 				margin-bottom: 20px;
 			}
-			.editModal .content  #editForm #profile-pic-inp img{
+
+			.editModal .content #editForm #profile-pic-inp img {
 				width: 100px;
 				height: 100px;
 				border-radius: 50%;
@@ -176,67 +199,80 @@ limitations under the License.
 				z-index: 1;
 				filter: brightness(50%);
 			}
-			.editModal .content  #editForm #profile-pic-inp file-input{
+
+			.editModal .content #editForm #profile-pic-inp file-input {
 				width: 100px;
 				height: 100px;
 				border-radius: 50%;
 				position: absolute;
 				z-index: 3;
 			}
-			.editModal .content  #editForm #profile-pic-inp iron-icon{
+
+			.editModal .content #editForm #profile-pic-inp iron-icon {
 				width: 130px;
 				position: absolute;
 				z-index: 2;
 				color: #fff;
 				transition: all 0.3s;
 			}
-			.editModal .content  #editForm .editMenuSect{
+
+			.editModal .content #editForm .editMenuSect {
 				width: 44%;
 				margin: 10px 3%;
 			}
-			.editModal .content  #editForm .editMenuSect.phoneNumb{
+
+			.editModal .content #editForm .editMenuSect.phoneNumb {
 				direction: ltr;
 			}
-			.editModal .content  #editForm .editMenuSect.Address{
+
+			.editModal .content #editForm .editMenuSect.Address {
 				width: 74%;
 			}
-			.editModal .content  #editForm .editMenuSect.gender{
+
+			.editModal .content #editForm .editMenuSect.gender {
 				width: 14%;
 			}
-			.editModal .content  #editForm .formMultipleValueSection{
+
+			.editModal .content #editForm .formMultipleValueSection {
 				width: 30%;
 				margin: 10px 1.5%;
 			}
-			.editModal .content  #editForm .formMultipleValueSection .editMenuSect{
+
+			.editModal .content #editForm .formMultipleValueSection .editMenuSect {
 				width: 100%;
 				margin: 0px 0% 5px;
 			}
-			.editModal .content  #editForm .formMultipleValueSection .formMultiple_title{
+
+			.editModal .content #editForm .formMultipleValueSection .formMultiple_title {
 				color: var(--tertiary-text-color);
 				font-size: var(--medium-text-size);
 			}
-			.editModal .content  #editForm  paper-fab-morph{
+
+			.editModal .content #editForm paper-fab-morph {
 				position: absolute;
 				bottom: 0;
 				left: 0;
 				margin: 15px;
-				--paper-morph-background :  var(--secondary-background-color);
+				--paper-morph-background: var(--secondary-background-color);
 			}
-			.editModal .content  #editForm  paper-fab-morph paper-fab{
-				--paper-fab-background : var(--secondary-background-color);
+
+			.editModal .content #editForm paper-fab-morph paper-fab {
+				--paper-fab-background: var(--secondary-background-color);
 			}
-			.editModal .content  #editForm .submit{
+
+			.editModal .content #editForm .submit {
 				text-align: center;
 				background: var(--tertiary-background-color);
-  				color: var(--secondary-text-color);
-  				font-size: var(--medium-text-size);
-  				margin: 20px 3% 10px 0px;
+				color: var(--secondary-text-color);
+				font-size: var(--medium-text-size);
+				margin: 20px 3% 10px 0px;
 			}
-			.editModal .content  #editForm .reject{
+
+			.editModal .content #editForm .reject {
 				text-align: center;
-  				color: var(--six-text-color);
-  				font-size: var(--medium-text-size);
-  				margin: 20px 5px 10px 0px;
+				color: var(--six-text-color);
+				font-size: var(--medium-text-size);
+				margin: 20px 5px 10px 0px;
 			}
 		</style>
 		<a-iconset></a-iconset>
@@ -290,7 +326,7 @@ limitations under the License.
 			<div class="content">
 				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
 				<form is="iron-form" method="get" action="/" id="editForm">
-					<div  id="profile-pic-inp">
+					<div id="profile-pic-inp">
 						<img src="../../images/user.jpg" alt="profile pic" />
 						<iron-icon icon="image:camera-alt"></iron-icon>
 						<file-input extensions='["jpeg", "jpg"]' maxFiles="1"></file-input>
@@ -298,19 +334,14 @@ limitations under the License.
 					<paper-input class="editMenuSect" label="نام" value="حسین"></paper-input>
 					<paper-input class="editMenuSect" label="نام خانوادگی" value="شعبانی"></paper-input>
 					<paper-input class="editMenuSect" label="ایمیل" value="mammad@gmail.com"></paper-input>
-					<gold-phone-input
-						class="editMenuSect phoneNumb"
-						auto-validate
-						label="شماره تماس"
-					    country-code="98"
-					    value="911-789-8569" >
+					<gold-phone-input class="editMenuSect phoneNumb" auto-validate label="شماره تماس" country-code="98" value="911-789-8569">
 					</gold-phone-input>
 					<paper-textarea class="editMenuSect Address" label="آدرس"></paper-textarea>
 					<paper-dropdown-menu class="editMenuSect gender" label="جنسیت">
-					  <paper-listbox class="dropdown-content" >
-					    <paper-item>مرد</paper-item>
-					    <paper-item>زن</paper-item>
-					  </paper-listbox>
+						<paper-listbox class="dropdown-content">
+							<paper-item>مرد</paper-item>
+							<paper-item>زن</paper-item>
+						</paper-listbox>
 					</paper-dropdown-menu>
 					<paper-button raised class="submit">ذخیره</paper-button>
 					<paper-button class="reject">انصراف</paper-button>
@@ -338,14 +369,14 @@ limitations under the License.
 					<paper-button class="reject">انصراف</paper-button>
 
 					<paper-fab-morph id="secondEditionFab" vertical-align="bottom" horizontal-align="right">
-					  <paper-fab icon="add" class="dropdown-trigger"></paper-fab>
-					  <paper-material class="dropdown-content">
-					    <paper-menu>
-					      <paper-item on-tap="_handleAddInput" data-add="formMultipleValueMail">ایمیل</paper-item>
-					      <paper-item on-tap="_handleAddInput" data-add="formMultipleValuePhone">شماره تماس</paper-item>
-					      <paper-item on-tap="_handleAddInput" data-add="formMultipleValueWeb">وبسایت</paper-item>
-					    </paper-menu>
-					  </paper-mterial>
+						<paper-fab icon="add" class="dropdown-trigger"></paper-fab>
+						<paper-material class="dropdown-content">
+							<paper-menu>
+								<paper-item on-tap="_handleAddInput" data-add="formMultipleValueMail">ایمیل</paper-item>
+								<paper-item on-tap="_handleAddInput" data-add="formMultipleValuePhone">شماره تماس</paper-item>
+								<paper-item on-tap="_handleAddInput" data-add="formMultipleValueWeb">وبسایت</paper-item>
+							</paper-menu>
+							</paper-mterial>
 					</paper-fab-morph>
 
 				</form>
@@ -353,23 +384,26 @@ limitations under the License.
 			</div>
 		</a-modal>
 	</template>
-</dom-module>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 		Polymer({
-			is : "my-aboutme",
-			_handleFirstEditBtn : function() {
+			is: "my-aboutme",
+			_handleFirstEditBtn: function () {
 				this.$.firstInfoEditModal.open();
 			},
-			_handleSecondEditBtn : function() {
+			_handleSecondEditBtn: function () {
 				this.$.secondInfoEditModal.open();
 			},
-			_handleAddInput : function(e) {
-				var elem = this.$$('#editForm #'+e.target.getAttribute("data-add"));
-				var newElem = publicLibrary.makeElement("paper-input",{"value":"","no-label-float":""});
-				publicLibrary.class.add(newElem,"editMenuSect")
+			_handleAddInput: function (e) {
+				var elem = this.$$('#editForm #' + e.target.getAttribute("data-add"));
+				var newElem = publicLibrary.makeElement("paper-input", {
+					"value": "",
+					"no-label-float": ""
+				});
+				publicLibrary.class.add(newElem, "editMenuSect")
 				elem.appendChild(newElem);
 				this.$.secondEditionFab.close();
 			}
 		});
-</script>
+	</script>
+</dom-module>

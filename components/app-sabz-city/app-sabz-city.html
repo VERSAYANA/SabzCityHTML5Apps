@@ -29,18 +29,8 @@ limitations under the License.
 		<m-header data="{{menuData}}" on-kick="_hossein"></m-header>
 
 		<app-location route="{{route}}"></app-location>
-		<app-route
-		    route="{{route}}"
-		    pattern="/:lang"
-		    data="{{routeData}}"
-		    tail="{{routeTail}}">
-		</app-route>
-		<app-route
-			route="{{routeTail}}"
-			pattern="/:pages"
-			data="{{subrouteData}}"
-			query-params="{{queryParams}}">
-		</app-route>
+		<app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}"></app-route>
+		<app-route route="{{routeTail}}" pattern="/:pages" data="{{subrouteData}}" query-params="{{queryParams}}"></app-route>
 
 		<iron-pages attr-for-selected="id" selected$="{{subrouteData.pages}}">
 			<app-main id=""></app-main>
@@ -48,28 +38,28 @@ limitations under the License.
 		</iron-pages>
 
 	</template>
-</dom-module>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 		Polymer({
-			is : "app-sabz-city",
-			properties : {
-				menuData : {
-					type : Array,
-					value : [{
-						name : "خانه",
-						url : "/"
-					},{
-						name : "زندگی در یک نگاه",
-						url : "/life/"
+			is: "app-sabz-city",
+			properties: {
+				menuData: {
+					type: Array,
+					value: [{
+						name: "دستیار شخصی",
+						url: "/"
+					}, {
+						name: "زندگی در یک نگاه",
+						url: "/life/"
 					}]
 				}
 			},
-			ready:function() {
+			ready: function () {
 
 			},
-			_hossein : function(e) {
+			_hossein: function (e) {
 				console.log(e)
 			}
 		});
-</script>
+	</script>
+</dom-module>

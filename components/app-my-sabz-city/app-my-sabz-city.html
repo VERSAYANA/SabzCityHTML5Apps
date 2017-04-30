@@ -26,23 +26,13 @@ limitations under the License.
 <link rel="import" href="./app-aboutme.html">
 
 <dom-module id="app-my-sabz-city">
-
 	<template>
-
 		<m-header data="{{menuData}}"></m-header>
 
 		<app-location route="{{route}}"></app-location>
-		<app-route
-		    route="{{route}}"
-		    pattern="/:lang"
-		    data="{{routeData}}"
-		    tail="{{routeTail}}">
+		<app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}">
 		</app-route>
-		<app-route
-			route="{{routeTail}}"
-			pattern="/:pages"
-			data="{{subrouteData}}"
-			query-params="{{queryParams}}">
+		<app-route route="{{routeTail}}" pattern="/:pages" data="{{subrouteData}}" query-params="{{queryParams}}">
 		</app-route>
 
 		<iron-pages attr-for-selected="id" selected="{{subrouteData.pages}}">
@@ -51,66 +41,65 @@ limitations under the License.
 			<app-login id="login"></app-login>
 			<app-aboutme id="aboutme"></app-aboutme>
 		</iron-pages>
-
 	</template>
-</dom-module>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 		Polymer({
-			is : "app-my-sabz-city",
-			properties : {
-				menuData : {
-					type : Array,
-					value : [{
-						name : "خانه",
-						url : "/"
-					},{
-						name : "اطلاعات من",
-						url : "/aboutme/"
-					},{
-						name : "ثبت نام",
-						url : "/register/"
-					},{
-						name : "تنظیمات امنیتی",
-						url : "/security/"
-					},{
-						name : "تغییر زبان",
-						url : "/language/"
+			is: "app-my-sabz-city",
+			properties: {
+				menuData: {
+					type: Array,
+					value: [{
+						name: "خانه",
+						url: "/"
+					}, {
+						name: "اطلاعات من",
+						url: "/aboutme/"
+					}, {
+						name: "ثبت نام",
+						url: "/register/"
+					}, {
+						name: "تنظیمات امنیتی",
+						url: "/security/"
+					}, {
+						name: "تغییر زبان",
+						url: "/language/"
 					}]
 				}
 			},
 			observers: [
-		          '_onRoutePathChanged(route.path)'
-		    ],
-	        _onRoutePathChanged: function(path) {
-	          if(this.subrouteData){
-	          	if(this.subrouteData.pages == ""){
-	          		var user = "guest";
-					if(user == "guest"){
-						var href = publicLibrary.localStorageUsers.get(activeUser["ID"],"Language") + "/login";
-						href += "?" + "r" + "=" + "main" ;
-						var goUrl = new URL(href , window.location.origin);
-						window.history.pushState( window.history.state , "login" , goUrl);
-						window.dispatchEvent(new PopStateEvent('popstate', {
-							bubbles: false,
-        					cancelable: false,
-        					state: window.history.state
-        				}));
-						window.dispatchEvent(new CustomEvent('location-changed'));
+				'_onRoutePathChanged(route.path)'
+			],
+			_onRoutePathChanged: function (path) {
+				// If we do not have an initial URL, we redirect to /search
+				if (this.subrouteData) {
+					if (this.subrouteData.pages == "") {
+                        if (activeUser.ID == "Guest") {
+							var href = activeUser.distinctions.Language + "/login";
+							href += "?" + "r" + "=" + "main";
+							var goUrl = new URL(href, window.location.origin);
+							window.history.pushState(window.history.state, "login", goUrl);
+							window.dispatchEvent(new PopStateEvent('popstate', {
+								bubbles: false,
+								cancelable: false,
+								state: window.history.state
+							}));
+							window.dispatchEvent(new CustomEvent('location-changed'));
+						}
 					}
-	          	}
-	          }
-	        },
-			ready:function() {
+				}
+			},
+			ready: function () {
 
 			},
-			attached: function() {
+			attached: function () {
 				console.log("safe amade")
 			},
-			_mammad:function() {
+			_mammad: function () {
 
 
 
 			}
 		});
-</script>
+	</script>
+</dom-module>
