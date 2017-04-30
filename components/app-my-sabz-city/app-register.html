@@ -21,81 +21,77 @@ limitations under the License.
 <link rel="import" href="../SabzCityElements/a-card/a-card.html">
 <link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
 
-<dom-module id="app-register">
+<dom-module id="my-register">
 	<template>
 		<style type="text/css">
-			:host {
+			:host{
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				min-height: 90vh;
 			}
-
-			a-card {
+			a-card{
 				width: 400px;
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
 				padding-bottom: 30px;
 			}
-
-			.submit {
+			.submit{
 				text-align: center;
 				background: var(--tertiary-background-color);
-				color: var(--secondary-text-color);
-				font-size: var(--medium-text-size);
-				margin: 20px 0px 10px;
+  				color: var(--secondary-text-color);
+  				font-size: var(--medium-text-size);
+  				margin: 20px 0px 10px;
 			}
-
-			.logo {
+			.logo{
 				width: 100px;
 				height: 100px;
 				display: flex;
-				align-self: center;
+    			align-self: center;
 			}
-
-			.login-title {
+			.login-title{
 				font-family: var(--secondary-font);
 				text-align: center;
 				font-size: var(--huge-text-size);
 				color: var(--fifth-text-color);
 				margin-bottom: 10px;
 			}
-
-			.basline {
+			.basline{
 				text-align: center;
 				margin: 8px 0px 8px;
 				font-size: var(--medium-text-size);
 			}
-
-			.social-container {
+			.social-container{
 				display: flex;
 				flex-direction: row;
 				justify-content: center;
 			}
-
-			.social-container a-social-btn {
+			.social-container a-social-btn{
 				width: 50%;
 				margin-bottom: 10px;
 			}
-
-			.sign-link {
+			.sign-link{
 				margin-top: 3px;
 				font-size: var(--small-text-size);
 				color: var(--fifth-text-color);
 			}
+			.sign-link:hover{
 
-			.sign-link:hover {}
+			}
 		</style>
 		<a-iconset></a-iconset>
 		<a-card>
-			<iron-icon class="logo" src="../SabzCityElements/a-images/logo.svg"></iron-icon>
+			<iron-icon class="logo" src="../../images/logo3.svg" ></iron-icon>
 			<p class="login-title">
 				در شهرسبز عضو شوید
 			</p>
 			<paper-input label="نام کاربری"></paper-input>
 			<paper-input label="ایمیل"></paper-input>
-			<gold-phone-input auto-validate label="شماره تماس" country-code="98">
+			<gold-phone-input
+				auto-validate
+				label="شماره تماس"
+			    country-code="98" >
 			</gold-phone-input>
 			<paper-input type="password" label="رمز عبور"></paper-input>
 			<paper-button raised class="submit">ثبت نام</paper-button>
@@ -108,10 +104,10 @@ limitations under the License.
 			<a class="sign-link" href="#">وارد حساب کارری خود در شهرسبز شوید</a>
 		</a-card>
 	</template>
-
-	<script type="text/javascript">
-		Polymer({
-			is: "app-register"
-		});
-	</script>
 </dom-module>
+
+<script type="text/javascript">
+		Polymer({
+			is : "my-register"
+		});
+</script>

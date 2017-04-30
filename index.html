@@ -11,33 +11,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <!DOCTYPE html>
-<html>
-
+<html dir="rtl">
 <head>
-    <noscript>Please Enable Javascript to be able to use this platform</noscript>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-
-    <script src="/components/SabzCityElements/m-powered-by/m-powered-by.js"></script>
-    <script src="/components/SabzCityElements/a-browser-compatibility/a-browser-compatibility.js"></script>
-    <!-- <script src="/webcomponents/webcomponentsjs/webcomponents-loader.js"></script> -->
-    <link rel="import" href="/components/polymer/polymer.html">
-    <link rel="import" href="/components/platinum-sw/platinum-sw-register.html">
-    <link rel="import" href="/components/platinum-sw/platinum-sw-cache.html">
-    <link rel="import" href="/components/SabzCityElements/m-outdated-browser/m-outdated-browser.html">
-    <link rel="import" href="/components/SabzCityElements/m-app-engine/m-app-engine.html">
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+	<title>شهر سبز</title>
+	<script src="/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="/components/platinum-sw/platinum-sw-register.html" />
+	<link rel="import" href="/components/platinum-sw/platinum-sw-cache.html" />
+	<link rel="import" href="/components/SabzCityElements/m-app-engine/m-app-engine.html">
+	<link rel="stylesheet" href="/components/SabzCityElements/a-sources/config.css">
 </head>
-
 <body>
-    <m-outdated-browser></m-outdated-browser>
-    <platinum-sw-register auto-register skip-waiting clients-claim reload-on-install>
-        <platinum-sw-cache default-cache-strategy="networkFirst">
-        </platinum-sw-cache>
-    </platinum-sw-register>
-    <sabzcity-app-engine></sabzcity-app-engine>
+	<platinum-sw-register auto-register
+						            skip-waiting
+                        clients-claim
+                        reload-on-install>
+		    <platinum-sw-cache default-cache-strategy="networkFirst">
+		    </platinum-sw-cache>
+	</platinum-sw-register>
+	<m-app-engine></m-app-engine>
 </body>
-
 </html>
