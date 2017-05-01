@@ -10,7 +10,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <!-- polymer elements -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../app-route/app-route.html">
@@ -30,10 +29,8 @@ limitations under the License.
 		<m-header data="{{menuData}}"></m-header>
 
 		<app-location route="{{route}}"></app-location>
-		<app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}">
-		</app-route>
-		<app-route route="{{routeTail}}" pattern="/:pages" data="{{subrouteData}}" query-params="{{queryParams}}">
-		</app-route>
+		<app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}"></app-route>
+		<app-route route="{{routeTail}}" pattern="/:pages" data="{{subrouteData}}" query-params="{{queryParams}}"></app-route>
 
 		<iron-pages attr-for-selected="id" selected="{{subrouteData.pages}}">
 			<app-main id=""></app-main>
