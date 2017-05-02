@@ -55,6 +55,7 @@
     "iron-scroll-spy": "Zecat/iron-scroll-spy#^2.1.1",
     "paper-fab-transitions": "GabiAxel/paper-fab-transitions#^0.1.0",
     "paper-menu": "PolymerElements/paper-menu#^1.2.2",
-    "paper-fab": "PolymerElements/paper-fab#^1.2.2"
+    "paper-fab": "PolymerElements/paper-fab#^1.2.2",
+    "app-localize-behavior": "PolymerElements/app-localize-behavior#^1.0.2"
   }
 }
