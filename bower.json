@@ -30,8 +30,8 @@
   ],
   "devDependencies": {},
   "dependencies": {
-    "webcomponentsjs": "webcomponents/webcomponentsjs",
-    "polymer": "Polymer/polymer#^1.9.1",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1",
+    "polymer": "Polymer/polymer#^2",
     "app-layout": "PolymerElements/app-layout#^0.10.6",
     "iron-grid": "*",
     "iron-icon": "PolymerElements/iron-icon#^1.0.12",
