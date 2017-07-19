@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Html5 app for Sabz.City domain",
   "main": "index.html",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sabzcity/sabz.city.git"
@@ -14,5 +13,6 @@
   "bugs": {
     "url": "https://github.com/sabzcity/sabz.city/issues"
   },
-  "homepage": "https://github.com/sabzcity/sabz.city#readme"
+  "homepage": "https://github.com/sabzcity/sabz.city#readme",
+  "dependencies": {}
 }
