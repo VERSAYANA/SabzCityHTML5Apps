@@ -10,219 +10,101 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+<custom-style>
+	<style>
+		@font-face {
+			font-family: 'sans';
+			src: url('../../SabzCityElements/a-fonts/sans.eot?#iefix') format('embedded-opentype'), url('../../SabzCityElements/a-fonts/sans.woff') format('woff'), url('../../SabzCityElements/a-fonts/sans.ttf') format('truetype'), url('../../SabzCityElements/a-fonts/sans.svg#iran_sansregular') format('svg');
+			font-weight: normal;
+			font-style: normal
+		}
 
-<style is="custom-style">
-    @charset "utf-8";
-    @font-face {
-        font-family: 'IRsansl';
-        src: url('../a-fonts/IRsanslight.eot') format('embedded-opentype'), url('../a-fonts/IRsanslight.woff') format('woff'), url('../a-fonts/IRsanslight.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+		@font-face {
+			font-family: 'yekan';
+			src: url('../../SabzCityElements/a-fonts/webYekan.eot?#iefix') format("embedded-opentype"), url('../../SabzCityElements/a-fonts/webYekan.woff') format("woff"), url('../../SabzCityElements/a-fonts/webYekan.ttf') format("truetype"), url('../../SabzCityElements/a-fonts/webYekan.svg#BYekan') format("svg");
+			font-weight: normal;
+			font-style: normal
+		}
 
-    @font-face {
-        font-family: 'XeroSans';
-        src: url('../a-fonts/XeroSansBold.eot') format('embedded-opentype'), url('../a-fonts/XeroSansBold.woff') format('woff'), url('../a-fonts/XeroSansBold.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+		@font-face {
+			font-family: 'IRsansl';
+			src: url('../../SabzCityElements/a-fonts/IRsanslight.eot?#iefix') format('embedded-opentype'), url('../../SabzCityElements/a-fonts/IRsanslight.woff') format('woff'), url('../../SabzCityElements/a-fonts/IRsanslight.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
 
-     :root {
-        /* background colors */
-        --primary-background-color: #ffffff;
-        --secondary-background-color: #106cc8;
-        --tertiary-background-color: #185795;
-        --fifth-background-color: #02a94f;
-        /* text colors */
-        --primary-text-color: #1e1e1e;
-        --secondary-text-color: #ffffff;
-        --tertiary-text-color: #02a94f;
-        --fifth-text-color: #4897d2;
-        /* shadows */
-        --primary-shadow: 0px 2px 13px rgba(0, 0, 0, 0.1);
-        /* text sizes */
-        --huge-text-size: 1.5em;
-        --h1-text-size: 1.1em;
-        --h2-text-size: 1em;
-        --h3-text-size: 0.9em;
-        --big-text-size: 0.85em;
-        --medium-text-size: 0.8em;
-        --small-text-size: 0.75em;
-        /* borders */
-        --sidebar-listbox-border: solid 1px rgba(255, 255, 255, 0.4);
-        --black-border: solid 1px rgba(0, 0, 0, 0.3);
-        /* fonts */
-        --primary-font: 'IRsansl';
-        --secondary-font: 'XeroSans';
-        /* iron icon style */
-        --iron-icon-height: 19px;
-        --iron-icon-width: 19px;
-        /* paper input style */
-        --paper-input-container-color: var(--primary-text-color);
-        --paper-input-container-focus-color: var(--secondary-background-color);
-        --paper-font-common-base: {
-            font-family: var(--primary-font);
-            -webkit-font-smoothing: antialiased;
-        }
-        ;
-        --paper-font-subhead: {
-            @apply(--paper-font-common-base);
-            font-size: var(--medium-text-size);
-            font-weight: 400;
-            line-height: 24px;
-        }
-        ;
-    }
+		@font-face {
+			font-family: 'XeroSans';
+			src: url('../../SabzCityElements/a-fonts/XeroSansBold.eot?#iefix') format('embedded-opentype'), url('../../SabzCityElements/a-fonts/XeroSansBold.woff') format('woff'), url('../../SabzCityElements/a-fonts/XeroSansBold.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
 
-    ;
+		body {
+			font-family: 'yekan';
+			direction: rtl;
+			overflow-x: hidden;
+			background: #eceff2;
+			font-size: 100%;
+			min-height: 100vh;
+		}
 
-    header,
-    footer,
-    aside,
-    nav,
-    article,
-    figure,
-    figurcaption,
-    section {
-        display: block;
-    }
+		html {
+			/* background colors */
+			--primary-background-color: #ffffff;
+			--secondary-background-color: #106cc8;
+			--tertiary-background-color: #185795;
+			--fifth-background-color: #02a94f;
 
-    html,
-    body,
-    div,
-    span,
-    object,
-    section,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    img,
-    ins,
-    kbd,
-    q,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    i,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td,
-    article,
-    aside,
-    canvas,
-    details,
-    figure,
-    figcaption,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    output,
-    summary,
-    time,
-    mark,
-    audio,
-    video {
-        margin: 0;
-        border: 0;
-        outline: 0;
-        background: transparent;
-    }
+			/* text colors */
+			--primary-text-color: #1e1e1e;
+			--secondary-text-color: #ffffff;
+			--tertiary-text-color: #02a94f;
+			--fifth-text-color: #4897d2;
+			--six-text-color: #f50057;
 
-    tbody {
-        float: none;
-    }
+			/* shadows */
+			--primary-shadow: 0px 2px 13px rgba(0, 0, 0, 0.1);
 
-    audio,
-    canvas,
-    video {
-        display: inline-block;
-    }
+			/* text sizes */
+			--very-huge-text-size: 1.7em;
+			--huge-text-size: 1.5em;
+			--h1-text-size: 1.1em;
+			--h2-text-size: 1em;
+			--h3-text-size: 0.9em;
+			--big-text-size: 0.85em;
+			--medium-text-size: 0.8em;
+			--small-text-size: 0.75em;
 
-    audio:not([controls]) {
-        display: none;
-        height: 0;
-    }
+			/* borders */
+			--sidebar-listbox-border: solid 1px rgba(255, 255, 255, 0.4);
+			--black-border: solid 1px rgba(0, 0, 0, 0.3);
 
-    [hidden],
-    template {
-        display: none;
-    }
+			/* fonts */
+			--primary-font: 'yekan';
+			--secondary-font: 'XeroSans';
 
-    html {
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-    }
+			/* iron icon style */
+			--iron-icon-height: 19px;
+			--iron-icon-width: 19px;
 
-    ol,
-    ul {
-        list-style: none;
-        padding: 0px;
-    }
+			/* paper input style */
+			--paper-input-container-color: var(--primary-text-color);
+			--paper-input-container-focus-color: var(--secondary-background-color);
+			--paper-font-common-base: {
+				font-family: var(--primary-font);
+				-webkit-font-smoothing: antialiased;
+			}
+			;
+			--paper-font-subhead: {
+				@apply(--paper-font-common-base);
+				font-size: var(--medium-text-size);
+				font-weight: 400;
+				line-height: 24px;
+			}
+			;
+		}
 
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-
-    a,
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    span {
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    body {
-        font-family: 'IRsansl';
-        direction: rtl;
-        overflow-x: hidden;
-        background: #eceff2;
-        font-size: 100%;
-        min-height: 100vh;
-    }
-</style>
+		;
+	</style>
+</custom-style>

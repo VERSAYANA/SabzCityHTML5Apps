@@ -25,8 +25,7 @@ limitations under the License.
 <dom-module id="app-sabz-city">
 
 	<template>
-
-		<m-header data="{{menuData}}" on-kick="_hossein"></m-header>
+		<m-header data="{{menuData}}"></m-header>
 
 		<app-location route="{{route}}"></app-location>
 		<app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}"></app-route>
@@ -36,7 +35,6 @@ limitations under the License.
 			<app-main id=""></app-main>
 			<app-life id="life"></app-life>
 		</iron-pages>
-
 	</template>
 
 	<script type="text/javascript">
@@ -56,9 +54,6 @@ limitations under the License.
 			},
 			ready: function () {
 
-			},
-			_hossein: function (e) {
-				console.log(e)
 			}
 		});
 	</script>
