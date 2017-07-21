@@ -119,26 +119,31 @@ limitations under the License.
 				color: var(--fifth-text-color);
 			}
 		</style>
+
 		<a-iconset></a-iconset>
+
 		<a-card>
 			<iron-icon class="logo" src$="[[importPath]]../../images/logo3.svg"></iron-icon>
-			<p class="login-title">
-				وارد شهر سبز شوید
-			</p>
+			<p class="login-title"> وارد شهر سبز شوید </p>
+
 			<paper-input label="نام کاربری ، ایمیل"></paper-input>
 			<paper-input type="password" label="رمز عبور"></paper-input>
 			<paper-button raised class="submit">ورود</paper-button>
+
+			<a class="sign-link" href="#">مشکل در ورود دارید؟ اینجا کلیک کنید</a>
+			<a class="sign-link" href="#">در شهر سبز ثبت نام کنید</a>
+		</a-card>
+
+		<a-card>
 			<span class="basline">یا ورود از طریق</span>
 			<div class="social-container">
 				<a-social-btn url="#" social="google"></a-social-btn>
 				<a-social-btn url="/123" social="instagram"></a-social-btn>
 			</div>
-			<a class="sign-link" href="#">مشکل در ورود دارید؟اینجا کلیک کنید</a>
-			<a class="sign-link" href="#">در شهر سبز ثبت نام کنید</a>
 		</a-card>
 	</template>
 
-	<script type="text/javascript">
+	<script>
 		Polymer({
 			is: "app-login"
 		});

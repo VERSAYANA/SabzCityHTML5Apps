@@ -30,6 +30,8 @@
   ],
   "devDependencies": {},
   "dependencies": {
+    "SabzCityElements": "",
+    "SabzCityWebComponents": "",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.3",
     "polymer": "Polymer/polymer#^2.0.2",
     "app-layout": "PolymerElements/app-layout#^2.0.1",

@@ -275,9 +275,12 @@ limitations under the License.
 				margin: 20px 5px 10px 0px;
 			}
 		</style>
+
 		<a-iconset></a-iconset>
+
 		<h2 class="title">اطلاعات من</h2>
 		<p class="explain">از این قسمت میتونید اطلاعات خودتان را ثبت کنید و پروفایل خود را کامل کنید.</p>
+
 		<a-card>
 			<section class="first-info">
 				<paper-icon-button class="editBtn" icon="editor:mode-edit" on-tap="_handleFirstEditBtn"></paper-icon-button>
@@ -322,6 +325,7 @@ limitations under the License.
 				</ul>
 			</section>
 		</a-card>
+
 		<a-modal class="editModal" id="firstInfoEditModal">
 			<div class="content">
 				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
@@ -348,6 +352,7 @@ limitations under the License.
 				</form>
 			</div>
 		</a-modal>
+
 		<a-modal class="editModal" id="secondInfoEditModal">
 			<div class="content">
 				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
@@ -378,14 +383,12 @@ limitations under the License.
 							</paper-menu>
 							</paper-mterial>
 					</paper-fab-morph>
-
 				</form>
-
 			</div>
 		</a-modal>
 	</template>
 
-	<script type="text/javascript">
+	<script>
 		Polymer({
 			is: "app-aboutme",
 			_handleFirstEditBtn: function () {

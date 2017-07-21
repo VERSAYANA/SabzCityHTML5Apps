@@ -87,29 +87,32 @@ limitations under the License.
 
 			.sign-link:hover {}
 		</style>
+
 		<a-iconset></a-iconset>
+
 		<a-card>
 			<iron-icon class="logo" src="../../images/logo3.svg"></iron-icon>
-			<p class="login-title">
-				در شهرسبز عضو شوید
-			</p>
+			<p class="login-title"> در شهرسبز عضو شوید </p>
+
 			<paper-input label="نام کاربری"></paper-input>
 			<paper-input label="ایمیل"></paper-input>
 			<gold-phone-input auto-validate label="شماره تماس" country-code="98">
 			</gold-phone-input>
 			<paper-input type="password" label="رمز عبور"></paper-input>
 			<paper-button raised class="submit">ثبت نام</paper-button>
+
 			<span class="basline">یا ثبت نام از طریق</span>
 			<div class="social-container">
 				<a-social-btn url="#" social="google"></a-social-btn>
 				<a-social-btn url="/123" social="instagram"></a-social-btn>
 			</div>
+
 			<a class="sign-link" href="#">مشکل در ثبت نام دارید؟ به اینجا مراجعه کنید</a>
 			<a class="sign-link" href="#">وارد حساب کارری خود در شهرسبز شوید</a>
 		</a-card>
 	</template>
 
-	<script type="text/javascript">
+	<script>
 		Polymer({
 			is: "app-register"
 		});
