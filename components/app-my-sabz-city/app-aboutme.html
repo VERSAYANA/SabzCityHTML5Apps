@@ -1,0 +1,412 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!-- polymer elements -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icons/editor-icons.html">
+<link rel="import" href="../iron-icons/image-icons.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-form/iron-form.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-input/paper-textarea.html">
+<link rel="import" href="../gold-phone-input/gold-phone-input.html">
+<link rel="import" href="../file-input/file-input.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-menu/paper-menu.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-fab-transitions/paper-fab-morph.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
+<!-- app elements -->
+<link rel="import" href="../SabzCityElements/a-public-library/a-public-library.html">
+<link rel="import" href="../SabzCityElements/a-card/a-card.html">
+<link rel="import" href="../SabzCityElements/a-modal/a-modal.html">
+
+<dom-module id="app-aboutme">
+	<template>
+		<style type="text/css">
+			:host {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			;
+			.title {
+				font-family: var(--secondary-font);
+				text-align: center;
+				font-size: var(--very-huge-text-size);
+				color: var(--fifth-text-color);
+				margin-top: 30px;
+			}
+
+			.explain {
+				margin-top: 8px;
+				font-size: var(--medium-text-size);
+				color: var(--primary-text-color);
+				max-width: 60%;
+			}
+
+			a-card {
+				max-width: 700px;
+				padding: 0px;
+				overflow: hidden;
+			}
+
+			a-card>section {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				padding: 20px;
+				position: relative;
+			}
+
+			a-card .first-info {
+				background: linear-gradient(to right, var(--secondary-background-color), var(--tertiary-background-color));
+				padding: 50px 0px;
+			}
+
+			a-card .first-info .editBtn {
+				color: #fff;
+				position: absolute;
+				top: 0;
+				right: 0;
+				margin: 10px;
+				width: 40px;
+			}
+
+			a-card .first-info .profile-images {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+
+			a-card .first-info .profile-name {
+				color: var(--secondary-text-color);
+				font-size: var(--h3-text-size);
+				margin-top: 7px;
+			}
+
+			a-card>section .title {
+				color: var(--primary-text-color);
+				font-size: var(--h1-text-size);
+				align-self: flex-start;
+				margin-top: 0px;
+				margin-bottom: 20px;
+			}
+
+			a-card .second-info {
+				position: relative;
+				box-sizing: border-box;
+			}
+
+			a-card .second-info .editBtn {
+				color: var(--primary-text-color);
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin: 20px;
+				width: 40px;
+			}
+
+			a-card .second-info ul {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-start;
+				flex-direction: row;
+			}
+
+			a-card .second-info ul li {
+				width: 33%;
+				box-sizing: border-box;
+				margin-bottom: 10px;
+				padding: 0px 8px;
+				border-right: solid 3px var(--fifth-background-color);
+			}
+
+			@media screen and (max-width: 790px) {
+				a-card .second-info ul li {
+					width: 50%;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				a-card .second-info ul li {
+					width: 100%;
+				}
+			}
+
+			a-card .second-info ul li .infoList-title {
+				font-family: var(--secondary-font);
+				opacity: 0.8;
+				color: var(--tertiary-text-color);
+				font-size: var(--h2-text-size);
+				margin-bottom: 5px;
+			}
+
+			a-card .second-info ul li .infoList-content {
+				color: var(--primary-text-color);
+				font-size: var(--big-text-size);
+				word-wrap: break-word;
+			}
+
+			.editModal {
+				--a-modal-width: 800px;
+			}
+
+			.editModal .content .title {
+				font-size: var(--h1-text-size);
+				margin-bottom: 20px;
+			}
+
+			.editModal .content #editForm {
+				width: 90%;
+				margin: 0px 5%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+
+			.editModal .content #editForm #profile-pic-inp {
+				width: 100%;
+				display: flex;
+				align-content: center;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				margin-bottom: 20px;
+			}
+
+			.editModal .content #editForm #profile-pic-inp img {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				position: relative;
+				z-index: 1;
+				filter: brightness(50%);
+			}
+
+			.editModal .content #editForm #profile-pic-inp file-input {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				position: absolute;
+				z-index: 3;
+			}
+
+			.editModal .content #editForm #profile-pic-inp iron-icon {
+				width: 130px;
+				position: absolute;
+				z-index: 2;
+				color: #fff;
+				transition: all 0.3s;
+			}
+
+			.editModal .content #editForm .editMenuSect {
+				width: 44%;
+				margin: 10px 3%;
+			}
+
+			.editModal .content #editForm .editMenuSect.phoneNumb {
+				direction: ltr;
+			}
+
+			.editModal .content #editForm .editMenuSect.Address {
+				width: 74%;
+			}
+
+			.editModal .content #editForm .editMenuSect.gender {
+				width: 14%;
+			}
+
+			.editModal .content #editForm .formMultipleValueSection {
+				width: 30%;
+				margin: 10px 1.5%;
+			}
+
+			.editModal .content #editForm .formMultipleValueSection .editMenuSect {
+				width: 100%;
+				margin: 0px 0% 5px;
+			}
+
+			.editModal .content #editForm .formMultipleValueSection .formMultiple_title {
+				color: var(--tertiary-text-color);
+				font-size: var(--medium-text-size);
+			}
+
+			.editModal .content #editForm paper-fab-morph {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				margin: 15px;
+				--paper-morph-background: var(--secondary-background-color);
+			}
+
+			.editModal .content #editForm paper-fab-morph paper-fab {
+				--paper-fab-background: var(--secondary-background-color);
+			}
+
+			.editModal .content #editForm .submit {
+				text-align: center;
+				background: var(--tertiary-background-color);
+				color: var(--secondary-text-color);
+				font-size: var(--medium-text-size);
+				margin: 20px 3% 10px 0px;
+			}
+
+			.editModal .content #editForm .reject {
+				text-align: center;
+				color: var(--six-text-color);
+				font-size: var(--medium-text-size);
+				margin: 20px 5px 10px 0px;
+			}
+		</style>
+
+		<a-iconset></a-iconset>
+
+		<h2 class="title">اطلاعات من</h2>
+		<p class="explain">از این قسمت میتونید اطلاعات خودتان را ثبت کنید و پروفایل خود را کامل کنید.</p>
+
+		<a-card>
+			<section class="first-info">
+				<paper-icon-button class="editBtn" icon="editor:mode-edit" on-tap="_handleFirstEditBtn"></paper-icon-button>
+				<img class="profile-images" src="../../images/user.jpg" alt="profile pic" />
+				<span class="profile-name">حسین شعبانی</span>
+			</section>
+			<section class="second-info">
+				<h3 class="title">اطلاعات تکمیلی</h3>
+				<paper-icon-button class="editBtn" icon="editor:mode-edit" on-tap="_handleSecondEditBtn"></paper-icon-button>
+				<ul>
+					<li>
+						<span class="infoList-title">ایمیل ها</span>
+						<p class="infoList-content">hoseinshabani@gmail.com</p>
+						<p class="infoList-content">amirrezaee@gmail.com</p>
+					</li>
+					<li>
+						<span class="infoList-title">شماره ها</span>
+						<p class="infoList-content">09117874621</p>
+					</li>
+					<li>
+						<span class="infoList-title">وبسایت ها</span>
+						<p class="infoList-content">google.com</p>
+						<p class="infoList-content">yahoo.com</p>
+					</li>
+				</ul>
+			</section>
+			<section class="second-info">
+				<h3 class="title">اطلاعات بیشتر</h3>
+				<ul>
+					<li>
+						<span class="infoList-title">آدرس</span>
+						<p class="infoList-content">تهران ، ولیعصر ، کوروش شمالی</p>
+					</li>
+					<li>
+						<span class="infoList-title">جنسیت</span>
+						<p class="infoList-content">مرد</p>
+					</li>
+					<li>
+						<span class="infoList-title">ملیت</span>
+						<p class="infoList-content">ایرانی</p>
+					</li>
+				</ul>
+			</section>
+		</a-card>
+
+		<a-modal class="editModal" id="firstInfoEditModal">
+			<div class="content">
+				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
+				<form is="iron-form" method="get" action="/" id="editForm">
+					<div id="profile-pic-inp">
+						<img src$="[[importPath]]../../images/user.jpg" alt="profile pic" />
+						<iron-icon icon="image:camera-alt"></iron-icon>
+						<file-input extensions='["jpeg", "jpg"]' maxFiles="1"></file-input>
+					</div>
+					<paper-input class="editMenuSect" label="نام" value="حسین"></paper-input>
+					<paper-input class="editMenuSect" label="نام خانوادگی" value="شعبانی"></paper-input>
+					<paper-input class="editMenuSect" label="ایمیل" value="mammad@gmail.com"></paper-input>
+					<gold-phone-input class="editMenuSect phoneNumb" auto-validate label="شماره تماس" country-code="98" value="911-789-8569">
+					</gold-phone-input>
+					<paper-textarea class="editMenuSect Address" label="آدرس"></paper-textarea>
+					<paper-dropdown-menu class="editMenuSect gender" label="جنسیت">
+						<paper-listbox class="dropdown-content">
+							<paper-item>مرد</paper-item>
+							<paper-item>زن</paper-item>
+						</paper-listbox>
+					</paper-dropdown-menu>
+					<paper-button raised class="submit">ذخیره</paper-button>
+					<paper-button class="reject">انصراف</paper-button>
+				</form>
+			</div>
+		</a-modal>
+
+		<a-modal class="editModal" id="secondInfoEditModal">
+			<div class="content">
+				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
+				<form is="iron-form" method="get" action="/" id="editForm">
+					<div class="formMultipleValueSection" id="formMultipleValueMail">
+						<h3 class="formMultiple_title">ایمیل ها</h3>
+						<paper-input class="editMenuSect" no-label-float value="mammad@gmail.com"></paper-input>
+					</div>
+					<div class="formMultipleValueSection" id="formMultipleValueWeb">
+						<h3 class="formMultiple_title">وبسایت ها</h3>
+						<paper-input class="editMenuSect" no-label-float value="gmail.com"></paper-input>
+					</div>
+					<div class="formMultipleValueSection" id="formMultipleValuePhone">
+						<h3 class="formMultiple_title">شماره ها</h3>
+						<paper-input class="editMenuSect" no-label-float value="09117898569"></paper-input>
+						</gold-phone-input>
+					</div>
+					<paper-button raised class="submit">ذخیره</paper-button>
+					<paper-button class="reject">انصراف</paper-button>
+
+					<paper-fab-morph id="secondEditionFab" vertical-align="bottom" horizontal-align="right">
+						<paper-fab icon="add" class="dropdown-trigger"></paper-fab>
+						<paper-material class="dropdown-content">
+							<paper-menu>
+								<paper-item on-tap="_handleAddInput" data-add="formMultipleValueMail">ایمیل</paper-item>
+								<paper-item on-tap="_handleAddInput" data-add="formMultipleValuePhone">شماره تماس</paper-item>
+								<paper-item on-tap="_handleAddInput" data-add="formMultipleValueWeb">وبسایت</paper-item>
+							</paper-menu>
+							</paper-mterial>
+					</paper-fab-morph>
+				</form>
+			</div>
+		</a-modal>
+	</template>
+
+	<script>
+		Polymer({
+			is: "app-aboutme",
+			_handleFirstEditBtn: function () {
+				this.$.firstInfoEditModal.open();
+			},
+			_handleSecondEditBtn: function () {
+				this.$.secondInfoEditModal.open();
+			},
+			_handleAddInput: function (e) {
+				var elem = this.$$('#editForm #' + e.target.getAttribute("data-add"));
+				var newElem = publicLibrary.makeElement("paper-input", {
+					"value": "",
+					"no-label-float": ""
+				});
+				publicLibrary.class.add(newElem, "editMenuSect")
+				elem.appendChild(newElem);
+				this.$.secondEditionFab.close();
+			}
+		});
+	</script>
+</dom-module>

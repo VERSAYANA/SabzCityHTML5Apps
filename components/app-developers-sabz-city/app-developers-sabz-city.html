@@ -1,0 +1,62 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!-- Common Elements in all SabzCity Platform HTML5 Apps -->
+<link rel="import" href="../app-route/app-location.html">
+<link rel="import" href="../app-route/app-route.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../iron-meta/iron-meta.html">
+<link rel="import" href="../SabzCityElements/m-connectivity-state/m-connectivity-state.html">
+<link rel="import" href="../SabzCityElements/m-base/m-base.html">
+<link rel="import" href="../SabzCityElements/m-header/m-header.html">
+<!-- Specific Elements for this App -->
+<link rel="import" href="./app-main.html">
+<link rel="import" href="./app-sabzcity-apis.html">
+
+<dom-module id="app-developers-sabz-city">
+	<template>
+		<m-connectivity-state domain="apis.sabz.city" online={{isOnline}}></m-connectivity-state>
+		<m-header></m-header>
+
+		<app-location route="{{route}}"></app-location>
+		<app-route active route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{subroute}}"></app-route>
+        <app-route active route="{{subroute}}" pattern="/:orgUUID" data="{{routeData}}" tail="{{subsubroute}}"></app-route>
+		<app-route route="{{subsubroute}}" pattern="/sabzcity-apis" data="{{subrouteData}}"></app-route>
+		
+		<iron-pages attr-for-selected="id" selected="{{subroute.path}}">
+			<app-document-openapi id="/sabzcity-apis/"></app-document-openapi>
+			<app-main id="/"></app-main>
+		</iron-pages>
+
+		<!-- show an animated progress bar under tiny color bar for loading progress -->
+        <!-- <paper-progress indeterminate class="blue"></paper-progress> -->
+	</template>
+
+	<script>
+		Polymer({
+			is: "app-developers-sabz-city",
+			properties: {
+				menuData: {
+					type: Array,
+					value: [{
+						name: "توسعه دهندگان",
+						url: "/"
+					}, {
+						name: "دایکومنت وب سرویس های شهرسبز",
+						url: "/sabzcity-apis/"
+					}]
+				}
+			},
+			ready: function () {}
+		});
+	</script>
+</dom-module>

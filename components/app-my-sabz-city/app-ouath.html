@@ -1,0 +1,27 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!--
+2 scenario!:
+
+1- GET apis.sabz.city/auth/v1/{userID}/oauth2/{AppID}/  
+2- if it is 200 just send POST apis.sabz.city/auth/v1/{realUserID}/oauth2/{AppID}/ with "AccessList": ""
+3- in response get 304 with TokenID
+
+2-if get 404 show UI to get user action
+3-send POST apis.sabz.city/auth/v1/{realUserID}/oauth2/{AppID}/ with user modified in UI of "AccessList"
+3- in response get 200||201 
+
+redirect to redirectURL with ?token=TokenID
+Help other with a component to handle TokenID and Get token access
+-->
