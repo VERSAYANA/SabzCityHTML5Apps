@@ -113,8 +113,9 @@ limitations under the License.
 	</template>
 
 	<script>
-		Polymer({
-			is: "app-register"
-		});
+		class AppRegister extends Polymer.Element {
+			static get is() { return 'app-register' }
+		}
+		customElements.define(AppRegister.is, AppRegister)
 	</script>
 </dom-module>

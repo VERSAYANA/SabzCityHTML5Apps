@@ -41,40 +41,45 @@ limitations under the License.
 	</template>
 
 	<script>
-		Polymer({
-			is: "app-my-sabz-city",
-			properties: {
-				menuData: {
-					type: Array,
-					value: [{
-						name: "خانه",
-						url: "/"
-					}, {
-						name: "اطلاعات من",
-						url: "/aboutme/"
-					}, {
-						name: "ثبت نام",
-						url: "/register/"
-					}, {
-						name: "تنظیمات امنیتی",
-						url: "/security/"
-					}, {
-						name: "تغییر زبان",
-						url: "/language/"
-					}]
+		class AppMySabzCity extends Polymer.Element {
+			static get is() { return 'app-my-sabz-city' }
+			static get properties() {
+				return {
+					menuData: {
+						type: Array,
+						value: [{
+							name: "خانه",
+							url: "/"
+						}, {
+							name: "اطلاعات من",
+							url: "/aboutme/"
+						}, {
+							name: "ثبت نام",
+							url: "/register/"
+						}, {
+							name: "تنظیمات امنیتی",
+							url: "/security/"
+						}, {
+							name: "تغییر زبان",
+							url: "/language/"
+						}]
+					}
+
 				}
-			},
-			observers: [
-				'_onRoutePathChanged(route.path)'
-			],
-			_onRoutePathChanged: function (path) {
+			}
+			static get observers() {
+				return [
+				  '_onRoutePathChanged(path)'
+				]
+			}
+			_onRoutePathChanged(path) {
 				// If we do not have an initial URL, we redirect to /search
 				if (this.subrouteData) {
 					if (this.subrouteData.pages == "") {
 						if (activeUser.ID == "Guest") {
-							var href = activeUser.distinctions.Language + "/login";
+							let href = activeUser.distinctions.Language + "/login";
 							href += "?" + "r" + "=" + "main";
-							var goUrl = new URL(href, window.location.origin);
+							const goUrl = new URL(href, window.location.origin);
 							window.history.pushState(window.history.state, "login", goUrl);
 							window.dispatchEvent(new PopStateEvent('popstate', {
 								bubbles: false,
@@ -85,13 +90,16 @@ limitations under the License.
 						}
 					}
 				}
-			},
-			ready: function () {
-				console.log(this.subrouteData)
-			},
-			attached: function () {
-				console.log("safe amade")
 			}
-		});
+			ready() {
+				super.ready();
+				console.log(this.subrouteData);
+			}
+			connectedCallback() {
+				super.connectedCallback();
+			  console.log("safe amade");	
+			}
+		}
+		customElements.define(AppMySabzCity.is, AppMySabzCity)
 	</script>
 </dom-module>

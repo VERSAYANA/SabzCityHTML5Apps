@@ -22,11 +22,9 @@ limitations under the License.
 	</template>
 
 	<script>
-		Polymer({
-			is: "app-main",
-			ready: function () {
-
-			}
-		});
+		class AppMain extends Polymer.Element {
+			static get is() { return 'app-main' }
+		}
+		customElements.define(AppMain.is, AppMain)
 	</script>
 </dom-module>
