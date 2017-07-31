@@ -389,17 +389,17 @@ limitations under the License.
 	</template>
 
 	<script>
-		Polymer({
-			is: "app-aboutme",
-			_handleFirstEditBtn: function () {
+		class AppAboutMe extends Polymer.Element {
+			static get is() { return 'app-aboutme' }
+			_handleFirstEditBtn() {
 				this.$.firstInfoEditModal.open();
-			},
-			_handleSecondEditBtn: function () {
+			}
+			_handleSecondEditBtn() {
 				this.$.secondInfoEditModal.open();
-			},
-			_handleAddInput: function (e) {
-				var elem = this.$$('#editForm #' + e.target.getAttribute("data-add"));
-				var newElem = publicLibrary.makeElement("paper-input", {
+			}
+			_handleAddInput() {
+				let elem = this.$$('#editForm #' + e.target.getAttribute("data-add"));
+				const newElem = publicLibrary.makeElement("paper-input", {
 					"value": "",
 					"no-label-float": ""
 				});
@@ -407,6 +407,7 @@ limitations under the License.
 				elem.appendChild(newElem);
 				this.$.secondEditionFab.close();
 			}
-		});
+		}
+		customElements.define(AppAboutMe.is, AppAboutMe)
 	</script>
 </dom-module>
