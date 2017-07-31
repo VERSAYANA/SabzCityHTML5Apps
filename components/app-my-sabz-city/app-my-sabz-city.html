@@ -23,6 +23,7 @@ limitations under the License.
 <link rel="import" href="./app-register.html">
 <link rel="import" href="./app-main.html">
 <link rel="import" href="./app-aboutme.html">
+<link rel="import" href="./app-security.html">
 
 <dom-module id="app-my-sabz-city">
 	<template>
@@ -37,6 +38,7 @@ limitations under the License.
 			<app-register id="register"></app-register>
 			<app-login id="login"></app-login>
 			<app-aboutme id="aboutme"></app-aboutme>
+			<app-security id="security"></app-security>
 		</iron-pages>
 	</template>
 
@@ -97,7 +99,7 @@ limitations under the License.
 			}
 			connectedCallback() {
 				super.connectedCallback();
-			  console.log("safe amade");	
+			  console.log("safe amade");
 			}
 		}
 		customElements.define(AppMySabzCity.is, AppMySabzCity)

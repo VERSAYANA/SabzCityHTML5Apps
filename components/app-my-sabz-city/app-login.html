@@ -50,7 +50,13 @@ limitations under the License.
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-input/paper-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
+ <link rel="import" href="../neon-animation/web-animations.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
 <!-- app elements -->
 <link rel="import" href="../SabzCityElements/a-card/a-card.html">
 <link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
@@ -60,30 +66,87 @@ limitations under the License.
 		<style type="text/css">
 			:host {
 				display: flex;
-				justify-content: center;
+				flex-direction: column;
+				justify-content: flex-start;
 				align-items: center;
 				min-height: 90vh;
+				padding-top: 30px;
 			}
 
 			a-card {
-				width: 400px;
+				width: 25%;
+				min-width: 400px;
 				display: flex;
-				justify-content: center;
+				justify-content: space-between;
 				flex-direction: column;
 				padding-bottom: 30px;
+				height: 60vh;
 			}
 
-			.submit {
+			.top-container {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.greet-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.register-link-container {
+				display: flex;
+				justify-content: center;
+				height: auto;
+				padding: 20px;
+			}
+
+			.register-link {
+				font-size: var(--large-text-size);
+				color: var(--secondary-text-color);
+				cursor: pointer;
+				padding-bottom: 5px;
+				border-bottom: var(--black-border);
+				align-self: center;
+				color: var(--fifth-text-color);
+			}
+
+			.register-link: hover {
+				color: var(--secondary-text-color);
+			}
+
+			paper-dropdown-menu {
+				margin-right: 20px;
+				text-align: right;
+			}
+
+			.submit-container {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.next-button {
 				text-align: center;
 				background: var(--fifth-background-color);
-				color: var(--secondary-text-color);
+				color: var(--primary-background-color);
 				font-size: var(--medium-text-size);
 				margin: 20px 0px 10px;
+				align-self: flex-start;
+			}
+
+			paper-checkbox {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			paper-checkbox span {
+				padding-right: 10px;
 			}
 
 			.logo {
-				width: 100px;
-				height: 100px;
+				width: 130px;
+				height: 130px;
 				display: flex;
 				align-self: center;
 			}
@@ -99,7 +162,12 @@ limitations under the License.
 			.basline {
 				text-align: center;
 				margin: 8px 0px 8px;
-				font-size: var(--medium-text-size);
+				font-size: var(--large-text-size);
+			}
+
+			.social-login-container {
+				height: auto;
+				padding: 20px;
 			}
 
 			.social-container {
@@ -112,40 +180,90 @@ limitations under the License.
 				width: 50%;
 				margin-bottom: 10px;
 			}
-
-			.sign-link {
-				margin-top: 3px;
-				font-size: var(--small-text-size);
-				color: var(--fifth-text-color);
-			}
 		</style>
 
 		<a-iconset></a-iconset>
 
 		<a-card>
-			<iron-icon class="logo" src$="[[importPath]]../../images/logo3.svg"></iron-icon>
-			<p class="login-title"> وارد شهر سبز شوید </p>
-
-			<paper-input label="نام کاربری ، ایمیل"></paper-input>
-			<paper-input type="password" label="رمز عبور"></paper-input>
-			<paper-button raised class="submit">ورود</paper-button>
-
-			<a class="sign-link" href="#">مشکل در ورود دارید؟ اینجا کلیک کنید</a>
-			<a class="sign-link" href="#">در شهر سبز ثبت نام کنید</a>
-		</a-card>
-
-		<a-card>
-			<span class="basline">یا ورود از طریق</span>
-			<div class="social-container">
-				<a-social-btn url="#" social="google"></a-social-btn>
-				<a-social-btn url="/123" social="instagram"></a-social-btn>
+			<div class="top-container">
+				<img class="logo" src="[[importPath]]../SabzCityElements/a-images/logo.svg" />
+				 <template is="dom-if" if="{{isLoginFirstStep}}">
+					<h2 class="login-title"> وارد شهر سبز شوید </h2>
+					<paper-input label="نام کاربری، ایمیل یا شماره"></paper-input>
+				</template>
+				 <template is="dom-if" if="{{!isLoginFirstStep}}">
+					 <div class="greet-container">
+						 <h2 class="login-title">سلام نام کاربر</h2>
+						<paper-dropdown-menu label="اکانت" >
+						  <paper-listbox slot="dropdown-content" selected="1">
+						    <paper-item>اکانت اول</paper-item>
+						    <paper-item>اکانت دوم</paper-item>
+						  </paper-listbox>
+						</paper-dropdown-menu>
+					</div>
+					<paper-input label="پسورد"></paper-input>
+					<paper-input label="کد تایید"></paper-input>
+				</template>
 			</div>
+			<template is="dom-if" if={{isLoginFirstStep}}>
+				<paper-button
+				raised
+				on-click="handleNextButtonClick"
+				class="next-button">
+				بعدی
+			</paper-button>
+			</template>
+			<template is="dom-if" if={{!isLoginFirstStep}}>
+				<div class="submit-container">
+					<paper-button
+					raised
+					on-click="handleNextButtonClick"
+					class="next-button">
+					بعدی
+				</paper-button>
+				<paper-checkbox noink>
+					<span>منو به خاطر بسپار</span>
+				</paper-checkbox>
+				</div>
+			</template>
 		</a-card>
+		<a-card class="register-link-container">
+			<template is="dom-if" if="{{isLoginFirstStep}}">
+				<a class="register-link">
+					هنوز ثبت نام نکرده اید؟ همین حالا انجامش بدید!
+					<a>
+			</template>
+			<template is="dom-if" if="{{!isLoginFirstStep}}">
+				<a class="register-link">
+					پسوردتان را فراموش کرده اید؟
+					<a>
+			</template>
+		</a-card>
+		<template is="dom-if" if="{{isLoginFirstStep}}">
+			<a-card class="social-login-container">
+				<span class="basline">ورود از طریق</span>
+				<div class="social-container">
+					<a-social-btn url="#" social="google"></a-social-btn>
+					<a-social-btn url="/123" social="instagram"></a-social-btn>
+				</div>
+			</a-card>
+		</template>
 	</template>
 
 	<script>
 		class AppLogin extends Polymer.Element {
 			static get is() { return 'app-login' }
+			static get properties() {
+				return {
+					isLoginFirstStep: {
+						type: Boolean,
+						value: true
+					}
+				}
+			}
+			handleNextButtonClick() {
+				this.isLoginFirstStep = false;
+			}
 		}
 		customElements.define(AppLogin.is, AppLogin);
 	</script>
