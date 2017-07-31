@@ -16,7 +16,6 @@ limitations under the License.
 <link rel="import" href="../paper-input/paper-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../gold-phone-input/gold-phone-input.html">
 <!-- app elements -->
 <link rel="import" href="../SabzCityElements/a-card/a-card.html">
 <link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
@@ -26,13 +25,16 @@ limitations under the License.
 		<style type="text/css">
 			:host {
 				display: flex;
-				justify-content: center;
+				flex-direction: column;
+				justify-content: flex-start;
 				align-items: center;
 				min-height: 90vh;
+				padding-top: 30px;
 			}
 
 			a-card {
-				width: 400px;
+				width: 25%;
+				min-width: 400px;
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
@@ -42,14 +44,14 @@ limitations under the License.
 			.submit {
 				text-align: center;
 				background: var(--tertiary-background-color);
-				color: var(--secondary-text-color);
+				color: var(--primary-background-color);
 				font-size: var(--medium-text-size);
 				margin: 20px 0px 10px;
 			}
 
 			.logo {
-				width: 100px;
-				height: 100px;
+				width: 130px;
+				height: 130px;
 				display: flex;
 				align-self: center;
 			}
@@ -65,13 +67,18 @@ limitations under the License.
 			.basline {
 				text-align: center;
 				margin: 8px 0px 8px;
-				font-size: var(--medium-text-size);
+				font-size: var(--large-text-size);
+			}
+
+			.social-register-container {
+				padding: 10px 20px;
 			}
 
 			.social-container {
 				display: flex;
 				flex-direction: row;
 				justify-content: center;
+				padding: 0
 			}
 
 			.social-container a-social-btn {
@@ -80,9 +87,12 @@ limitations under the License.
 			}
 
 			.sign-link {
-				margin-top: 3px;
-				font-size: var(--small-text-size);
+				font-size: var(--large-text-size);
 				color: var(--fifth-text-color);
+				align-self: center;
+				padding-bottom: 5px;
+				border-bottom: var(--black-border);
+				cursor: pointer;
 			}
 
 			.sign-link:hover {}
@@ -91,24 +101,29 @@ limitations under the License.
 		<a-iconset></a-iconset>
 
 		<a-card>
-			<iron-icon class="logo" src="../../images/logo3.svg"></iron-icon>
+			<img class="logo" src="[[importPath]]../SabzCityElements/a-images/logo.svg">
 			<p class="login-title"> در شهرسبز عضو شوید </p>
 
 			<paper-input label="نام کاربری"></paper-input>
 			<paper-input label="ایمیل"></paper-input>
-			<gold-phone-input auto-validate label="شماره تماس" country-code="98">
-			</gold-phone-input>
+			<paper-input label="شماره"></paper-input>
 			<paper-input type="password" label="رمز عبور"></paper-input>
 			<paper-button raised class="submit">ثبت نام</paper-button>
 
+		</a-card>
+
+		<a-card class="sign-link-container">
+				<a class="sign-link">
+					قبلا ثبت نام کرده اید؟ وارد شوید
+				<a>
+		</a-card>
+
+		<a-card class="social-register-container">
 			<span class="basline">یا ثبت نام از طریق</span>
 			<div class="social-container">
 				<a-social-btn url="#" social="google"></a-social-btn>
 				<a-social-btn url="/123" social="instagram"></a-social-btn>
 			</div>
-
-			<a class="sign-link" href="#">مشکل در ثبت نام دارید؟ به اینجا مراجعه کنید</a>
-			<a class="sign-link" href="#">وارد حساب کارری خود در شهرسبز شوید</a>
 		</a-card>
 	</template>
 
