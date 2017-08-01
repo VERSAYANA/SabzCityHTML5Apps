@@ -60,6 +60,7 @@ limitations under the License.
 <!-- app elements -->
 <link rel="import" href="../SabzCityElements/a-card/a-card.html">
 <link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
+<link rel="import" href="../SabzCityElements/a-sabzcity-link/a-sabzcity-link">
 
 <dom-module id="app-login">
 	<template>
@@ -226,7 +227,7 @@ limitations under the License.
 				<a class="register-link">هنوز ثبت نام نکرده اید؟ همین حالا انجامش بدید!<a>
 			</template>
 			<template is="dom-if" if="{{!isLoginFirstStep}}">
-				<a class="register-link">پسوردتان را فراموش کرده اید؟<a>
+				<a-sabzcity-link class="register-link">پسوردتان را فراموش کرده اید؟<a-sabzcity-link>
 			</template>
 		</a-card>
 

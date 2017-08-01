@@ -41,11 +41,12 @@ limitations under the License.
         flex-direction: column;
         align-items: center;
         padding: 30px;
+        margin-top: 7em;
       }
 
       .section {
-        width: 100%;
-        margin-top: 20px;
+        width: 80%;
+        margin-bottom: 5em;
         display: flex;
         justify-content: center;
       }
@@ -55,30 +56,28 @@ limitations under the License.
         flex-direction: column;
         padding: 30px;
         width: 80%;
-        border-top: 2px solid var(--fifth-background-color);
+        flex: 6;
+        border-top: 2px solid var(--secondary-background-color);
       }
 
       .section-title-container {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
-        flex: 1;
+        flex: 4;
       }
 
       .section-title {
-        text-align: center;
+        text-align: right;
         font-size: var(--huge-text-size);
-        color: var(--tertiary-text-color);
+        color: var(--fifth-text-color);
         font-weight: 200;
       }
 
       .section-explanation {
-        font-size: var(--medium-text-size);
-        color: var(--light-text-color);
-        text-align: center;
-        width: 60%;
-        align-self: center;
+        font-size: var(--big-text-size);
+        text-align: right;
+        width: 70%;
         font-weight: 100;
         line-height: 2;
       }
@@ -88,8 +87,8 @@ limitations under the License.
         justify-content: space-around;
       }
 
-      .section-content__description {
-        font-size: var(--large-text-size);
+      .section-title__description {
+        font-size: var(--huge-text-size);
         color: var(--primary-text-color);
         text-align: center;
         font-weight: 300;
@@ -144,126 +143,119 @@ limitations under the License.
     <h1 class="page-title">امنیت</h1>
     <p class="page-explanation">از این قسمت میتونید امنیت خودتون رو چک کنید</p>
 
-    <div class="sections-container">
-      <section class="section">
-        <a-card class="section-card">
-          <h3 class="section-title">تنظیمات</h3>
+      <div class="sections-container">
+          <section class="section">
+              <div class="section-title-container">
+                  <h3 class="section-title">تنظیمات</h3>
+                  <p class="section-explanation">با استفاده از یک پسورد مطمئن و فعالساری ورود دو مرحله ای امنیت اکانتتون رو تضمین کنید و راه های نفوذ رو برای همیشه ببندید!</p>
+              </div>
+              <a-card class="section-card">
+                  <div class="section-content">
+                      <div class="section-content__form">
+                          <div class="section-content__input-container">
+                        <label>پسورد</label>
+                        <input value="password12345">
+                    </div>
+                          <div class="section-content__input-container">
+                        <label>ورود دو مرحله ای</label>
+                        <paper-button>خاموش</paper-button>
+                    </div>
+                          <div class="section-content__input-container">
+                        <label>OTP</label>
+                    </div>
+                          <div class="section-content__input-container">
+                        <label>وضعیت هویتی</label>
+                        <paper-button>تایید شده</paper-button>
+                    </div>
+                      </div>
+                  </div>
+              </a-card>
+          </section>
 
-          <div class="section-content">
-            <div class="section-title-container">
-              <h4 class="section-content__description">راه های ورود به اکانت خودتون رو امن تر کنید</h4>
-              <p class="section-explanation">با استفاده از یه پسورد مطمئن و فعالسازی ورود دو مرحله ای امنیت اکانت خودتون رو تضمین کنید</p>
-            </div>
+          <section class="section">
+              <div class="section-title-container">
+                  <h3 class="section-title">ارتباط با دیگر پلتفرم ها</h3>
+                  <p class="section-explanation">شهر سبز با پشتیبانی از شبکه ها و پلتفرم های مختلف شمارو در همه جا همراهی میکنه. با لینک شدن به شبکه های دیگه به اکانتتون اعتبار ببخشید.</p>
+              </div>
+              <a-card class="section-card">
+                  <div class="section-content">
+                      <div class="section-content__form">
+                  <div class="section-content__input-container">
+                      <h5>اینستاگرام</h5>
+                  </div>
+                  <div class="section-content__input-container">
+                      <h5>توییتر</h5>
+                  </div>
+                  <div class="section-content__input-container">
+                      <h5>فیسبوک</h5>
+                  </div>
+                  <div class="section-content__input-container">
+                    <h5>گیتهاب</h5>
+                  </div>
+              </div>
+                  </div>
+              </a-card>
+          </section>
 
-            <div class="section-content__form">
-              <div class="section-content__input-container">
-                <label>پسورد</label>
-                <input value="password12345">
+          <section class="section">
+              <div class="section-title-container">
+                  <h3 class="section-title">دستگاه های فعال</h3>
+                  <p class="section-explanation">تو هر وسیله ای میتونی از شهرسبز استفاده کنی و خیلی راحت دستگاه های متصلت رو مدیریت کنی!</p>
+                  <p class="section-explanation">تمامی دستگاه های متصل شده به اکانت شما اینجان با چک دائم اونا مطمئن شو که همه چیز درسته.</p>
               </div>
-              <div class="section-content__input-container">
-                <label>ورود دو مرحله ای</label>
-                <paper-button>خاموش</paper-button>
+              <a-card class="section-card">
+                  <div class="section-content">
+                  <div class="section-content__form">
+                  <div class="section-content__input-container">
+                      <h5>گوشی آندروید D5503</h5>
+                      <time class="device-time">۱۷:۰۵</time>
+                  </div>
+                  <div class="section-content__input-container">
+                      <h5>ساعت هوشمند A710</h5>
+                      <time class="device-time">دیروز ۲۲:۳۰</time>
+                  </div>
+                  <div class="section-content__input-container">
+                      <h5>تلوزیون ال جی</h5>
+                      <time class="device-time">۵ فروردین</time>
+                  </div>
+                  <div class="section-content__input-container">
+                      <h5>دسکتاپ QU19SJM-IR</h5>
+                      <time class="device-time">۲۶ مهر</time>
+                  </div>
+                </div>
               </div>
-              <div class="section-content__input-container">
-                <label>OTP</label>
-              </div>
-              <div class="section-content__input-container">
-                <label>وضعیت هویتی</label>
-                <paper-button>تایید شده</paper-button>
-              </div>
-            </div>
-          </div>
-        </a-card>
-      </section>
+              </a-card>
+          </section>
 
-      <section class="section">
-        <a-card class="section-card">
-          <h3 class="section-title">ارتباط با دیگر پلتفرم ها</h3>
+          <section class="section">
+              <div class="section-title-container">
+                  <h4 class="section-title">دنیایی از برنامه ها برای تعامل بهتر با شهر خودتون!</h4>
+                  <p class="section-explanation">حلا دیگه با توی گوشیتون هم با شهرسبز همراه بشید. ما از طیف وسیعی از برنامه های گوشی های هوشمند پشتیبانی میکنیم.</p>
+              </div>
+              <a-card class="section-card">
+                  <h3 class="section-title">برنامه های متصل</h3>
+                  <div class="section-content">
+                      <div class="section-content__form">
+                        <div class="section-content__input-container">
+                            <h5>برنامه ۱</h5>
+                        </div>
 
-          <div class="section-content">
-            <div class="section-title-container">
-              <h4 class="section-content__description">با لینک شدن به شبکه های دیگه به اکانتتون اعتبار ببخشید</h4>
-              <p class="section-explanation">شهر سبز با پشتیبانی از شبکه ها و پلتفرم های مختلف شمارو در همه جا همراهی میکنه</p>
-            </div>
+                        <div class="section-content__input-container">
+                            <h5>برنامه ۲</h5>
+                        </div>
 
-            <div class="section-content__form">
-              <div class="section-content__input-container">
-                <h5>اینستاگرام</h5>
-              </div>
-              <div class="section-content__input-container">
-                <h5>توییتر</h5>
-              </div>
-              <div class="section-content__input-container">
-                <h5>فیسبوک</h5>
-              </div>
-              <div class="section-content__input-container">
-                <h5>گیتهاب</h5>
-              </div>
-            </div>
-          </div>
-        </a-card>
-      </section>
+                        <div class="section-content__input-container">
+                            <h5>برنامه ۳</h5>
+                        </div>
 
-      <section class="section">
-        <a-card class="section-card">
-          <h3 class="section-title">دستگاه های فعال</h3>
-
-          <div class="section-content">
-            <div class="section-title-container">
-              <h4 class="section-content__description">تمامی دستگاه های متصل شده به اکانت شما اینجا قرار دارند</h4>
-              <p class="section-explanation">تو هر وسیله ای میتونی از شهرسبز استفاده کنی و خیلی راحت دستگاه های متصلت رو مدیریت کنی!</p>
-            </div>
-
-            <div class="section-content__form">
-              <div class="section-content__input-container">
-                <h5>گوشی آندروید D5503</h5>
-                <time class="device-time">۱۷:۰۵</time>
-              </div>
-              <div class="section-content__input-container">
-                <h5>ساعت هوشمند A710</h5>
-                <time class="device-time">دیروز ۲۲:۳۰</time>
-              </div>
-              <div class="section-content__input-container">
-                <h5>تلوزیون ال جی</h5>
-                <time class="device-time">۵ فروردین</time>
-              </div>
-              <div class="section-content__input-container">
-                <h5>دسکتاپ QU19SJM-IR</h5>
-                <time class="device-time">۲۶ مهر</time>
-              </div>
-            </div>
-          </div>
-        </a-card>
-      </section>
-
-      <section class="section">
-        <a-card class="section-card">
-          <h3 class="section-title">برنامه های متصل</h3>
-
-          <div class="section-content">
-            <div class="section-title-container">
-              <h4 class="section-content__description">حالا دیگه برنامه های گوشی شما میتونن به شهر سبزتون وصل بشن!</h4>
-              <p class="section-explanation">دنیایی از برنامه ها برای تعامل بهتر با شهر خودتون</p>
-            </div>
-
-            <div class="section-content__form">
-              <div class="section-content__input-container">
-                <h5>برنامه ۱</h5>
-              </div>
-              <div class="section-content__input-container">
-                <h5>برنامه ۲</h5>
-              </div>
-              <div class="section-content__input-container">
-                <h5>برنامه ۳</h5>
-              </div>
-              <div class="section-content__input-container">
-                <h5>برنامه ۴</h5>
-              </div>
-            </div>
-          </div>
-        </a-card>
-      </section>
-    </div>
+                        <div class="section-content__input-container">
+                            <h5>برنامه ۴</h5>
+                        </div>
+                    </div>
+                  </div>
+              </a-card>
+        </section>
+      </div>
   </template>
 
   <script>
@@ -272,7 +264,7 @@ limitations under the License.
         return 'app-security'
       }
     }
-    
+
     customElements.define(AppSecurity.is, AppSecurity)
   </script>
 </dom-module>
