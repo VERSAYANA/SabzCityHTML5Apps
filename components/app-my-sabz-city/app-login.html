@@ -50,7 +50,7 @@ limitations under the License.
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-input/paper-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
- <link rel="import" href="../neon-animation/web-animations.html">
+<link rel="import" href="../neon-animation/web-animations.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
@@ -63,7 +63,7 @@ limitations under the License.
 
 <dom-module id="app-login">
 	<template>
-		<style type="text/css">
+		<style>
 			:host {
 				display: flex;
 				flex-direction: column;
@@ -140,6 +140,7 @@ limitations under the License.
 				align-items: center;
 				justify-content: center;
 			}
+
 			paper-checkbox span {
 				padding-right: 10px;
 			}
@@ -187,58 +188,48 @@ limitations under the License.
 		<a-card>
 			<div class="top-container">
 				<img class="logo" src="[[importPath]]../SabzCityElements/a-images/logo.svg" />
-				 <template is="dom-if" if="{{isLoginFirstStep}}">
+				<template is="dom-if" if="{{isLoginFirstStep}}">
 					<h2 class="login-title"> وارد شهر سبز شوید </h2>
 					<paper-input label="نام کاربری، ایمیل یا شماره"></paper-input>
 				</template>
-				 <template is="dom-if" if="{{!isLoginFirstStep}}">
-					 <div class="greet-container">
-						 <h2 class="login-title">سلام نام کاربر</h2>
-						<paper-dropdown-menu label="اکانت" >
-						  <paper-listbox slot="dropdown-content" selected="1">
-						    <paper-item>اکانت اول</paper-item>
-						    <paper-item>اکانت دوم</paper-item>
-						  </paper-listbox>
+				<template is="dom-if" if="{{!isLoginFirstStep}}">
+					<div class="greet-container">
+						<h2 class="login-title">سلام نام کاربر</h2>
+						<paper-dropdown-menu label="اکانت">
+							<paper-listbox slot="dropdown-content" selected="1">
+								<paper-item>اکانت اول</paper-item>
+								<paper-item>اکانت دوم</paper-item>
+							</paper-listbox>
 						</paper-dropdown-menu>
 					</div>
 					<paper-input label="پسورد"></paper-input>
 					<paper-input label="کد تایید"></paper-input>
 				</template>
 			</div>
+
 			<template is="dom-if" if={{isLoginFirstStep}}>
-				<paper-button
-				raised
-				on-click="handleNextButtonClick"
-				class="next-button">
-				بعدی
-			</paper-button>
+				<paper-button raised on-click="handleNextButtonClick" class="next-button"> بعدی </paper-button>
 			</template>
+
 			<template is="dom-if" if={{!isLoginFirstStep}}>
 				<div class="submit-container">
-					<paper-button
-					raised
-					on-click="handleNextButtonClick"
-					class="next-button">
-					بعدی
-				</paper-button>
-				<paper-checkbox noink>
-					<span>منو به خاطر بسپار</span>
-				</paper-checkbox>
+					<paper-button raised on-click="handleNextButtonClick" class="next-button"> بعدی </paper-button>
+					<paper-checkbox noink>
+						<span>منو به خاطر بسپار</span>
+					</paper-checkbox>
 				</div>
 			</template>
 		</a-card>
+
 		<a-card class="register-link-container">
 			<template is="dom-if" if="{{isLoginFirstStep}}">
-				<a class="register-link">
-					هنوز ثبت نام نکرده اید؟ همین حالا انجامش بدید!
-					<a>
+				<a class="register-link">هنوز ثبت نام نکرده اید؟ همین حالا انجامش بدید!<a>
 			</template>
 			<template is="dom-if" if="{{!isLoginFirstStep}}">
-				<a class="register-link">
-					پسوردتان را فراموش کرده اید؟
-					<a>
+				<a class="register-link">پسوردتان را فراموش کرده اید؟<a>
 			</template>
 		</a-card>
+
 		<template is="dom-if" if="{{isLoginFirstStep}}">
 			<a-card class="social-login-container">
 				<span class="basline">ورود از طریق</span>

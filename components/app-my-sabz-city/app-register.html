@@ -22,7 +22,7 @@ limitations under the License.
 
 <dom-module id="app-register">
 	<template>
-		<style type="text/css">
+		<style>
 			:host {
 				display: flex;
 				flex-direction: column;
@@ -113,9 +113,7 @@ limitations under the License.
 		</a-card>
 
 		<a-card class="sign-link-container">
-				<a class="sign-link">
-					قبلا ثبت نام کرده اید؟ وارد شوید
-				<a>
+			<a class="sign-link">قبلا ثبت نام کرده اید؟ وارد شوید</a>
 		</a-card>
 
 		<a-card class="social-register-container">
@@ -129,8 +127,11 @@ limitations under the License.
 
 	<script>
 		class AppRegister extends Polymer.Element {
-			static get is() { return 'app-register' }
+			static get is() {
+				return 'app-register'
+			}
 		}
+
 		customElements.define(AppRegister.is, AppRegister)
 	</script>
 </dom-module>

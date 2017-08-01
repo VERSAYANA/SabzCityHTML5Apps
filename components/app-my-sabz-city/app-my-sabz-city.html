@@ -44,7 +44,9 @@ limitations under the License.
 
 	<script>
 		class AppMySabzCity extends Polymer.Element {
-			static get is() { return 'app-my-sabz-city' }
+			static get is() {
+				return 'app-my-sabz-city'
+			}
 			static get properties() {
 				return {
 					menuData: {
@@ -71,7 +73,7 @@ limitations under the License.
 			}
 			static get observers() {
 				return [
-				  '_onRoutePathChanged(path)'
+					'_onRoutePathChanged(path)'
 				]
 			}
 			_onRoutePathChanged(path) {
@@ -99,9 +101,10 @@ limitations under the License.
 			}
 			connectedCallback() {
 				super.connectedCallback();
-			  console.log("safe amade");
+				console.log("safe amade");
 			}
 		}
+		
 		customElements.define(AppMySabzCity.is, AppMySabzCity)
 	</script>
 </dom-module>

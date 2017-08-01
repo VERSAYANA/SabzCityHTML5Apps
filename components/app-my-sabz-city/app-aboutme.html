@@ -35,7 +35,7 @@ limitations under the License.
 
 <dom-module id="app-aboutme">
 	<template>
-		<style type="text/css">
+		<style>
 			:host {
 				display: flex;
 				flex-direction: column;
@@ -286,6 +286,7 @@ limitations under the License.
 				<img class="profile-images" src="../../images/user.jpg" alt="profile pic" />
 				<span class="profile-name">حسین شعبانی</span>
 			</section>
+
 			<section class="second-info">
 				<h3 class="title">اطلاعات تکمیلی</h3>
 				<paper-icon-button class="editBtn" icon="editor:mode-edit" on-tap="_handleSecondEditBtn"></paper-icon-button>
@@ -306,6 +307,7 @@ limitations under the License.
 					</li>
 				</ul>
 			</section>
+
 			<section class="second-info">
 				<h3 class="title">اطلاعات بیشتر</h3>
 				<ul>
@@ -328,12 +330,14 @@ limitations under the License.
 		<a-modal class="editModal" id="firstInfoEditModal">
 			<div class="content">
 				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
+
 				<form is="iron-form" method="get" action="/" id="editForm">
 					<div id="profile-pic-inp">
 						<img src$="[[importPath]]../../images/user.jpg" alt="profile pic" />
 						<iron-icon icon="image:camera-alt"></iron-icon>
 						<file-input extensions='["jpeg", "jpg"]' maxFiles="1"></file-input>
 					</div>
+
 					<paper-input class="editMenuSect" label="نام" value="حسین"></paper-input>
 					<paper-input class="editMenuSect" label="نام خانوادگی" value="شعبانی"></paper-input>
 					<paper-input class="editMenuSect" label="ایمیل" value="mammad@gmail.com"></paper-input>
@@ -355,6 +359,7 @@ limitations under the License.
 		<a-modal class="editModal" id="secondInfoEditModal">
 			<div class="content">
 				<h3 class="title">از طریق فرم زیر میتوانید اطلاعات خود را تکمیل کنید.</h3>
+				
 				<form is="iron-form" method="get" action="/" id="editForm">
 					<div class="formMultipleValueSection" id="formMultipleValueMail">
 						<h3 class="formMultiple_title">ایمیل ها</h3>
@@ -389,7 +394,9 @@ limitations under the License.
 
 	<script>
 		class AppAboutMe extends Polymer.Element {
-			static get is() { return 'app-aboutme' }
+			static get is() {
+				return 'app-aboutme'
+			}
 			_handleFirstEditBtn() {
 				this.$.firstInfoEditModal.open();
 			}
@@ -407,6 +414,7 @@ limitations under the License.
 				this.$.secondEditionFab.close();
 			}
 		}
+
 		customElements.define(AppAboutMe.is, AppAboutMe)
 	</script>
 </dom-module>
