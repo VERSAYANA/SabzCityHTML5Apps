@@ -16,128 +16,148 @@ limitations under the License.
 <link rel="import" href="../paper-input/paper-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/hardware-icons.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 <!-- app elements -->
 <link rel="import" href="../SabzCityElements/a-card/a-card.html">
-<link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
+<link rel="import" href="../SabzCityElements/a-expansion/a-expansion.html">
+<link rel="import" href="../SabzCityElements/a-iconset/a-iconset.html">
 
 <dom-module id="app-security">
   <template>
     <style>
       .page-title {
-        font-family: var(--secondary-font);
-        text-align: center;
-        font-size: var(--very-huge-text-size);
-        color: var(--fifth-text-color);
+          font-family: var(--secondary-font);
+          text-align: center;
+          font-size: var(--very-huge-text-size);
+          color: var(--fifth-text-color);
       }
 
       .page-explanation {
-        font-size: var(--large-text-size);
-        color: var(--primary-text-color);
-        text-align: center;
+          font-size: var(--large-text-size);
+          color: var(--primary-text-color);
+          text-align: center;
       }
 
       .sections-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 30px;
-        margin-top: 7em;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px;
+          margin-top: 7em;
       }
 
       .section {
-        width: 80%;
-        margin-bottom: 5em;
-        display: flex;
-        justify-content: center;
-      }
-
-      .section-card {
-        display: flex;
-        flex-direction: column;
-        padding: 30px;
-        width: 80%;
-        flex: 6;
-        border-top: 2px solid var(--secondary-background-color);
+          width: 70%;
+          margin-bottom: 5em;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          border-top: 2px solid var(--secondary-background-color);
       }
 
       .section-title-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        flex: 4;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          flex: 1;
       }
 
       .section-title {
-        text-align: right;
-        font-size: var(--huge-text-size);
-        color: var(--fifth-text-color);
-        font-weight: 200;
+          text-align: center;
+          font-size: var(--huge-text-size);
+          color: var(--fifth-text-color);
+          font-weight: 200;
+          padding: 10px;
       }
 
       .section-explanation {
-        font-size: var(--big-text-size);
-        text-align: right;
-        width: 70%;
-        font-weight: 100;
-        line-height: 2;
+          font-size: var(--h2-text-size);
+          text-align: right;
+          width: 70%;
+          font-weight: 100;
+          line-height: 2;
+          margin-top: 0;
+          margin-bottom: 30px;
       }
 
       .section-content {
-        display: flex;
-        justify-content: space-around;
+          display: flex;
+          justify-content: space-around;
       }
 
       .section-title__description {
-        font-size: var(--huge-text-size);
-        color: var(--primary-text-color);
-        text-align: center;
-        font-weight: 300;
+          font-size: var(--huge-text-size);
+          color: var(--primary-text-color);
+          text-align: right;
+          font-weight: 300;
       }
 
       .section-content__form {
-        flex: 1;
+          flex: 1;
+          margin: 0;
       }
 
-      .section-content__input-container {
+      .section-content__row {
+          display: flex;
+          align-items: center;
+          border-bottom: var(--black-border);
+          justify-content: space-between;
+          padding: 20px 10px;
+      }
+
+      .section-content__form .section-content__row:last-child {
+          border: none;
+      }
+
+      .section-content__row label, .section-content__form label, .section-content__row h5 {
+          font-weight: 500;
+          flex: 2;
+      }
+
+      .section-content__form .input {
+          border: none;
+          outline: none;
+          flex: 7;
+          font-family: var(--secondary-font);
+          font-size: var(--big-text-size);
+      }
+
+      .section-content__row paper-button {
+          text-align: center;
+          font-size: var(--big-text-size);
+      }
+
+      .section-content__row:nth-child(4) paper-button {
+          text-align: center;
+          color: var(--tertiary-text-color);
+      }
+
+      .authenticated-container {
         display: flex;
-        align-items: center;
-        border-bottom: var(--black-border);
-        padding: 10px 5px;
         justify-content: space-between;
+        align-items: center;
       }
 
-      .section-content__input-container label {
-        font-weight: 300;
-        flex: 2;
-      }
-
-      .section-content__input-container input {
-        border: none;
-        padding: 8px;
-        outline: none;
-        flex: 7;
-        font-family: var(--secondary-font);
-        font-size: var(--big-text-size);
-        text-align: center;
-      }
-
-      .section-content__input-container paper-button {
-        flex: 7;
-        text-align: center;
-        font-size: var(--big-text-size);
-      }
-
-      .section-content__input-container:nth-child(4) paper-button {
-        flex: 7;
-        text-align: center;
-        color: var(--tertiary-text-color);
+      .authenticated-container iron-icon {
+          color: var(--tertiary-text-color);
       }
 
       .device-time {
-        font-weight: 300;
-        font-size: var(--big-text-size);
-        color: var(--light-text-color);
+          font-weight: 300;
+          font-size: var(--big-text-size);
+          color: var(--light-text-color);
       }
+
+      .row-title-container {
+          display: flex;
+          align-items: center;
+      }
+
+      .icon {
+          margin: 7px;
+      }
+
     </style>
 
     <h1 class="page-title">امنیت</h1>
@@ -145,116 +165,122 @@ limitations under the License.
 
       <div class="sections-container">
           <section class="section">
-              <div class="section-title-container">
-                  <h3 class="section-title">تنظیمات</h3>
-                  <p class="section-explanation">با استفاده از یک پسورد مطمئن و فعالساری ورود دو مرحله ای امنیت اکانتتون رو تضمین کنید و راه های نفوذ رو برای همیشه ببندید!</p>
-              </div>
-              <a-card class="section-card">
-                  <div class="section-content">
-                      <div class="section-content__form">
-                          <div class="section-content__input-container">
-                        <label>پسورد</label>
-                        <input value="password12345">
-                    </div>
-                          <div class="section-content__input-container">
-                        <label>ورود دو مرحله ای</label>
-                        <paper-button>خاموش</paper-button>
-                    </div>
-                          <div class="section-content__input-container">
-                        <label>OTP</label>
-                    </div>
-                          <div class="section-content__input-container">
-                        <label>وضعیت هویتی</label>
-                        <paper-button>تایید شده</paper-button>
-                    </div>
+              <h3 class="section-title">تنظیمات</h3>
+              <div class="section-content">
+                  <div class="section-title-container">
+                      <p class="section-explanation">با استفاده از یک پسورد مطمئن و فعالساری ورود دو مرحله ای امنیت اکانتتون رو تضمین کنید و راه های نفوذ رو برای همیشه ببندید!</p>
+                  </div>
+                  <a-card class="section-content__form">
+                      <a-expansion title="پسورد">
+                          <input class="input" slot="content" value="12345">
+                      </a-expansion>
+                      <a-expansion title="ورود دو مرحله ای">
+                          <paper-button slot="content">خاموش</paper-button>
+                      </a-expansion>
+                      <a-expansion title="OTP">
+                          <paper-button slot="content">خاموش</paper-button>
+                      </a-expansion>
+                      <div class="section-content__row">
+                          <label>وضعیت هویتی</label>
+                          <div class="authenticated-container">
+                              <iron-icon icon="icons:check"></iron-icon>
+                              <paper-button>تایید شده</paper-button>
+                          </div>
                       </div>
-                  </div>
-              </a-card>
+                  </a-card>
+              </div>
           </section>
 
           <section class="section">
-              <div class="section-title-container">
-                  <h3 class="section-title">ارتباط با دیگر پلتفرم ها</h3>
-                  <p class="section-explanation">شهر سبز با پشتیبانی از شبکه ها و پلتفرم های مختلف شمارو در همه جا همراهی میکنه. با لینک شدن به شبکه های دیگه به اکانتتون اعتبار ببخشید.</p>
-              </div>
-              <a-card class="section-card">
+              <!-- more social icons will add soon! -->
+              
+              <h3 class="section-title">ارتباط با دیگر پلتفرم ها</h3>
                   <div class="section-content">
-                      <div class="section-content__form">
-                  <div class="section-content__input-container">
-                      <h5>اینستاگرام</h5>
+                      <div class="section-title-container">
+                          <p class="section-explanation">شهر سبز با پشتیبانی از شبکه ها و پلتفرم های مختلف شمارو در همه جا همراهی میکنه. با لینک شدن به شبکه های دیگه به اکانتتون اعتبار ببخشید.</p>
+                      </div>
+                      <a-card class="section-content__form">
+                          <div class="section-content__row">
+                              <div class="row-title-container">
+                                  <iron-icon class="icon" icon="insta:main"></iron-icon>
+                                  <h5>اینستاگرام</h5>
+                              </div>
+                          </div>
+                          <div class="section-content__row">
+                              <h5>توییتر</h5>
+                          </div>
+                          <div class="section-content__row">
+                              <h5>فیسبوک</h5>
+                          </div>
+                          <div class="section-content__row">
+                              <h5>گیتهاب</h5>
+                          </div>
+                      </a-card>
                   </div>
-                  <div class="section-content__input-container">
-                      <h5>توییتر</h5>
-                  </div>
-                  <div class="section-content__input-container">
-                      <h5>فیسبوک</h5>
-                  </div>
-                  <div class="section-content__input-container">
-                    <h5>گیتهاب</h5>
-                  </div>
-              </div>
-                  </div>
-              </a-card>
           </section>
 
           <section class="section">
-              <div class="section-title-container">
-                  <h3 class="section-title">دستگاه های فعال</h3>
-                  <p class="section-explanation">تو هر وسیله ای میتونی از شهرسبز استفاده کنی و خیلی راحت دستگاه های متصلت رو مدیریت کنی!</p>
-                  <p class="section-explanation">تمامی دستگاه های متصل شده به اکانت شما اینجان با چک دائم اونا مطمئن شو که همه چیز درسته.</p>
+              <h3 class="section-title">دستگاه های فعال</h3>
+              <div class="section-content">
+                  <div class="section-title-container">
+                          <p class="section-explanation">تو هر وسیله ای میتونی از شهرسبز استفاده کنی و خیلی راحت دستگاه های متصلت رو مدیریت کنی!</p>
+                          <p class="section-explanation">تمامی دستگاه های متصل شده به اکانت شما اینجان با چک دائم اونا مطمئن شو که همه چیز درسته.</p>
+                      </div>
+                  <a-card class="section-content__form">
+                      <div class="section-content__row">
+                          <div class="row-title-container">
+                              <iron-icon class="icon" icon="hardware:phone-android"></iron-icon>
+                              <h5>گوشی آندروید D5503</h5>
+                          </div>
+                          <time class="device-time">۱۷:۰۵</time>
+                      </div>
+                      <div class="section-content__row">
+                          <div class="row-title-container">
+                              <iron-icon class="icon" icon="hardware:watch"></iron-icon>
+                              <h5>ساعت هوشمند A710</h5>
+                          </div>
+                          <time class="device-time">دیروز ۲۲:۳۰</time>
+                      </div>
+                      <div class="section-content__row">
+                          <div class="row-title-container">
+                              <iron-icon class="icon" icon="hardware:tv"></iron-icon>
+                              <h5>تلوزیون ال جی</h5>
+                          </div>
+                          <time class="device-time">۵ فروردین</time>
+                      </div>
+                      <div class="section-content__row">
+                          <div class="row-title-container">
+                              <iron-icon class="icon" icon="hardware:desktop-windows"></iron-icon>
+                              <h5>دسکتاپ QU19SJM-IR</h5>
+                          </div>
+                          <time class="device-time">۲۶ مهر</time>
+                      </div>
+                  </a-card>
               </div>
-              <a-card class="section-card">
-                  <div class="section-content">
-                  <div class="section-content__form">
-                  <div class="section-content__input-container">
-                      <h5>گوشی آندروید D5503</h5>
-                      <time class="device-time">۱۷:۰۵</time>
-                  </div>
-                  <div class="section-content__input-container">
-                      <h5>ساعت هوشمند A710</h5>
-                      <time class="device-time">دیروز ۲۲:۳۰</time>
-                  </div>
-                  <div class="section-content__input-container">
-                      <h5>تلوزیون ال جی</h5>
-                      <time class="device-time">۵ فروردین</time>
-                  </div>
-                  <div class="section-content__input-container">
-                      <h5>دسکتاپ QU19SJM-IR</h5>
-                      <time class="device-time">۲۶ مهر</time>
-                  </div>
-                </div>
-              </div>
-              </a-card>
           </section>
 
           <section class="section">
-              <div class="section-title-container">
-                  <h4 class="section-title">دنیایی از برنامه ها برای تعامل بهتر با شهر خودتون!</h4>
-                  <p class="section-explanation">حلا دیگه با توی گوشیتون هم با شهرسبز همراه بشید. ما از طیف وسیعی از برنامه های گوشی های هوشمند پشتیبانی میکنیم.</p>
-              </div>
-              <a-card class="section-card">
-                  <h3 class="section-title">برنامه های متصل</h3>
+              <h3 class="section-title">ارتباط با دیگر پلتفرم ها</h3>
                   <div class="section-content">
-                      <div class="section-content__form">
-                        <div class="section-content__input-container">
-                            <h5>برنامه ۱</h5>
-                        </div>
-
-                        <div class="section-content__input-container">
-                            <h5>برنامه ۲</h5>
-                        </div>
-
-                        <div class="section-content__input-container">
-                            <h5>برنامه ۳</h5>
-                        </div>
-
-                        <div class="section-content__input-container">
-                            <h5>برنامه ۴</h5>
-                        </div>
-                    </div>
+                      <div class="section-title-container">
+                          <p class="section-explanation">شهر سبز با پشتیبانی از شبکه ها و پلتفرم های مختلف شمارو در همه جا همراهی میکنه. با لینک شدن به شبکه های دیگه به اکانتتون اعتبار ببخشید.</p>
+                      </div>
+                      <a-card class="section-content__form">
+                          <div class="section-content__row">
+                              <h5>برنامه ۱</h5>
+                          </div>
+                          <div class="section-content__row">
+                              <h5>برنامه ۲</h5>
+                          </div>
+                          <div class="section-content__row">
+                              <h5>برنامه ۳</h5>
+                          </div>
+                          <div class="section-content__row">
+                              <h5>برنامه ۴</h5>
+                          </div>
+                      </a-card>
                   </div>
-              </a-card>
-        </section>
+          </section>
       </div>
   </template>
 

@@ -20,6 +20,7 @@ limitations under the License.
 <link rel="import" href="../SabzCityElements/a-card/a-card.html">
 <link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
 <link rel="import" href="../SabzCityElements/a-sabzcity-link/a-sabzcity-link">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
 
 <dom-module id="app-register">
 	<template>
@@ -87,6 +88,17 @@ limitations under the License.
 				margin-bottom: 10px;
 			}
 
+			.button-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 30px;
+			}
+
+			.button-container paper-checkbox span{
+				padding: 10px;
+			}
+
 			.sign-link {
 				font-size: var(--large-text-size);
 				color: var(--fifth-text-color);
@@ -109,7 +121,12 @@ limitations under the License.
 			<paper-input label="ایمیل"></paper-input>
 			<paper-input label="شماره"></paper-input>
 			<paper-input type="password" label="رمز عبور"></paper-input>
-			<paper-button raised class="submit">ثبت نام</paper-button>
+			<div class="button-container">
+		    	<paper-button raised class="submit">ثبت نام</paper-button>
+				<paper-checkbox noink>
+					<span>قوانین استفاده را می پذیرم</span>
+				</paper-checkbox>
+			</div>
 
 		</a-card>
 
