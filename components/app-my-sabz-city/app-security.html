@@ -96,6 +96,7 @@ limitations under the License.
       .section-content__form {
           flex: 1;
           margin: 0;
+          padding: 0;
       }
 
       .section-content__row {
@@ -110,6 +111,10 @@ limitations under the License.
           border: none;
       }
 
+      .section-content__form paper-button{
+          padding: 0;
+      }
+
       .section-content__row label, .section-content__form label, .section-content__row h5 {
           font-weight: 500;
           flex: 2;
@@ -118,7 +123,7 @@ limitations under the License.
       .section-content__form .input {
           border: none;
           outline: none;
-          flex: 7;
+          width: 100%;
           font-family: var(--secondary-font);
           font-size: var(--big-text-size);
       }
@@ -171,8 +176,11 @@ limitations under the License.
                       <p class="section-explanation">با استفاده از یک پسورد مطمئن و فعالساری ورود دو مرحله ای امنیت اکانتتون رو تضمین کنید و راه های نفوذ رو برای همیشه ببندید!</p>
                   </div>
                   <a-card class="section-content__form">
-                      <a-expansion title="پسورد">
-                          <input class="input" slot="content" value="12345">
+                      <a-expansion
+                          title="پسورد"
+                          include-save-buttons
+                          is-save-active="{{isPasswordSaveButtonActive}}">
+                          <input class="input" slot="content" value="12345" on-input="handlePasswordChange">
                       </a-expansion>
                       <a-expansion title="ورود دو مرحله ای">
                           <paper-button slot="content">خاموش</paper-button>
@@ -193,7 +201,7 @@ limitations under the License.
 
           <section class="section">
               <!-- more social icons will add soon! -->
-              
+
               <h3 class="section-title">ارتباط با دیگر پلتفرم ها</h3>
                   <div class="section-content">
                       <div class="section-title-container">
@@ -288,6 +296,19 @@ limitations under the License.
     class AppSecurity extends Polymer.Element {
       static get is() {
         return 'app-security'
+      }
+      static get properties() {
+          return {
+              isPasswordSaveButtonActive: {
+                  type: Boolean,
+                  value: false
+              }
+          }
+      }
+      handlePasswordChange(e) {
+        const value = e.target.value;
+        if (value !== '12345') this.isPasswordSaveButtonActive = true;
+        else this.isPasswordSaveButtonActive = false;
       }
     }
 
