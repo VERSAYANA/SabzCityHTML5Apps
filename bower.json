@@ -58,6 +58,7 @@
     "paper-fab": "PolymerElements/paper-fab#^2.0.0",
     "iron-meta": "PolymerElements/iron-meta#^2.0.0",
     "app-localize-behavior": "PolymerElements/app-localize-behavior#^2.0.0",
-    "paper-material": "PolymerElements/paper-material#^2.0.0"
+    "paper-material": "PolymerElements/paper-material#^2.0.0",
+    "mat-elements": "expandjs/mat-elements#^1.3.0"
   }
 }
