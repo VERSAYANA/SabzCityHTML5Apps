@@ -141,6 +141,42 @@ limitations under the License.
 				fill: var(--tertiary-text-color);
 			}
 
+		/*
+			responsive
+		*/
+
+		@media only screen and (max-width: 1200px) {
+
+		    .profile-pic-container, .content-container {
+	        	width: 80%;
+	        }
+
+			.content-card__subcontainer {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.content-card__subcontainer .approved-container {
+				padding-right: 20px;
+			}
+	    }
+
+		@media only screen and (max-width: 768px) {
+
+			.profile-pic-container {
+	        	width: 100%;
+	        }
+
+			.content-container {
+				width: 100%;
+				flex-direction: column;
+			}
+
+			.content-column {
+				width: 100%;
+			}
+	    }
+
 		</style>
 
 	<h1 class="page-title">درباره من</h1>
