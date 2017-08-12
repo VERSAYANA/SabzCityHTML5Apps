@@ -13,6 +13,7 @@ limitations under the License.
 <!-- polymer elements -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-search/paper-search.html">
+<link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../mat-elements/mat-list.html">
 <link rel="import" href="../mat-elements/mat-item.html">
 <link rel="import" href="../mat-elements/mat-avatar.html">
@@ -87,21 +88,12 @@ limitations under the License.
 
             <mat-list class="group-list">
 
-                <mat-item class="item" label="گروه ورزشی">
-                    <mat-avatar slot="primary" icon="places:fitness-center"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
-                <mat-item class="item" label="گروه برنامه نویسی">
-                    <mat-avatar slot="primary" icon="action:code"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
-                <mat-item class="item" label="گروه طراحی">
-                    <mat-avatar slot="primary" icon="image:palette"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
+                <template is="dom-repeat" items="{{allGroups}}">
+                    <mat-item class="item" label="[[item.name]]">
+                        <mat-avatar slot="primary" icon="[[item.icon]]"></mat-avatar>
+                        <span>[[item.description]]</span>
+                    </mat-item>
+                </template>
             </mat-list>
 
             <p class="card-description">با عضو شدن توی گروه ها میتونید دوستای جدید پیدا کنید و سوال های خودتون رو بپرسید.</p>
@@ -111,32 +103,12 @@ limitations under the License.
         <a-card class="card">
 
             <mat-list class="group-list">
-
-                <mat-item class="item" label="گروه ورزشی">
-                    <mat-avatar slot="primary" icon="places:fitness-center"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
-                <mat-item class="item" label="گروه برنامه نویسی">
-                    <mat-avatar slot="primary" icon="action:code"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
-                <mat-item class="item" label="گروه طراحی">
-                    <mat-avatar slot="primary" icon="image:palette"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
-                <mat-item class="item" label="گروه سخت افزار">
-                    <mat-avatar slot="primary" icon="hardware:devices-other"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
-                <mat-item class="item" label="گروه استارتاپ">
-                    <mat-avatar slot="primary" icon="places:free-breakfast"></mat-avatar>
-                    <span>توضیحات گروه برای آشنایی در اینجا...</span>
-                </mat-item>
-
+                <template is="dom-repeat" items="{{joinedGroups}}">
+                    <mat-item class="item" label="[[item.name]]">
+                        <mat-avatar slot="primary" icon="[[item.icon]]"></mat-avatar>
+                        <span>[[item.description]]</span>
+                    </mat-item>
+                </template>
             </mat-list>
         </a-card>
     </template>
@@ -144,6 +116,35 @@ limitations under the License.
     <script>
         class AppGroups extends Polymer.Element {
             static get is() { return 'app-groups' }
+            static get properties() {
+                return {
+                    allGroups: Array,
+                    joinedGroups: Array
+                }
+            }
+            connectedCallback() {
+				super.connectedCallback();
+				const getGroupsJSON = (callback) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.overrideMimeType("application/json");
+                    xhr.open('GET', './components/app-my-sabz-city/api-test/groups.json', true);
+                    xhr.responseType = 'text';
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState == 4 && xhr.status == "200") {
+                            callback(xhr.responseText);
+                        }
+                   };
+                   xhr.send();
+                };
+                getGroupsJSON(data => {
+                    const toObject = JSON.parse(data);
+                    this.allGroups = toObject.allGroups;
+                    this.joinedGroups = toObject.joinedGroups;
+                })
+			}
+            openDialog() {
+                console.log('opened');
+            }
         }
         customElements.define(AppGroups.is, AppGroups);
     </script>

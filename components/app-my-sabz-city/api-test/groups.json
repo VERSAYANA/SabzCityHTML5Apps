@@ -1,0 +1,46 @@
+{
+    "allGroups": [
+        {
+            "name": "گروه ورزشی",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "places:fitness-center"
+        },
+        {
+            "name": "گروه برنامه نویسی",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "action:code"
+        },
+        {
+            "name": "گروه طراحی",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "image:palette"
+        }
+    ],
+    "joinedGroups": [
+        {
+            "name": "گروه ورزشی",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "places:fitness-center"
+        },
+        {
+            "name": "گروه برنامه نویسی",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "action:code"
+        },
+        {
+            "name": "گروه طراحی",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "image:palette"
+        },
+        {
+            "name": "گروه سخت افزار",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "hardware:devices-other"
+        },
+        {
+            "name": "گروه استارتاپ",
+            "description": "توضیحات گروه در اینجا...",
+            "icon": "places:free-breakfast"
+        }
+    ]
+}
