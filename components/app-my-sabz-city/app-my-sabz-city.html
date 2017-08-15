@@ -26,6 +26,7 @@ limitations under the License.
 <link rel="import" href="./app-security.html">
 <link rel="import" href="./app-recover.html">
 <link rel="import" href="./app-groups.html">
+<link rel="import" href="./app-ouath.html">
 
 <dom-module id="app-my-sabz-city">
 	<template>
@@ -43,6 +44,7 @@ limitations under the License.
 			<app-security id="security"></app-security>
 			<app-recover id="recover"></app-recover>
 			<app-groups id="groups"></app-groups>
+			<app-ouath id="ouath"></app-ouath>
 		</iron-pages>
 	</template>
 
@@ -76,6 +78,9 @@ limitations under the License.
 						}, {
 							name: 'گروه ها',
 							url: '/groups/'
+						}, { 
+							name: 'دسترسی برنامه',
+							url: '/ouath/'
 						}]
 					}
 

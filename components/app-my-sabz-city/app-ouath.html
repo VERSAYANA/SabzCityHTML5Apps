@@ -25,3 +25,138 @@ limitations under the License.
 redirect to redirectURL with ?token=TokenID
 Help other with a component to handle TokenID and Get token access
 -->
+
+<!-- polymer elements -->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-item/paper-item-body.html">
+<link rel="import" href="../paper-item/paper-icon-item.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<!-- app elements -->
+<link rel="import" href="../SabzCityElements/a-card/a-card.html">
+<link rel="import" href="../SabzCityElements/a-social-btn/a-social-btn.html">
+<link rel="import" href="../SabzCityElements/a-sabzcity-link/a-sabzcity-link">
+
+<dom-module id="app-ouath">
+	<template>
+		<style>
+			
+			:host {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.card {
+				width: 40%;
+				min-width: 400px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.card .card-title {
+				color: var(--fifth-text-color);
+				font-weight: 300;
+			}
+
+			.card .card-description {
+				text-align: center;
+			}
+
+			.app-link {
+				color: var(--fifth-text-color);
+				cursor: pointer;
+				padding-bottom: 3px;
+				border-bottom: 1px solid var(--fifth-text-color);
+				margin: 2rem 0;
+			}
+
+			.access-list {
+				width: 100%;
+			}
+
+			.access-item__description {
+				color: var(----light-text-color);
+			}
+
+			.grant-button {
+				background-color: var(--fifth-text-color);
+				color: white;
+				font-weight: 300;
+				align-self: flex-end;
+				margin-top: 2rem;
+			}
+
+		</style>
+		<a-card class="card">
+			<h1 class="card-title">دسترسی برنامه</h1>
+			<p class="card-description">برنامه اجازه دسترسی احتیاج دارد. شما میتوانید دسترسی ها را تغییر دهید</p>
+			<a-sabzcity-link class="app-link">صفحه برنامه</a-sabzcity-link>
+
+			<paper-listbox class="access-list">
+				<template is="dom-repeat" items="{{accesses}}">
+					<paper-icon-item>
+						<paper-item-body two-line>
+					    	<h3>[[item.title]]</h3>	
+					    	<p class="access-item__description" secondary>[[item.description]]</p>
+					    </paper-item-body>
+				    	<paper-icon-button 
+					    	on-click="handleRemove" 
+					    	icon="close" 
+					    	data-title$="[[item.title]]"
+					    	alt="remove access"
+				    	>
+				    	</paper-icon-button>
+				  	</paper-icon-item>
+				</template>
+			</paper-listbox>
+
+			<paper-button class="grant-button">اجازه دسترسی</paper-button>
+		</a-card>
+
+		<a-card class="card">
+			<a-sabzcity-link class="app-link">هرزمان میتونید دسترسی هارو تغییر بدید</a-sabzcity-link>
+		</a-card>
+	</template>
+
+	<script>
+		class AppOuath extends Polymer.Element {
+			static get is() { return 'app-ouath' }
+			static get properties() {
+				return {
+					accesses: Array
+				}
+			}
+			connectedCallback() {
+      		    super.connectedCallback();
+      			const getAccessesJSON = (callback) => {
+                    const xhr = new XMLHttpRequest();
+                        xhr.overrideMimeType("application/json");
+                        xhr.open('GET', './components/app-my-sabz-city/api-test/accesses.json', true);
+                        xhr.responseType = 'text';
+                        xhr.onreadystatechange = () => {
+                            if (xhr.readyState == 4 && xhr.status == "200") {
+                                  callback(xhr.responseText);
+                            }
+                        };
+                        xhr.send();
+                      };
+                getAccessesJSON(data => {
+                    const accesses = JSON.parse(data);
+                    this.accesses = accesses;
+                })
+			 }
+			handleRemove(e) {
+				const title = e.target.dataset.title;
+				console.log(e.target);
+				console.log('title is', title);
+				console.log( this.accesses.filter(access => access.title !==  title));
+				this.accesses = this.accesses.filter(access => access.title !==  title);
+			}
+		}
+		customElements.define(AppOuath.is, AppOuath);
+	</script>
+</dom-module>
