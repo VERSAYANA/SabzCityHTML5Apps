@@ -126,6 +126,7 @@ limitations under the License.
           width: 100%;
           font-family: var(--secondary-font);
           font-size: var(--big-text-size);
+          padding-right: 15px;
       }
 
       .section-content__row paper-button {
@@ -161,6 +162,10 @@ limitations under the License.
 
       .icon {
           margin: 7px;
+      }
+
+      #auth-status {
+        padding-right: 30px;
       }
 
     /*
@@ -207,7 +212,7 @@ limitations under the License.
                           <paper-button slot="content">خاموش</paper-button>
                       </a-expansion>
                       <div class="section-content__row">
-                          <label>وضعیت هویتی</label>
+                          <label id="auth-status">وضعیت هویتی</label>
                           <div class="authenticated-container">
                               <iron-icon icon="icons:check"></iron-icon>
                               <paper-button>تایید شده</paper-button>

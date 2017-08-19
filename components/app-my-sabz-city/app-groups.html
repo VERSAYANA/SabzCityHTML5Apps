@@ -14,6 +14,7 @@ limitations under the License.
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-search/paper-search.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
 <link rel="import" href="../mat-elements/mat-list.html">
 <link rel="import" href="../mat-elements/mat-item.html">
 <link rel="import" href="../mat-elements/mat-avatar.html">
@@ -81,6 +82,7 @@ limitations under the License.
 
             #dialog {
                 width: 40%;
+                min-width: 400px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -91,6 +93,12 @@ limitations under the License.
                 align-items: center;
             }
 
+            .dialog-description {
+                text-align: center;
+                width: 80%;
+                line-height: 2;
+            }
+
             .dialog-title {
                 color: var(--fifth-text-color);
                 align-self: flex-start;
@@ -98,6 +106,19 @@ limitations under the License.
 
             .dialog-subtitle {
                 font-weight: 300;
+                border-bottom: var(--light-border);
+                margin-bottom: 0;
+                padding-bottom: 15px;
+            }
+
+            .join-switch-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .join-switch-container span {
+                margin: 10px;
             }
 
         </style>
@@ -105,8 +126,27 @@ limitations under the License.
 
         <paper-dialog id="dialog">
             <h2 class="dialog-title">[[activeName]]</h2>
-            <p>[[activeDescription]]</p>
+            <p class="dialog-description">[[activeDescription]]</p>
             <h3 class="dialog-subtitle">کنترل دسترسی</h3>
+            <mat-list class="dialog-accessess-list">
+                <mat-item label="زمان">
+                    <span>[[activeTime]]</span>
+                </mat-item>
+                <mat-item label="مکان">
+                    <span>[[activeCoordinate]]</span>
+                </mat-item>
+                <mat-item label="نوع">
+                    <span>[[activeType]]</span>
+                </mat-item>
+            </mat-list>
+            <h3 class="dialog-subtitle">قوانین عضویت</h3>
+            <div class="join-switch-container">
+                <span>فقط توسط مدیر </span>
+                <paper-toggle-button disabled checked></paper-toggle-button>
+                <span>توسط همه</span>
+            </div>
+            <h3 class="dialog-subtitle">قوانین اعلان ها</h3>
+            <h3>تعریف نشده</h3>
         </paper-dialog>
 
         <a-card class="card">
@@ -121,6 +161,9 @@ limitations under the License.
                         label="[[item.name]]"
                         on-click="handleGroupPress"
                         data-description$="[[item.description]]"
+                        data-time$="[[item.time]]"
+                        data-coordinate$="[[item.coordinate]]"
+                        data-type$="[[item.type]]"
                         data-icon$="[[item.icon]]"
                     >
                         <mat-avatar slot="primary" icon="[[item.icon]]"></mat-avatar>
@@ -137,7 +180,16 @@ limitations under the License.
 
             <mat-list class="group-list">
                 <template is="dom-repeat" items="{{joinedGroups}}">
-                    <mat-item class="item" label="[[item.name]]">
+                    <mat-item
+                        class="item"
+                        label="[[item.name]]"
+                        on-click="handleGroupPress"
+                        data-description$="[[item.description]]"
+                        data-time$="[[item.time]]"
+                        data-coordinate$="[[item.coordinate]]"
+                        data-type$="[[item.type]]"
+                        data-icon$="[[item.icon]]"
+                    >
                         <mat-avatar slot="primary" icon="[[item.icon]]"></mat-avatar>
                         <span>[[item.description]]</span>
                     </mat-item>
@@ -155,7 +207,10 @@ limitations under the License.
                     joinedGroups: Array,
                     activeName: String,
                     activeDescription: String,
-                    activeIcon: String
+                    activeIcon: String,
+                    activeTime: String,
+                    activeCoordinate: String,
+                    activeType: String,
                 }
             }
             connectedCallback() {
@@ -175,6 +230,7 @@ limitations under the License.
                 getGroupsJSON(data => {
                     const toObject = JSON.parse(data);
                     this.allGroups = toObject.allGroups;
+                    console.log(this.allGroups);
                     this.joinedGroups = toObject.joinedGroups;
                 })
 			 }
@@ -185,12 +241,17 @@ limitations under the License.
                     item = e.target.parentElement;
                 }
                 const title = item.getAttribute('label');
-                const { icon, description } = item.dataset;
+                const { icon, description, time, coordinate, type } = item.dataset;
                 const dialog = this.$.dialog;
+
+                console.log(item.dataset);
 
                 this.activeIcon = icon;
                 this.activeDescription = description;
                 this.activeName = title;
+                this.activeType = type;
+                this.activeCoordinate = coordinate;
+                this.activeTime = time;
                 dialog.open();
 
             }
