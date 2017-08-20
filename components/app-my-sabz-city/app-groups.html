@@ -230,7 +230,6 @@ limitations under the License.
                 getGroupsJSON(data => {
                     const toObject = JSON.parse(data);
                     this.allGroups = toObject.allGroups;
-                    console.log(this.allGroups);
                     this.joinedGroups = toObject.joinedGroups;
                 })
 			 }
@@ -243,8 +242,6 @@ limitations under the License.
                 const title = item.getAttribute('label');
                 const { icon, description, time, coordinate, type } = item.dataset;
                 const dialog = this.$.dialog;
-
-                console.log(item.dataset);
 
                 this.activeIcon = icon;
                 this.activeDescription = description;
