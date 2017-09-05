@@ -1,5 +1,5 @@
-<!--
-Copyright 2016 SabzCity
+/*
+Copyright 2017 SabzCity
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -9,25 +9,13 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
+*/
 
-<!-- polymer elements -->
-<link rel="import" href="../polymer/polymer.html">
-<!-- app elements -->
-<link rel="import" href="../SabzCityElements/a-public-library/a-public-library.html">
+import materialDesignTemplate from './material-design.html'
 
-<dom-module id="app-main">
-	<template>
-		my-main
-	</template>
+export class AppNotification extends Polymer.Element {
+	static get is() { return 'app-notification' }
+	static get template() { return materialDesignTemplate }
+}
 
-	<script>
-		class AppMain extends Polymer.Element {
-			static get is() {
-				return 'app-main'
-			}
-		}
-		
-		customElements.define(AppMain.is, AppMain)
-	</script>
-</dom-module>
+customElements.define(AppNotification.is, AppNotification)

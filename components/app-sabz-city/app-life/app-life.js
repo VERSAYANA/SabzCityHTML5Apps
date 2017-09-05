@@ -1,5 +1,5 @@
-<!--
-Copyright 2016 SabzCity
+/*
+Copyright 2017 SabzCity
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -9,16 +9,13 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
--->
+*/
 
-<dom-module id="app-life">
-	<template>
-		app sabz city life
-	</template>
+import materialDesignTemplate from './material-design.html'
 
-	<script>
-		Polymer({
-			is: "app-life"
-		});
-	</script>
-</dom-module>
+export class AppLife extends Polymer.Element {
+	static get is() { return 'app-life' }
+	static get template() { return materialDesignTemplate }
+}
+
+customElements.define(AppLife.is, AppLife)

@@ -1,0 +1,224 @@
+<!--
+https://www.instagram.com/developer/authentication/ https://github.com/x-element/oauth-v2/ set access token to cookie from
+apis with username & password of user get access & renew token with oauth token can get and save multiple token associate
+with different user. renew near expiry token set jwt in cookie with selected user if it can't renew token, alert user in
+popup message with link to login page for security it must delete tokens on no activity specific time
+
+instagram https://api.instagram.com/oauth/authorize/?client_id=a377919d5e07466fab7be0153c51ce88&redirect_uri=http://apis.sabz.city/auth/v1/token/ouath2/instagram/?redirect-uri=""&response_type=token
+facebook
+
+
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '1849628521952707',
+      cookie: true,
+      xfbml: true,
+      version: 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+-->
+
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<style>
+	:host {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		min-height: 90vh;
+		padding-top: 30px;
+	}
+
+	a-card {
+		width: 25%;
+		min-width: 400px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		padding-bottom: 30px;
+		height: 60vh;
+	}
+
+	.top-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.greet-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.register-link-container {
+		display: flex;
+		justify-content: center;
+		height: auto;
+		padding: 20px;
+	}
+
+	.register-link {
+		font-size: var(--large-text-size);
+		color: var(--secondary-text-color);
+		cursor: pointer;
+		padding-bottom: 5px;
+		border-bottom: var(--black-border);
+		align-self: center;
+		color: var(--fifth-text-color);
+	}
+
+	.register-link :hover {
+		color: var(--secondary-text-color);
+	}
+
+	paper-dropdown-menu {
+		margin-right: 20px;
+		text-align: right;
+	}
+
+	.submit-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.next-button {
+		text-align: center;
+		background: var(--fifth-background-color);
+		color: var(--primary-background-color);
+		font-size: var(--medium-text-size);
+		margin: 20px 0px 10px;
+		align-self: flex-start;
+	}
+
+	paper-checkbox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	paper-checkbox span {
+		padding-right: 10px;
+	}
+
+	.logo {
+		width: 130px;
+		height: 130px;
+		display: flex;
+		align-self: center;
+	}
+
+	.login-title {
+		font-family: var(--secondary-font);
+		text-align: center;
+		font-size: var(--huge-text-size);
+		color: var(--fifth-text-color);
+		margin-bottom: 10px;
+	}
+
+	.basline {
+		text-align: center;
+		margin: 8px 0px 8px;
+		font-size: var(--large-text-size);
+	}
+
+	.social-login-container {
+		height: auto;
+		padding: 20px;
+	}
+
+	.social-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.social-container a-social-btn {
+		flex: 1;
+		margin-bottom: 10px;
+	}
+</style>
+
+<a-iconset></a-iconset>
+
+<a-card>
+	<div class="top-container">
+		<img class="logo" src="[[importPath]]../SabzCityElements/a-images/logo.svg" />
+		<template is="dom-if" if="{{isLoginFirstStep}}">
+			<h2 class="login-title"> وارد شهر سبز شوید </h2>
+			<paper-input label="نام کاربری، ایمیل یا شماره"></paper-input>
+		</template>
+		<template is="dom-if" if="{{!isLoginFirstStep}}">
+			<div class="greet-container">
+				<h2 class="login-title">سلام نام کاربر</h2>
+				<paper-dropdown-menu label="اکانت">
+					<paper-listbox slot="dropdown-content" selected="1">
+						<paper-item>اکانت اول</paper-item>
+						<paper-item>اکانت دوم</paper-item>
+					</paper-listbox>
+				</paper-dropdown-menu>
+			</div>
+			<paper-input label="پسورد"></paper-input>
+			<paper-input label="کد تایید"></paper-input>
+		</template>
+	</div>
+
+	<template is="dom-if" if={{isLoginFirstStep}}>
+		<paper-button raised on-click="handleNextButtonClick" class="next-button"> بعدی </paper-button>
+	</template>
+
+	<template is="dom-if" if={{!isLoginFirstStep}}>
+		<div class="submit-container">
+			<paper-button raised on-click="handleNextButtonClick" class="next-button"> بعدی </paper-button>
+			<paper-checkbox noink>
+				<span>منو به خاطر بسپار</span>
+			</paper-checkbox>
+		</div>
+	</template>
+</a-card>
+
+<a-card class="register-link-container">
+	<template is="dom-if" if="{{isLoginFirstStep}}">
+		<a class="register-link">هنوز ثبت نام نکرده اید؟ همین حالا انجامش بدید!</a>
+	</template>
+	<template is="dom-if" if="{{!isLoginFirstStep}}">
+		<a-sabzcity-link class="register-link">پسوردتان را فراموش کرده اید؟
+			<a-sabzcity-link>
+	</template>
+</a-card>
+
+<template is="dom-if" if="{{isLoginFirstStep}}">
+	<a-card class="social-login-container">
+		<span class="basline">ورود از طریق</span>
+		<div class="social-container">
+			<a-social-btn url="#" social="google"></a-social-btn>
+			<a-social-btn url="/123" social="instagram"></a-social-btn>
+		</div>
+	</a-card>
+</template>

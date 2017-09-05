@@ -1,0 +1,104 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<style>
+     :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .method-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 65vh;
+        width: 60%;
+        margin-top: 6vh;
+        padding: 3em 5em;
+    }
+
+    .method-container h1,
+    .method-container h4 {
+        text-align: center;
+    }
+
+    .method-container paper-radio-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .method-container .radio-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .method-container .radio-label {
+        padding: 10px;
+    }
+
+    .next-button {
+        background-color: var(--fifth-background-color);
+        color: var(--secondary-text-color);
+        text-align: center;
+        align-self: flex-end;
+    }
+
+    .more-info-container {
+        width: 60%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .more-info-container a-sabzcity-link {
+        width: 70%;
+        line-height: 2;
+        cursor: pointer;
+        color: var(--fifth-text-color);
+    }
+</style>
+
+<a-card class="method-container">
+    <div>
+        <h1>بازیابی</h1>
+        <h4>لطفا روش بازیابی مورد نظرتون رو انتخاب کنید.</h4>
+    </div>
+
+    <paper-radio-group>
+        <paper-radio-button name="password" class="radio-button">
+            <label class="radio-label">پسوردم را فراموش کرده ام</label>
+        </paper-radio-button>
+
+        <paper-radio-button name="block-account" class="radio-button">
+            <label class="radio-label">فعالسازی اکانت بلوکه شده</label>
+        </paper-radio-button>
+
+        <paper-radio-button name="reactive-old" class="radio-button">
+            <label class="radio-label">فعالسازی اکانت قدیمی</label>
+        </paper-radio-button>
+
+        <paper-radio-button name="someoneelse-usage" class="radio-button">
+            <label class="radio-label">شحص دیگری ازاطلاعات من استفاده می کند</label>
+        </paper-radio-button>
+    </paper-radio-group>
+
+    <paper-button class="next-button">بعدی</paper-button>
+</a-card>
+
+<a-card class="more-info-container">
+    <a-sabzcity-link>
+        در هر زمان که به مشکلی برخورد کردید که فکر می کنید نمی دانید چه اتفاقی در حال وقوع می باشد یا روند کار غیر منطقی می باشد
+        به راحتی با کارشناسان ما گفت و گوی آنلاین انجام دهید.
+    </a-sabzcity-link>
+</a-card>

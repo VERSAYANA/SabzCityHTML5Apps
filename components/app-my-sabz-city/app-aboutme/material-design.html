@@ -1,0 +1,545 @@
+<!--
+Copyright 2016 SabzCity
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<style>
+	/*
+		header and profile pic
+	*/
+
+	:host {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.page-title {
+		color: var(--fifth-text-color);
+		font-weight: 500;
+	}
+
+	.profile-pic-card {
+		background-image: url('../SabzCityElements/a-images/profile-background.jpg');
+		background-size: cover;
+		width: 55%;
+		height: 50vh;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+
+	.profile-pic-container {
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+
+	.profile-pic {
+		margin-bottom: calc(-20px - 3.5rem);
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+	}
+
+	.profile-status-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: calc(-20px - 3.5rem);
+	}
+
+	.profile-status-container .status-username {
+		cursor: pointer;
+		color: var(--fifth-text-color);
+	}
+
+	.profile-status-container .status-nickname {
+		margin: 0;
+	}
+	/*
+		content and forms
+	*/
+
+	.content-container {
+		margin-top: 3rem;
+		width: 55%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	.content-column {
+		width: calc(50% - 2rem);
+	}
+
+	.content-card__title-container {
+		display: flex;
+		align-items: center;
+	}
+
+	.single-line-input-container {
+		display: flex;
+		align-items: baseline;
+	}
+
+	.input {
+		font-size: var(--huge-text-size);
+		margin: 0 7px;
+		width: 100%;
+		margin-top: -1em;
+		margin-bottom: 1.2em;
+	}
+
+	.input-label {
+		white-space: nowrap;
+		font-weight: 300;
+		font-size: var(--medium-text-size);
+	}
+
+	.dropdown {
+		font-size: var(--h1-text-size);
+	}
+
+	.content-card__title-container .content-card-title {
+		color: var(--tertiary-text-color);
+		margin-right: 10px;
+		font-weight: 300;
+	}
+
+	.content-card__title-container .content-card-icon {
+		fill: var(--tertiary-text-color);
+	}
+
+	.content-card {
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.content-card>* {
+		padding-right: 20px;
+	}
+
+	.content-card__subcontainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.content-card__subcontainer .approved-container {
+		display: flex;
+		align-items: center;
+	}
+
+	.content-card__subcontainer .approved-container .approved-text {
+		color: var(--tertiary-text-color);
+		margin-right: 5px;
+	}
+
+	.content-card__subcontainer .approved-container .approved-icon {
+		fill: var(--tertiary-text-color);
+	}
+	/*
+		responsive
+	*/
+
+	@media only screen and (max-width: 1200px) {
+
+		.profile-pic-card,
+		.content-container {
+			width: 80%;
+		}
+
+		.content-card__subcontainer {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.content-card__subcontainer .approved-container {
+			padding-right: 20px;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+
+		.profile-pic-card {
+			width: 100%;
+		}
+
+		.content-container {
+			width: 100%;
+			flex-direction: column;
+		}
+
+		.content-column {
+			width: 100%;
+		}
+	}
+</style>
+
+<h1 class="page-title">درباره من</h1>
+<p>از این قسمت میتونید اطلاعات خودتون رو مشاهده و ویرایش کنید</p>
+
+<a-editable-card class="profile-pic-card">
+	<div slot="presenting" class="profile-pic-container">
+		<div class="profile-status-container">
+			<a-sabzcity-link class="status-username">OmidHekayati@</a-sabzcity-link>
+			<h5 class="status-nickname">Mr.Omid</h5>
+		</div>
+		<img class="profile-pic" src="[[importPath]]../SabzCityElements/a-images/user.jpg" alt="عکس پروفایل">
+	</div>
+</a-editable-card>
+
+<section class="content-container">
+	<div class="content-column">
+		<a-editable-card class="content-card">
+			<div slot="presenting">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="picture-in-picture"></iron-icon>
+					<h3 class="content-card-title">اطلاعات گذرنامه</h3>
+				</div>
+
+				<mat-list>
+					<mat-item class="content-card__item" label="تاریخ تولد">
+						<mat-avatar slot="primary" icon="social:cake"></mat-avatar>
+						<span>۱۳۸۰/۷/۲۶</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="جنسیت">
+						<mat-avatar slot="primary" icon="notification:wc"></mat-avatar>
+						<span>مرد</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="نام">
+						<mat-avatar slot="primary" icon="social:person"></mat-avatar>
+						<span>کیارش</span>
+					</mat-item>
+					<mat-item class="content-card__item" label="کد بین المللی">
+						<mat-avatar slot="primary" icon="communication:contact-phone"></mat-avatar>
+						<span>98+</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="ملیت">
+						<mat-avatar slot="primary" icon="maps:my-location"></mat-avatar>
+						<span>ایرانی</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="شماره پاسپورت">
+						<mat-avatar slot="primary" icon="hardware:sim-card"></mat-avatar>
+						<span>1234-5678-9101</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="محل تولد">
+						<mat-avatar slot="primary" icon="social:location-city"></mat-avatar>
+						<span>ارومیه</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="نام خانوادگی">
+						<mat-avatar slot="primary" icon="social:person"></mat-avatar>
+						<span>نام خانوادگی</span>
+					</mat-item>
+				</mat-list>
+			</div>
+			<div slot="editing">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="picture-in-picture"></iron-icon>
+					<h3 class="content-card-title">اطلاعات گذرنامه</h3>
+				</div>
+				<label class="input-label">تاریخ تولد</label>
+				<div class="single-line-input-container">
+					<paper-input class="input" value="1380"></paper-input>
+					<paper-input class="input" value="7"></paper-input>
+					<paper-input class="input" value="26"></paper-input>
+				</div>
+
+				<label class="input-label">نام</label>
+				<paper-input class="input" value="کیارش"></paper-input>
+
+				<label class="input-label">کد بین المللی</label>
+				<paper-input class="input" value="98+"></paper-input>
+
+				<label class="input-label">ملیت</label>
+				<paper-input class="input" value="ایرانی" disabled></paper-input>
+
+				<label class="input-label">شماره پاسپورت</label>
+				<paper-input class="input" value="1234-5678-9101"></paper-input>
+
+				<label class="input-label">محل تولد</label>
+				<paper-input class="input" value="ارومیه"></paper-input>
+
+				<label class="input-label">نام خانوادگی</label>
+				<paper-input class="input" value="نام خانوادگی"></paper-input>
+			</div>
+		</a-editable-card>
+
+		<a-editable-card class="content-card">
+			<div slot="presenting">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="image:brush"></iron-icon>
+					<h3 class="content-card-title">شخصی سازی</h3>
+				</div>
+
+				<h4>رابط کاربری</h4>
+
+				<mat-list>
+					<mat-item class="content-card__item" label="پوسته برنامه ها">
+						<mat-avatar slot="primary" icon="image:palette"></mat-avatar>
+						<span>تیتانیوم</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="ورژن برنامه ها">
+						<mat-avatar slot="primary" icon="action:cached"></mat-avatar>
+						<span>0.1.4</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="میزان مصرف دیتا">
+						<mat-avatar slot="primary" icon="device:data-usage"></mat-avatar>
+						<span>1.5 گیگابایت</span>
+					</mat-item>
+					<mat-item class="content-card__item" label="زبان">
+						<mat-avatar slot="primary" icon="action:language"></mat-avatar>
+						<span>فارسی</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="قوانین امنیتی">
+						<mat-avatar slot="primary" icon="hardware:security"></mat-avatar>
+						<span>سطح 2</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="زمان">
+						<mat-avatar slot="primary" icon="device:access-time"></mat-avatar>
+						<span>+3.5 GMT</span>
+					</mat-item>
+				</mat-list>
+
+				<h4>کلیات</h4>
+
+				<mat-list>
+					<mat-item class="content-card__item" label="عضو شدن در گروه ها">
+						<span>فعال</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="اطلاع رسانی اعلان ها">
+						<span>سطح 2</span>
+					</mat-item>
+
+					<mat-item class="content-card__item" label="غیرفعال کردن متغیرها">
+						<span>تایید شده</span>
+					</mat-item>
+				</mat-list>
+			</div>
+			<div slot="editing">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="image:brush"></iron-icon>
+					<h3 class="content-card-title">شخصی سازی</h3>
+				</div>
+
+				<h4>رابط کاربری</h4>
+
+				<h5 class="input-label">پوسته برنامه ها</h5>
+				<mat-dropdown class="dropdown" value="1" pulldown>
+					<mat-option value="1" label="تیتانیوم"></mat-option>
+					<mat-option value="2" label="طلایی"></mat-option>
+					<mat-option value="3" label="تاریک"></mat-option>
+				</mat-dropdown>
+
+				<h5 class="input-label">ورژن برنامه ها</h5>
+				<paper-input class="input" value="0.1.14" disabled></paper-input>
+
+				<h5 class="input-label">زبان</h5>
+				<mat-dropdown class="dropdown" value="1" pulldown>
+					<mat-option value="1" label="فارسی"></mat-option>
+					<mat-option value="2" label="German"></mat-option>
+					<mat-option value="3" label="French"></mat-option>
+				</mat-dropdown>
+
+				<h5 class="input-label">قوانین امنیتی</h5>
+				<mat-dropdown class="dropdown" value="2" pulldown>
+					<mat-option value="1" label="سطح 1"></mat-option>
+					<mat-option value="2" label="سطح 2"></mat-option>
+					<mat-option value="3" label="سطح 3"></mat-option>
+				</mat-dropdown>
+
+				<h4>کلیات</h4>
+
+				<h5 class="input-label">عضو شدن در گروه ها</h5>
+				<paper-toggle-button checked></paper-toggle-button>
+
+				<h5 class="input-label">اطلاع رسانی اعلان ها</h5>
+				<mat-dropdown class="dropdown" value="2" pulldown>
+					<mat-option value="1" label="سطح 1"></mat-option>
+					<mat-option value="2" label="سطح 2"></mat-option>
+					<mat-option value="3" label="سطح 3"></mat-option>
+				</mat-dropdown>
+
+			</div>
+		</a-editable-card>
+	</div>
+	<div class="content-column">
+		<a-editable-card class="content-card">
+			<div slot="presenting">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:email"></iron-icon>
+					<h3 class="content-card-title">اطلاعات ایمیل</h3>
+				</div>
+
+				<div class="content-card__subcontainer">
+					<mat-list>
+						<mat-item class="content-card__item" label="شناسه ایمیل">
+							<span>Emailid</span>
+						</mat-item>
+
+						<mat-item class="content-card__item" label="نشانی ایمیل">
+							<span>example@gmail.com</span>
+						</mat-item>
+					</mat-list>
+
+					<div class="approved-container">
+						<iron-icon class="approved-icon" icon="icons:done"></iron-icon>
+						<span class="approved-text">تایید شده</span>
+					</div>
+				</div>
+			</div>
+
+			<div slot="editing">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:email"></iron-icon>
+					<h3 class="content-card-title">اطلاعات ایمیل</h3>
+				</div>
+
+				<label class="input-label">شناسه ایمیل</label>
+				<paper-input class="input" value="EmailID"></paper-input>
+
+				<label class="input-label">آدرس ایمیل</label>
+				<paper-input class="input" value="example@gmail.com"></paper-input>
+			</div>
+		</a-editable-card>
+
+		<a-editable-card class="content-card">
+			<div slot="presenting">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:phone"></iron-icon>
+					<h3 class="content-card-title">اطلاعات تماس</h3>
+				</div>
+
+				<div class="content-card__subcontainer">
+					<mat-list>
+						<mat-item class="content-card__item" label="شناسه تماس">
+							<span>98+</span>
+						</mat-item>
+
+						<mat-item class="content-card__item" label="شماره تماس">
+							<span>9141 234 567</span>
+						</mat-item>
+					</mat-list>
+
+					<div class="approved-container">
+						<iron-icon class="approved-icon" icon="icons:done"></iron-icon>
+						<span class="approved-text">تایید شده</span>
+					</div>
+				</div>
+			</div>
+
+			<div slot="editing">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:email"></iron-icon>
+					<h3 class="content-card-title">اطلاعات تماس</h3>
+				</div>
+
+				<label class="input-label">شناسه تماس</label>
+				<paper-input class="input" value="98+"></paper-input>
+
+				<label class="input-label">شماره تماس</label>
+				<paper-input class="input" value="1234 567 8910"></paper-input>
+			</div>
+		</a-editable-card>
+
+		<a-editable-card class="content-card">
+			<div slot="presenting">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:location-on"></iron-icon>
+					<h3 class="content-card-title">اطلاعات آدرس</h3>
+				</div>
+
+				<div class="content-card__subcontainer">
+					<mat-list>
+						<mat-item class="content-card__item" label="شناسه آدرس">
+							<span>ارومیه</span>
+						</mat-item>
+
+						<mat-item class="content-card__item" label="مختصات آدرس">
+							<span>32.4279° N, 53.6880° E</span>
+						</mat-item>
+					</mat-list>
+
+					<div class="approved-container">
+						<iron-icon class="approved-icon" icon="icons:done"></iron-icon>
+						<span class="approved-text">تایید شده</span>
+					</div>
+				</div>
+			</div>
+
+			<div slot="editing">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:email"></iron-icon>
+					<h3 class="content-card-title">اطلاعات آدرس</h3>
+				</div>
+
+				<label class="input-label">شناسه آدرس</label>
+				<paper-input class="input" value="ارومیه"></paper-input>
+
+				<label class="input-label">مختصات آدرس</label>
+				<paper-input class="input" value="32.4279° N, 53.6880° E"></paper-input>
+			</div>
+		</a-editable-card>
+
+		<a-editable-card class="content-card">
+			<div slot="presenting">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="icons:language"></iron-icon>
+					<h3 class="content-card-title">اطلاعات وبسایت</h3>
+				</div>
+
+				<div class="content-card__subcontainer">
+					<mat-list>
+						<mat-item class="content-card__item" label="شناسه وبسایت">
+							<span>webid</span>
+						</mat-item>
+
+						<mat-item class="content-card__item" label="آدرس وبسایت">
+							<span>example.com</span>
+						</mat-item>
+					</mat-list>
+
+					<div class="approved-container">
+						<iron-icon class="approved-icon" icon="icons:done"></iron-icon>
+						<span class="approved-text">تایید شده</span>
+					</div>
+				</div>
+			</div>
+
+			<div slot="editing">
+				<div class="content-card__title-container">
+					<iron-icon class="content-card-icon" icon="communication:email"></iron-icon>
+					<h3 class="content-card-title">اطلاعات وبسایت</h3>
+				</div>
+
+				<label class="input-label">شناسه وبسایت</label>
+				<paper-input class="input" value="webID"></paper-input>
+
+				<label class="input-label">آدرس وبسایت</label>
+				<paper-input class="input" value="example.com"></paper-input>
+			</div>
+		</a-editable-card>
+	</div>
+</section>
