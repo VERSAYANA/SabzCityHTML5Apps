@@ -29,6 +29,7 @@ import "./app-groups/app-groups.js"
 import "./app-ouath/app-ouath.js"
 
 import materialDesignTemplate from './material-design.html'
+import manifest from './manifest.json'
 
 export class AppMySabzCity extends Polymer.Element {
 	static get is() { return 'app-my-sabz-city' }
@@ -101,3 +102,6 @@ export class AppMySabzCity extends Polymer.Element {
 }
 
 customElements.define(AppMySabzCity.is, AppMySabzCity)
+
+// App Manifest Data
+export const appManifest = manifest
