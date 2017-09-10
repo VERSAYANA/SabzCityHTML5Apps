@@ -11,14 +11,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Element as PolymerElement } from '../@polymer/polymer/polymer-element.js'
+import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
 
 import "../app-route/app-route.html"
 import "../app-route/app-location.html"
 import "../iron-pages/iron-pages.html"
 
-import "../SabzCityElements/m-header/m-header.js"
-import "../SabzCityElements/a-public-library/a-public-library.js"
+import "/node_modules/@sabzcity/SabzCityElements/m-header/m-header.js"
+import "/node_modules/@sabzcity/SabzCityElements/a-public-library/a-public-library.js"
 
 import "./app-login/app-login.js"
 import "./app-register/app-register.js"
@@ -30,7 +30,10 @@ import "./app-groups/app-groups.js"
 import "./app-ouath/app-ouath.js"
 
 import materialDesignTemplate from './material-design.html'
+
 import manifest from './manifest.json'
+// App Manifest Data
+export const appManifest = manifest
 
 export class AppMySabzCity extends PolymerElement {
 	static get is() { return 'app-my-sabz-city' }
@@ -103,6 +106,3 @@ export class AppMySabzCity extends PolymerElement {
 }
 
 customElements.define(AppMySabzCity.is, AppMySabzCity)
-
-// App Manifest Data
-export const appManifest = manifest

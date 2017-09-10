@@ -4,10 +4,6 @@ All SabzCity Html5 Apps are OpenSource and everyone can help us to improve in an
 
 ### Design Methodology
 We use AtomicDesign!
-- html base tags is our Atoms
-- use polymer elements as Molecules
-- use SabzCity{DesignPattern}Kit as Organisms (DesignPattern can be Material, Flat, ...)
-- Finally templates form in every single app pages e.g. app-login.html
 
 ### Subdomians
 - accounting.sabz.city

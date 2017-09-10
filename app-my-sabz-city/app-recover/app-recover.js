@@ -11,22 +11,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Element as PolymerElement } from '../@polymer/polymer/polymer-element.js'
+import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
 
-import "../paper-input/paper-input.html"
 import "../paper-button/paper-button.html"
-import "../iron-icon/iron-icon.html"
+import "../paper-radio-button/paper-radio-button.html"
+import "../paper-radio-group/paper-radio-group.html"
 
 import "../SabzCityElements/a-card/a-card.html"
-import "../SabzCityElements/a-social-btn/a-social-btn.html"
 import "../SabzCityElements/a-sabzcity-link/a-sabzcity-link"
-import "../paper-checkbox/paper-checkbox.html"
 
 import materialDesignTemplate from './material-design.html'
 
-export class AppRegister extends PolymerElement {
-	static get is() { return 'app-register' }
-	static get template() { return materialDesignTemplate }
+export class AppRecover extends PolymerElement {
+    static get is() { return 'app-recover' }
+    static get template() { return materialDesignTemplate }
 }
 
-customElements.define(AppRegister.is, AppRegister)
+customElements.define(AppRecover.is, AppRecover);
