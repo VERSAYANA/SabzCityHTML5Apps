@@ -18,9 +18,6 @@
   },
   "author": "SabzCity co.",
   "main": "index.html",
-  "scripts": {
-    "install": "yarn install --modules-folder ./components"
-  },
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^1.1",
     "@polymer/polymer": "^3.0.0-pre.1",

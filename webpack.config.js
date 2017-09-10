@@ -2,8 +2,9 @@ const path = require('path');
 
 const config = {
     entry: {
-        polyfills: '/components/SabzCityElements/index.html-suggestion/polyfills.js',
-        index: '/components/SabzCityElements/index.html-suggestion/index.js',
+        polyfills: '/polyfills.js',
+        index: '/index.js',
+        // add app here
         sabzcity: '/components/app-sabz-city/app-sabz-city.js',
         mysabzcity: '/components/app-my-sabz-city/app-my-sabz-city.js',
         shopsabzcity: '/components/app-shop-sabz-city/app-shop-sabz-city.js'
