@@ -11,13 +11,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import "../polymer/polymer.html"
+import { Element as PolymerElement } from '../@polymer/polymer/polymer-element.js'
 
-import "../SabzCityElements/a-public-library/a-public-library.html"
+import "../SabzCityElements/a-public-library/a-public-library.js"
 
 import materialDesignTemplate from './material-design.html'
 
-export class AppMain extends Polymer.Element {
+export class AppMain extends PolymerElement {
 	static get is() { return 'app-main' }
 	static get template() { return materialDesignTemplate }
 }

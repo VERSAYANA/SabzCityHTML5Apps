@@ -11,7 +11,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import "../polymer/polymer.html"
+import { Element as PolymerElement } from '../@polymer/polymer/polymer-element.js'
+
 import "../paper-listbox/paper-listbox.html"
 import "../paper-item/paper-item.html"
 import "../paper-item/paper-item-body.html"
@@ -25,7 +26,7 @@ import "../SabzCityElements/a-sabzcity-link/a-sabzcity-link"
 
 import materialDesignTemplate from './material-design.html'
 
-export class AppOuath extends Polymer.Element {
+export class AppOuath extends PolymerElement {
 	static get is() { return 'app-ouath' }
 	static get template() { return materialDesignTemplate }
 	static get properties() {

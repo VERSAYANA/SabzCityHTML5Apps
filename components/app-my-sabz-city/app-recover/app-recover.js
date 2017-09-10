@@ -11,7 +11,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import "../polymer/polymer.html"
+import { Element as PolymerElement } from '../@polymer/polymer/polymer-element.js'
+
 import "../paper-button/paper-button.html"
 import "../paper-radio-button/paper-radio-button.html"
 import "../paper-radio-group/paper-radio-group.html"
@@ -21,7 +22,7 @@ import "../SabzCityElements/a-sabzcity-link/a-sabzcity-link"
 
 import materialDesignTemplate from './material-design.html'
 
-export class AppRecover extends Polymer.Element {
+export class AppRecover extends PolymerElement {
     static get is() { return 'app-recover' }
     static get template() { return materialDesignTemplate }
 }

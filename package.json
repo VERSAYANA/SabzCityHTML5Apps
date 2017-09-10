@@ -1,5 +1,5 @@
 {
-  "name": "sabz.city",
+  "name": "@sabzcity/sabz.city",
   "version": "0.1",
   "description": "Html5 app for Sabz.City domain & some subdomains",
   "keywords": [
@@ -22,8 +22,10 @@
     "install": "yarn install --modules-folder ./components"
   },
   "dependencies": {
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.3",
-    "polymer": "Polymer/polymer#^2.0.2",
+    "@webcomponents/webcomponentsjs": "^1.1",
+    "@polymer/polymer": "^3.0.0-pre.1",
+    "@sabzcity/sabzcityelements": "",
+
     "app-layout": "PolymerElements/app-layout#^2.0.1",
     "iron-grid": "*",
     "iron-icon": "PolymerElements/iron-icon#^2.0.0",
