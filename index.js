@@ -21,5 +21,5 @@ import '/node_modules/@sabzcity/SabzCityElements/a-app/a-app-engine.js'
 // Set Base Tag by currect Domain
 document.write("<base href='//" + document.location.host + "' />")
 
-// Set manifest Tag by export const appManifest
+// Set manifest Tag by exported related app const (appManifest).
 document.write("<link rel=manifest href='data:application/manifest+json,{" + appManifest + "}>")

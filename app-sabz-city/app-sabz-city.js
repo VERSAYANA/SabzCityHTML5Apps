@@ -12,17 +12,21 @@ limitations under the License.
 */
 
 import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
-
 import "../app-route/app-route.html"
 import "../app-route/app-location.html"
 import "../iron-pages/iron-pages.html"
 
-import "../SabzCityElements/m-header/m-header.html"
+import "/node_modules/@sabzcity/SabzCityElements/m-header/m-header.js"
+import publicLibrary from "/node_modules/@sabzcity/SabzCityElements/a-public-library/a-public-library.js"
 
 import "./app-life/app-life.js"
 import "./app-main/app-main.js"
 
 import materialDesignTemplate from './material-design.html'
+
+import manifest from './manifest.json'
+// App Manifest Data
+export const appManifest = manifest
 
 export class AppSabzCity extends PolymerElement {
 	static get is() { return 'app-sabz-city' }

@@ -12,13 +12,12 @@ limitations under the License.
 */
 
 import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
-
 import "../app-route/app-route.html"
 import "../app-route/app-location.html"
 import "../iron-pages/iron-pages.html"
 
 import "/node_modules/@sabzcity/SabzCityElements/m-header/m-header.js"
-import "/node_modules/@sabzcity/SabzCityElements/a-public-library/a-public-library.js"
+import publicLibrary from "/node_modules/@sabzcity/SabzCityElements/a-public-library/a-public-library.js"
 
 import "./app-login/app-login.js"
 import "./app-register/app-register.js"
