@@ -1,0 +1,29 @@
+{
+  "name": "@sabzcity/sabz.city",
+  "version": "0.1",
+  "description": "Html5 app for Sabz.City domain",
+  "keywords": [
+    "sabzcity",
+    "greencity",
+    "shahre sabz"
+  ],
+  "license": "SEE LICENSE IN https://github.com/SabzCity/SabzCityHTML5Apps/LICENSE",
+  "homepage": "https://github.com/sabzcity/SabzCityHTML5Apps/",
+  "bugs": {
+    "url": "https://github.com/sabzcity/SabzCityHTML5Apps/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabzcity/SabzCityHTML5Apps.git"
+  },
+  "author": "SabzCity co.",
+  "main": "index.html",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^1.0.11",
+    "@polymer/polymer": "^3.0.0-pre.1",
+    "@sabzcity/elements": "",
+    "@sabzcity/webcomponents": ""
+  },
+  "flat": true,
+  "private": true
+}

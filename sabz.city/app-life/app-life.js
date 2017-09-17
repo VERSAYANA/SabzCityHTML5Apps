@@ -11,13 +11,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {Element as PolymerElement} from '../node_modules/@polymer/polymer/polymer-element.js'
+import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
 
 import materialDesignTemplate from './material-design.html'
 
-export class AppNotification extends PolymerElement {
-	static get is() { return 'app-notification' }
+export class AppLife extends PolymerElement {
+	static get is() { return 'app-life' }
 	static get template() { return materialDesignTemplate }
 }
 
-customElements.define(AppNotification.is, AppNotification)
+customElements.define(AppLife.is, AppLife)

@@ -11,15 +11,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import '/node_modules/@sabzcity/SabzCityElements/m-powered-by/m-powered-by.js'
+import '/node_modules/@sabzcity/elements/m-powered-by/m-powered-by.js'
 import '/node_modules/@polymer/polymer/polymer.js'
-import "/node_modules/@polymer/platinum-sw/platinum-sw-register.js"
-import "/node_modules/@polymer/platinum-sw/platinum-sw-cache.js"
-import '/node_modules/@sabzcity/SabzCityElements/m-outdated-browser/m-outdated-browser.js'
-import '/node_modules/@sabzcity/SabzCityElements/a-app/a-app-engine.js'
+//import '/node_modules/@polymer/platinum-sw/platinum-sw-register.js'
+//import '/node_modules/@polymer/platinum-sw/platinum-sw-cache.js'
+import '/node_modules/@sabzcity/elements/m-outdated-browser/m-outdated-browser.js'
+import '/node_modules/@sabzcity/elements/a-app/a-app-engine.js'
+import '/app-my-sabz-city.js'
 
 // Set Base Tag by currect Domain
 document.write("<base href='//" + document.location.host + "' />")
-
-// Set manifest Tag by exported related app const (appManifest).
-document.write("<link rel=manifest href='data:application/manifest+json,{" + appManifest + "}>")

@@ -11,8 +11,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
-
 import "../iron-icons/editor-icons.html"
 import "../iron-icon/iron-icon.html"
 import "../iron-icons/av-icons.html"
