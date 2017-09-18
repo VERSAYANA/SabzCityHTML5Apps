@@ -26,8 +26,8 @@ import "../SabzCityElements/a-sabzcity-link/a-sabzcity-link"
 
 import materialDesignTemplate from './material-design.html'
 
-export class AppOuath extends PolymerElement {
-	static get is() { return 'app-ouath' }
+export class AppOauth extends PolymerElement {
+	static get is() { return 'app-oauth' }
 	static get template() { return materialDesignTemplate }
 	static get properties() {
 		return {
@@ -62,4 +62,4 @@ export class AppOuath extends PolymerElement {
 	}
 }
 
-customElements.define(AppOuath.is, AppOuath);
+customElements.define(AppOauth.is, AppOauth);

@@ -13,7 +13,7 @@ limitations under the License.
 
 import { Element as PolymerElement } from '/node_modules/@polymer/polymer/polymer-element.js'
 
-import "../SabzCityElements/a-public-library/a-public-library.js"
+import "../SabzCityElements/public-library/public-library.js"
 
 import materialDesignTemplate from './material-design.html'
 

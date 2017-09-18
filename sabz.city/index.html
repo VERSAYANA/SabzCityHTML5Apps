@@ -18,6 +18,8 @@ limitations under the License.
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="mobile-web-app-capable" content="yes" />
+    <!-- Add to home screen for Chrome on Android -->
+    <link rel=manifest href="/manifest.json">
     <!-- Add to home screen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -27,8 +29,8 @@ limitations under the License.
     <meta name="msapplication-TileImage" content="images/logo.svg">
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- App logic part -->
-    <script src="/polyfills.bundle.js"></script>
-    <script src="/index.bundle.js"></script>
+    <script src="/polyfills.bundle.js" async></script>
+    <script src="/index.bundle.js" async></script>
 </head>
 
 <body>

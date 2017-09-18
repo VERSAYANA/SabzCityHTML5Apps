@@ -16,23 +16,19 @@ import "../app-route/app-route.html"
 import "../app-route/app-location.html"
 import "../iron-pages/iron-pages.html"
 
-import "node_modules/@sabzcity/elements/m-header/m-header.js"
-import publicLibrary from "node_modules/@sabzcity/elements/a-public-library/a-public-library.js"
+import "/node_modules/@sabzcity/elements/m-header/m-header.js"
+import publicLibrary from "/node_modules/@sabzcity/elements/public-library/public-library.js"
 
-import "./app-login/app-login.js"
-import "./app-register/app-register.js"
-import "./app-main/app-main.js"
-import "./app-aboutme/app-aboutme.js"
-import "./app-security/app-security.js"
-import "./app-recover/app-recover.js"
-import "./app-groups/app-groups.js"
-import "./app-ouath/app-oauth.js"
+import "../app-login/app-login.js"
+import "../app-register/app-register.js"
+import "../app-main/app-main.js"
+import "../app-aboutme/app-aboutme.js"
+import "../app-security/app-security.js"
+import "../app-recover/app-recover.js"
+import "../app-groups/app-groups.js"
+import "../app-oauth/app-oauth.js"
 
 import materialDesignTemplate from './material-design.html'
-
-import appManifest from './manifest.json'
-// Set manifest Tag by exported related app const (appManifest).
-document.write("<link rel=manifest href='data:application/manifest+json,{" + appManifest + "}>")
 
 export class AppMySabzCity extends PolymerElement {
 	static get is() { return 'app-my-sabz-city' }
@@ -64,7 +60,7 @@ export class AppMySabzCity extends PolymerElement {
 					url: '/groups/'
 				}, {
 					name: 'دسترسی برنامه',
-					url: '/ouath/'
+					url: '/oauth/'
 				}]
 			}
 

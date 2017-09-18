@@ -17,7 +17,5 @@ import '/node_modules/@polymer/polymer/polymer.js'
 //import '/node_modules/@polymer/platinum-sw/platinum-sw-cache.js'
 import '/node_modules/@sabzcity/elements/m-outdated-browser/m-outdated-browser.js'
 import '/node_modules/@sabzcity/elements/a-app/a-app-engine.js'
-import '/app-sabz-city.js'
 
-// Set Base Tag by currect Domain
-document.write("<base href='//" + document.location.host + "' />")
+import '/app-sabz-city/app-sabz-city.js'

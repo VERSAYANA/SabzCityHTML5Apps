@@ -15,26 +15,36 @@ limitations under the License.
 
 <head>
     <meta charset="utf-8" />
+    <title></title>
+    <meta name="title" content="" />
+    <meta name="copyright" content="Copyright © 2017 SabzCity co." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- Add to home screen for Chrome on Android -->
+    <link rel=manifest href="/manifest.json">
     <!-- Add to home screen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Weather PWA">
-    <link rel="apple-touch-icon" href="images/logo.svg">
+    <link rel="apple-touch-icon" href="/logo.png">
     <!-- Add to home screen for Windows -->
-    <meta name="msapplication-TileImage" content="images/logo.svg">
+    <meta name="msapplication-TileImage" content="/logo.png">
     <meta name="msapplication-TileColor" content="#2F3BA2">
     <!-- App logic part -->
-    <script src="/polyfills.bundle.js"></script>
-    <script src="/index.bundle.js"></script>
+    <script src="/polyfills.bundle.js" async></script>
+    <script src="/index.bundle.js" async></script>
 </head>
 
 <body>
     <noscript>
         Please Enable Javascript to be able to use this platform.
     </noscript>
+
+    <div id="initial-loading-box">
+        <img src="/logo.png"></img>
+        <p> <span>Powered by</span> <br> <span>SabzCity Platform</span> </p>
+        <div> <span>loading-bar</span> </div>
+    </div>
     <!--
     <platinum-sw-register auto-register skip-waiting clients-claim reload-on-install>
         <platinum-sw-cache default-cache-strategy="networkFirst">

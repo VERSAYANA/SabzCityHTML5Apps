@@ -17,7 +17,8 @@ import '/node_modules/@polymer/polymer/polymer.js'
 //import '/node_modules/@polymer/platinum-sw/platinum-sw-cache.js'
 import '/node_modules/@sabzcity/elements/m-outdated-browser/m-outdated-browser.js'
 import '/node_modules/@sabzcity/elements/a-app/a-app-engine.js'
-import '/app-my-sabz-city.js'
 
-// Set Base Tag by currect Domain
-document.write("<base href='//" + document.location.host + "' />")
+import '/app-my-sabz-city/app-my-sabz-city.js'
+
+// hide initial-loading-box after app is ready to display.
+window.onload = function () { document.getElementById('initial-loading-box')[0].style.display = 'none' }

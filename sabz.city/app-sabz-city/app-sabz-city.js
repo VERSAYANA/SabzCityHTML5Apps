@@ -17,16 +17,12 @@ import "../app-route/app-location.html"
 import "../iron-pages/iron-pages.html"
 
 import "/node_modules/@sabzcity/elements/m-header/m-header.js"
-import publicLibrary from "/node_modules/@sabzcity/elements/a-public-library/a-public-library.js"
+import publicLibrary from "/node_modules/@sabzcity/elements/public-library/public-library.js"
 
-import "./app-life/app-life.js"
-import "./app-main/app-main.js"
+import "../app-life/app-life.js"
+import "../app-main/app-main.js"
 
 import materialDesignTemplate from './material-design.html'
-
-import manifest from './manifest.json'
-// Set manifest Tag by exported related app const (appManifest).
-document.write("<link rel=manifest href='data:application/manifest+json,{" + appManifest + "}>")
 
 export class AppSabzCity extends PolymerElement {
 	static get is() { return 'app-sabz-city' }
