@@ -13,6 +13,13 @@ limitations under the License.
 
 <m-header data="{{menuData}}"></m-header>
 
+<!--
+breadcrumb-menu:
+Location-based & Attribute-based
+read url and make related menu by rules
+it is enabled and disable by logo icon in header element.
+-->
+
 <app-location route="{{route}}"></app-location>
 <app-route route="{{route}}" pattern="/:lang" data="{{routeData}}" tail="{{routeTail}}"></app-route>
 <app-route route="{{routeTail}}" pattern="/:pages" data="{{subrouteData}}" query-params="{{queryParams}}"></app-route>

@@ -1,24 +1,33 @@
 {
     "name": "SabzCity",
-    "icons": [{
-        "src": "/components/SabzCityElements/a-images/logo.svg",
-        "type": "image/svg",
-        "sizes": "48x48"
-    }, {
-        "src": "/components/SabzCityElements/a-images/logo.svg",
-        "type": "image/svg",
-        "sizes": "96x96"
-    }, {
-        "src": "/components/SabzCityElements/a-images/logo.svg",
-        "type": "image/svg",
-        "sizes": "192x192"
-    }],
+    "icons": [
+        {
+            "src": "/logo.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/logo.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/logo.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "background_color": "#FAFAFA",
+    "theme_color": "#512DA8",
     "display": "standalone",
+    "orientation": "portrait",
     "start_url": "/",
     "short_name": "SabzCity",
-    "related_applications": [{
-        "id": "city.sabz.android",
-        "platform": "play"
-    }],
+    "related_applications": [
+        {
+            "id": "city.sabz.android",
+            "platform": "play"
+        }
+    ],
     "prefer_related_applications": true
 }

@@ -11,7 +11,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import '/node_modules/@sabzcity/elements/m-powered-by/m-powered-by.js'
 import '/node_modules/@polymer/polymer/polymer.js'
 //import '/node_modules/@polymer/platinum-sw/platinum-sw-register.js'
 //import '/node_modules/@polymer/platinum-sw/platinum-sw-cache.js'
@@ -21,4 +20,4 @@ import '/node_modules/@sabzcity/elements/a-app/a-app-engine.js'
 import '/app-my-sabz-city/app-my-sabz-city.js'
 
 // hide initial-loading-box after app is ready to display.
-window.onload = function () { document.getElementById('initial-loading-box')[0].style.display = 'none' }
+window.onload = function () { document.getElementById('initial-loading-box').style.display = 'none' }

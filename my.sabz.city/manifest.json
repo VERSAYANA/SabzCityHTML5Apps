@@ -22,7 +22,7 @@
     "display": "standalone",
     "orientation": "portrait",
     "start_url": "/",
-    "short_name": "SabzCity",
+    "short_name": "MySabzCity",
     "related_applications": [
         {
             "id": "city.sabz.android",
